@@ -4,6 +4,9 @@
 .leftnav {
     background-color: rgba(100, 150, 255, 0.4);
 }
+.horse_banner img[alt="Background"] {
+    content: url("https://i.imgur.com/mYUIRYA.png"); /* Your new background image */
+}
 
 
 * {
