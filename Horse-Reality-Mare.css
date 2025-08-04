@@ -1,0 +1,9 @@
+.horse_left {
+    background-color: rgba(255, 100, 160, 0.6);
+}
+.leftnav {
+    background-color: rgba(255, 200, 220, 0.4);
+}
+* {
+    color: white !important;
+}
