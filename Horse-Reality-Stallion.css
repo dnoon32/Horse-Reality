@@ -5,6 +5,17 @@
     background-color: rgba(100, 150, 255, 0.4);
 }
 
+.horse_banner img[alt="Background"] {
+    display: none !important;
+}
+
+.horse_banner {
+    background-image: url("https://i.imgur.com/mYUIRYA.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
 
 
 
