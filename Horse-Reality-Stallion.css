@@ -4,6 +4,10 @@
 .leftnav {
     background-color: rgba(100, 150, 255, 0.4);
 }
+.horse_banner {
+       background: url("https://imgur.com/a/IX5E2nK") no-repeat center center !important;
+       background-size: cover !important;
+   }
 
 * {
     color: white !important;
