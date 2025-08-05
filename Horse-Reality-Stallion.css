@@ -21,7 +21,7 @@
     background-color: transparent !important;
 }
 
-/* Entire Page Background Image */
+/* Horse Page Only, Entire Page Background Image */
 body.background.south-america, body.background.africa, body.background.asia, body.background.australia, body.background.europe, body.background.north-america
   {
     background-image: url(https://i.imgur.com/mYUIRYA.png);
