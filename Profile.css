@@ -5,3 +5,25 @@
 .user-profile.royal-russet .profile-side-panel-section {
     background-color: #1cb5e8 !important; /* 🔁 Change this color */
 }
+
+/* Main Profile Block (Transparent to Background Image) */
+.main-content {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    padding: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Side or left nav section (Transparent to Background Image) */
+.side-nav {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+}
