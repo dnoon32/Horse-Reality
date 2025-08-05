@@ -1,10 +1,14 @@
+/* Horses Page Description Box Left */
 .horse_left {
     background-color: rgba(100, 180, 255, 0.6);
 }
+
+/* Horses Page Left Navigation */
 .leftnav {
     background-color: rgba(100, 150, 255, 0.4);
 }
 
+/* Horses Page Banner Behind Horse */
 .horse_banner img[alt="Background"] {
     display: none !important;
 }
@@ -17,8 +21,13 @@
     background-color: transparent !important;
 }
 
+/* Entire Page Background Image */
+body.background.south-america, body.background.africa, body.background.asia, body.background.australia, body.background.europe, body.background.north-america
+  {
+    background-image: url(https://i.imgur.com/mYUIRYA.png);
+}
 
-
+/* Text Color */
 * {
     color: white !important;
 }
