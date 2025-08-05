@@ -1,0 +1,5 @@
+/* Custom background override */
+body {
+    background: url("https://i.imgur.com/mYUIRYA.png") no-repeat fixed 0 0 / cover !important;
+    background-size: cover !important;
+}
