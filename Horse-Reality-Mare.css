@@ -7,3 +7,16 @@
 * {
     color: white !important;
 }
+
+/* Horses Page Banner Behind Horse */
+.horse_banner img[alt="Background"] {
+    display: none !important;
+}
+
+.horse_banner {
+    background-image: url("https://i.imgur.com/WVFEuOu.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
