@@ -1,1 +1,7 @@
-
+/* Change Color Of Player, Milestones, and Estate Blocks */
+.user-profile.royal-russet .breadcrumb,
+.user-profile.royal-russet .milestones,
+.user-profile.royal-russet .profile-container .table tbody tr:nth-of-type(odd),
+.user-profile.royal-russet .profile-side-panel-section {
+    background-color: #1cb5e8 !important; /* 🔁 Change this color */
+}
