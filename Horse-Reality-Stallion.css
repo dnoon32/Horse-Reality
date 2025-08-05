@@ -8,11 +8,9 @@
 }
 
 .leftnav {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    background-image: none !important;
+    background-color: rgba(0, 0, 0, 0) !important;
 }
+
 
 
 /* Horses Page Banner Behind Horse */
