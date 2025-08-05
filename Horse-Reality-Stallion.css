@@ -1,10 +1,17 @@
 /* Horses Page Description Box Left */
 .horse_left {
     background-color: rgba(100, 180, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px 0 20px 20px;
+    border: 2px solid rgba(100, 180, 255, 0.5); /* adjust color & thickness */
 }
 
 .leftnav {
     background-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    background-image: none !important;
 }
 
 
