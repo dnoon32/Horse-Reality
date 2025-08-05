@@ -27,3 +27,24 @@
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     color: #fff !important;
 }
+
+/* Profile Name CSS */
+/* .user-profile .profile-name-and-estate .profile-username {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 5px !important;
+    color: #EFBF04;
+}
+
+/* Estate name CSS */
+.user-profile .profile-name-and-estate .profile-estate {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #fff;
+
+/* Font Change*/
+    p {
+    font-family: monospace;
+}
+*/
