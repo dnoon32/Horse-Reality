@@ -1,10 +1,8 @@
 
 .leftnav {
-    background-color: rgba(255, 200, 220, 0.4);
+    background-color: rgba(214,66,142, 0.4);
 }
-* {
-    color: white !important;
-}
+
 
 /* Horses Page Banner Behind Horse */
 .horse_banner img[alt="Background"] {
@@ -12,7 +10,7 @@
 }
 
 .horse_banner {
-    background-image: url("https://i.imgur.com/WVFEuOu.png") !important;
+    background-image: url("https://i.imgur.com/GgwCe4i.jpeg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -21,9 +19,14 @@
 
 /* Horses Page Description Box Left */
 .horse_left {
-    background-color: rgba(255, 100, 160, 0.1);
+    background-color: rgba(214,66,142, 0.3);
     border-radius: 20px;
     padding: 10px;
     margin: 20px 0 20px 20px;
-    border: 2px solid rgba(255, 100, 160, 0.5); /* adjust color & thickness */
+    border: 2px solid rgba(214,66,142, 0.7); /* adjust color & thickness */
+}
+
+/* Text Color */
+* {
+    color: rgba(235,230,227,255) !important;
 }
