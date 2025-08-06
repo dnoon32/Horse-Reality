@@ -1,13 +1,3 @@
-/* Horses Page Description Box Left */
-.horse_left {
-    background-color: rgba(100, 180, 255, 0.1);
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px 0 20px 20px;
-    border: 2px solid rgba(100, 180, 255, 0.5); /* adjust color & thickness */
-}
-
-
 
 
 
@@ -17,16 +7,23 @@
 }
 
 .horse_banner {
-    background-image: url("https://i.imgur.com/RPhO2yR.jpeg") !important;
+    background-image: url("https://i.imgur.com/Ewb35iw.jpeg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-color: transparent !important;
 }
 
-
+/* Horses Page Description Box Left */
+.horse_left {
+    background-color: rgba(201,145,107, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px 0 20px 20px;
+    border: 2px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
 
 /* Text Color */
 * {
-    color: white !important;
+    color: rgba(228,223,221,255) !important;
 }
