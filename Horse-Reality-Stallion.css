@@ -173,8 +173,24 @@
 }
 .grid_6 .subtop {
     width: 100%;
-
+}
     .row_960 {
     background: transparent !important; 
 }
+
+.textarea textarea {
+   background: transparent !important; 
+    border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
+button.dark, input[type="submit"].dark {
+    background-color: rgba(75, 216, 75, 0.8);
+    
+}
+input, select {
+   background: transparent !important;
+    border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
+select#changeblock option {
+    background-color: rgba(201,145,107, 0.7); /* adjust color & thickness */
+    color: #fff;                /* option text color */
 }
