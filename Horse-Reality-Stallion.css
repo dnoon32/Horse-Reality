@@ -76,10 +76,10 @@
     border-radius: 20px;
 }
 
-/* Tab Interior Blocks */
+/* Tab Interior Blocks */ /*
 .pedigree {
    background-color: rgba(201,145,107, 0.3) !important; 
-}
+} */
 .container_12 .grid_12.stable_block {
     background-color: rgba(201,145,107, 0.3) !important; 
         border-left: 0px solid rgba(201,145,107);
