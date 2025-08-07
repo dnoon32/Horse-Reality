@@ -90,3 +90,9 @@
     background-color: rgba(201,145,107);
     color: rgba(228,223,221,255);
 }
+
+    
+.container_12 .grid_6.half_block {
+    border: none !important;
+    box-shadow: none !important;
+}
