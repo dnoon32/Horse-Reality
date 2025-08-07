@@ -86,9 +86,10 @@
     border-bottom: 0px solid rgba(201,145,107);
     border-right: 0px solid rgba(201,145,107);
 }
-    .top {
+ .top {
     background-color: rgba(201,145,107);
     color: rgba(228,223,221,255);
+     width: 100%;
 }
 
 .container_12 .grid_6.half_block {
@@ -101,4 +102,15 @@
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+.table_con.public_notes .grid_12 {
+    background-color: rgba(201,145,107, 0.3) !important; 
+    border: none !important;
+    box-shadow: none !important;
+   
+}
+
+* {
+    box-sizing: border-box !important;
 }
