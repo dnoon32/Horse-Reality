@@ -33,7 +33,7 @@
 }
 
 /* Profile Name CSS */
-/* .user-profile .profile-name-and-estate .profile-username {
+ .user-profile .profile-name-and-estate .profile-username {
     font-size: 20px !important;
     font-weight: 700 !important;
     margin-bottom: 5px !important;
@@ -51,7 +51,7 @@
     p {
     font-family: monospace;
 }
-*/
+
 
     /* Player, estate, milestone font left side */
     .user-profile.royal-russet .profile-container a:hover, .user-profile.royal-russet .title-text, .user-profile.royal-russet h2.profile-side-panel-title, .user-profile.royal-russet td.bold {
