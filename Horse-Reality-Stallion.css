@@ -198,3 +198,7 @@ select#changeblock option {
     background-color: rgba(201,145,107, 0.7); /* adjust color & thickness */
     color: #fff;                /* option text color */
 }
+
+.bluebar_container {
+    background-color: rgba(201,145,107)
+}
