@@ -76,10 +76,10 @@
     border-radius: 20px;
 }
 
-/* Tab Interior Blocks */ /*
+/* Tab Interior Blocks */ 
 .pedigree {
-   background-color: rgba(201,145,107, 0.3) !important; 
-} */
+   background-color: transparent !important;
+} 
 .container_12 .grid_12.stable_block {
     background-color: rgba(201,145,107, 0.3) !important; 
         border-left: 0px solid rgba(201,145,107);
@@ -91,8 +91,14 @@
     color: rgba(228,223,221,255);
 }
 
-    
 .container_12 .grid_6.half_block {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: rgba(201,145,107, 0.3) !important; 
+}
+
+.table_con.public_notes .text {
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
