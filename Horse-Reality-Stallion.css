@@ -135,6 +135,9 @@
 .training_left .horsetraining .traincon {
     background: transparent !important;  
 }
+.training_right > .block {
+background: transparent !important; 
+}
 .traincon.selected {
     border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
 }
