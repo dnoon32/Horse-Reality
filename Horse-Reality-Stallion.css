@@ -114,3 +114,27 @@
 * {
     box-sizing: border-box !important;
 }
+
+.container_12 .grid_8.training_left {
+     background-color: rgba(201,145,107, 0.3) !important; 
+    border: none !important;
+    box-shadow: none !important;
+}
+.training_left h6 {
+    background-color: rgba(201,145,107);
+}
+.container_12 .grid_4.training_right {
+   background-color: rgba(201,145,107, 0.3) !important; 
+    border: none !important;
+    box-shadow: none !important;
+}
+.energybar {
+   border: none !important;
+    background: transparent !important;
+}
+.training_left .horsetraining .traincon {
+    background: transparent !important;  
+}
+.traincon.selected {
+    border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
