@@ -80,6 +80,10 @@
 .pedigree {
    background-color: transparent !important;
 } 
+.table_con.private_notes *,
+.table_con.public_notes * {
+    box-sizing: content-box !important;
+}
 .container_12 .grid_12.stable_block {
     background-color: rgba(201,145,107, 0.3) !important; 
         border: none !important;
@@ -150,9 +154,7 @@ background: transparent !important;
     background-color: rgba(201,145,107);
    
 }
-#tab_genetics2 .subtop, #tab_genetics3 .subtop {
-    width: 100%;
-}
+
 
 .genetic_result {
     background: transparent !important; 
