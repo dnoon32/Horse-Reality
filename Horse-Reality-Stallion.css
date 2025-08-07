@@ -110,9 +110,7 @@
    
 }
 
-* {
-    box-sizing: border-box !important;
-}
+
 
 .container_12 .grid_8.training_left {
      background-color: rgba(201,145,107, 0.3) !important; 
