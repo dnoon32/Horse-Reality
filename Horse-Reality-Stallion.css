@@ -85,3 +85,8 @@
         border-left: 0px solid rgba(201,145,107);
     border-bottom: 0px solid rgba(201,145,107);
     border-right: 0px solid rgba(201,145,107);
+
+    .top {
+    background-color: rgba(201,145,107);
+    color: rgba(228,223,221,255);
+}
