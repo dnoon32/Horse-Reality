@@ -82,9 +82,8 @@
 } 
 .container_12 .grid_12.stable_block {
     background-color: rgba(201,145,107, 0.3) !important; 
-        border-left: 0px solid rgba(201,145,107);
-    border-bottom: 0px solid rgba(201,145,107);
-    border-right: 0px solid rgba(201,145,107);
+        border: none !important;
+    box-shadow: none !important;
 }
  .top {
     background-color: rgba(201,145,107);
