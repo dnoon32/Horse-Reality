@@ -173,4 +173,8 @@
 }
 .grid_6 .subtop {
     width: 100%;
+
+    .row_960 {
+    background: transparent !important; 
+}
 }
