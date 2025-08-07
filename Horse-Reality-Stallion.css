@@ -164,3 +164,13 @@
 .genetic_potential {
     background: transparent !important;
 }
+
+.row_300 {
+   background: transparent !important; 
+}
+.row_460 {
+   background: transparent !important; 
+}
+.grid_6 .subtop {
+    width: 100%;
+}
