@@ -138,3 +138,29 @@
 .traincon.selected {
     border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
 }
+
+
+.grid_6.genetics {
+   background-color: rgba(201,145,107, 0.3) !important; 
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.subtop {
+    background-color: rgba(201,145,107);
+   
+}
+#tab_genetics2 .subtop, #tab_genetics3 .subtop {
+    width: 100%;
+}
+
+.genetic_result {
+    background: transparent !important; 
+}
+
+.genetic_tests .test_block .first {
+    background: transparent !important; 
+}
+.genetic_potential {
+    background: transparent !important;
+}
