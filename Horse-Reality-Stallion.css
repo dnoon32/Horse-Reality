@@ -75,7 +75,11 @@
      background-color: rgba(201,145,107, 0.5) !important;
     border-radius: 20px;
 }
-
+.training_left .horsetraining {
+    -webkit-flex-flow: initial !important;
+    -webkit-box-orient: initial !important;
+    -webkit-box-direction: initial !important;
+}
 /* Tab Interior Blocks */ 
 .pedigree {
    background-color: transparent !important;
