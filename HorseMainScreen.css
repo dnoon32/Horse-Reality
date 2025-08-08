@@ -50,5 +50,8 @@
     line-height: 21px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #081b28;
+    color: rgba(201,145,107);
+}
+.header-menu {
+    background: #081b28;
 }
