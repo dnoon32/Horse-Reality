@@ -28,12 +28,12 @@
 
 /* Female - Mare */
 .horse-item:has(img.sex-mare) .content {
-    background-color: rgba(214,66,142, 0.5) !important; /* soft pink */
+    background-color: rgb(253,176,192, 0.4) !important; /* soft pink */
 }
 
 /* Male - Stallion */
 .horse-item:has(img.sex-stallion) .content {
-    background-color: rgba(201,145,107, 0.5) !important; /* soft blue */  
+    background-color: rgba(201,145,107, 0.4) !important; /* soft blue */  
 } 
 .horse-item h2 {
    color: #fff !important;
