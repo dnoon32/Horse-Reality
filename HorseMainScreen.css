@@ -52,6 +52,45 @@
     text-transform: uppercase;
     color: rgba(201,145,107);
 }
+
+.side-nav ul a {
+  
+    color: #fff;
+}
+.side-nav ul .subtitle{
+
+    color: rgba(201,145,107);
+}
+.tabs .tab.active {
+    background: rgba(201,145,107);
+    color: #fff;
+}
+.horse-item .tagline
+ {
+    color: #fff;
+}
+h1 {
+     color: #fff;
+}
+h1 a:hover, h2 {
+    color: #fff;
+}
+button.normalize {
+  color: #fff;
+}
+nav .pagination .page-item.active .page-link {
+   
+    color: #fff;
+    background: rgba(201,145,107);
+}
+nav .pagination .page-item:not(.disabled) .page-link {
+   color: #fff;
+}
+.button.black, .button.secondary.active, .button.secondary:hover
+ {
+    color: #fff;
+    background: rgba(201,145,107);
+}
 .header-menu {
-    background: #081b28;
+    background: rgba(201,145,107);
 }
