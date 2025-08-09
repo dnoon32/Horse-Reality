@@ -1,10 +1,16 @@
-/* Custom background override */ 
+/* Custom background override */ /*
 body {
     background: url("https://i.imgur.com/80MrGIJ.jpeg") no-repeat fixed 0 0 / cover !important;
     background-size: cover !important;
+} */
+
+
+/* Custom background override */ 
+body {
+    background: url("https://i.imgur.com/80MrGIJ.jpeg") no-repeat fixed center center;
+    background-size: contain;
+    background-color: #000; /* fill color for empty space */
 }
-
-
 
 
 .main-content {
