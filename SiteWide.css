@@ -23,3 +23,99 @@ body {
 .card:has(.card-item-name img[src*="sex-stallion"]) {
     background-color: rgba(201, 145, 107, 0.4) !important; /* soft brown */
 }
+
+.main-content {
+    background-color: rgba(201,145,107, 0.5) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(201,145,107, 0.8) !important;
+    color: #fff !important;
+}
+
+/* Side or left nav section (Transparent to Background Image) */ 
+.side-nav {
+    background-color: rgba(201,145,107, 0.5) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(201,145,107, 0.8) !important;
+    color: #fff !important;
+}
+
+.side-nav a:hover {
+    color: rgba(201,145,107) !important; /* Or any accent color you like */
+    text-decoration: underline; /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+}
+
+/* Female - Mare */
+.horse-item:has(img.sex-mare) .content {
+    background-color: rgb(253,176,192, 0.4) !important; /* soft pink */
+}
+
+/* Male - Stallion */
+.horse-item:has(img.sex-stallion) .content {
+    background-color: rgba(201,145,107, 0.4) !important; /* soft blue */  
+} 
+.horse-item h2 {
+   color: #fff !important;
+}
+.horse-item .breed-and-age {
+   color: #fff !important;
+}
+.horse-stats .horse-stat span {
+ color: #fff !important;
+}
+.side-nav ul .subtitle {
+    font-size: 14px;
+    margin-bottom: 5px;
+    line-height: 21px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(201,145,107);
+}
+
+.side-nav ul a {
+  
+    color: #fff;
+}
+.side-nav ul .subtitle{
+
+    color: rgba(201,145,107);
+}
+.tabs .tab.active {
+    background: rgba(201,145,107);
+    color: #fff;
+}
+.horse-item .tagline
+ {
+    color: #fff;
+}
+h1 {
+     color: #fff;
+}
+h1 a:hover, h2 {
+    color: #fff;
+}
+button.normalize {
+  color: #fff;
+}
+nav .pagination .page-item.active .page-link {
+   
+    color: #fff;
+    background: rgba(201,145,107);
+}
+nav .pagination .page-item:not(.disabled) .page-link {
+   color: #fff;
+}
+.button.black, .button.secondary.active, .button.secondary:hover
+ {
+    color: #fff;
+    background: rgba(201,145,107);
+}
+.header-menu {
+    background: rgba(201,145,107);
+}
