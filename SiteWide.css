@@ -4,3 +4,22 @@ body {
     background-size: cover !important;
 }
 
+.card-item {
+    background-color: #eaf0f2;
+    padding: 10px 15px;
+    width: 100% !important;
+    height: 100%;
+    display: flex
+;
+    flex-direction: column;
+
+}
+/* Mare - Female */
+.card:has(.card-item-name img[src*="sex-mare"]) {
+    background-color: rgba(253, 176, 192, 0.4) !important; /* soft pink */
+}
+
+/* Stallion - Male */
+.card:has(.card-item-name img[src*="sex-stallion"]) {
+    background-color: rgba(201, 145, 107, 0.4) !important; /* soft brown */
+}
