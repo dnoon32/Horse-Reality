@@ -146,3 +146,9 @@ p {
 .component.npc .left {
     border-radius: 15px !important;
 }
+
+.info {background:rgba(201,145,107,0.4) !important;
+}
+.component.frame .wrapper {
+    background: rgba(201,145,107,0.4) !important;
+}
