@@ -4,25 +4,8 @@ body {
     background-size: cover !important;
 }
 
-.card-item {
-    background-color: #eaf0f2;
-    padding: 10px 15px;
-    width: 100% !important;
-    height: 100%;
-    display: flex
-;
-    flex-direction: column;
 
-}
-/* Mare - Female */
-.card:has(.card-item-name img[src*="sex-mare"]) {
-    background-color: rgba(253, 176, 192, 0.4) !important; /* soft pink */
-}
 
-/* Stallion - Male */
-.card:has(.card-item-name img[src*="sex-stallion"]) {
-    background-color: rgba(201, 145, 107, 0.4) !important; /* soft brown */
-}
 
 .main-content {
     background-color: rgba(201,145,107, 0.5) !important;
@@ -118,4 +101,48 @@ nav .pagination .page-item:not(.disabled) .page-link {
 }
 .header-menu {
     background: rgba(201,145,107);
+}
+
+/* -------------------------------------*/
+
+.card-item {
+    background-color: #eaf0f2;
+    padding: 10px 15px;
+    width: 100% !important;
+    height: 100%;
+    display: flex
+;
+    flex-direction: column;
+
+}
+/* Foal Pastures: color the whole white card panel by gender */
+
+/* Stallion */
+.card-item:has(.card-item-name img.gender[src*="sex-stallion"]) {
+  background-color: rgba(201,145,107,0.4) !important;  /* soft brown */
+    border-radius: 20px !important;
+    border: 2px solid rgba(201,145,107, 0.4) !important; 
+}
+
+/* Mare */
+.card-item:has(.card-item-name img.gender[src*="sex-mare"]) {
+  background-color: rgba(253,176,192,0.4) !important;  /* soft pink */
+    border-radius: 20px !important;
+    border: 2px solid rgb(253,176,192, 0.4) !important;
+}
+
+.card-item-name {
+    color: #fff;
+}
+p {
+    color: #fff;
+}
+
+.component.npc {
+    background: transparent !important;
+     border-radius: 20px !important;
+    border: 4px solid rgba(201,145,107, 0.7) !important; 
+}
+.component.npc .left {
+    border-radius: 15px !important;
 }
