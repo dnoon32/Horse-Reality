@@ -152,3 +152,15 @@ p {
 .component.frame .wrapper {
     background: rgba(201,145,107,0.4) !important;
 }
+
+.cta {
+    background: transparent !important;
+     border-radius: 20px !important;
+    border: 4px solid rgba(201,145,107, 0.7) !important; 
+}
+.breadcrumb {
+    background-color: rgba(201,145,107, 0.7) !important; 
+}
+a {
+    color: #fff;
+}
