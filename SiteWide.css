@@ -163,3 +163,7 @@ p {
 a {
     color: #fff;
 }
+
+.component.frame .wrapper .content {
+    background:  rgba(201,145,107) !important;
+}
