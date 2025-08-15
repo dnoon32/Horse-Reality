@@ -57,10 +57,7 @@
   
     color: #fff;
 }
-.side-nav ul .subtitle{
 
-    color: rgba(201,145,107);
-}
 .tabs .tab.active {
     background: rgba(201,145,107);
     color: #fff;
@@ -93,4 +90,83 @@ nav .pagination .page-item:not(.disabled) .page-link {
 }
 .header-menu {
     background: rgba(201,145,107);
+}
+.side-nav ul .subtitle {
+  font-weight: 700;
+  background: linear-gradient(
+    120deg,
+    #c9916b,
+    #f5d5bb,
+    #c9916b,
+    #e8c3a4,
+    #c9916b
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Firefox support */
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* === knobs === */
+.horse-grid .horse-item {
+  --r: 18px;      /* base corner radius for the top corners  */
+  --rb: 64px;     /* big bottom radius                       */
+  --bw: 4px;      /* metallic border thickness               */
+
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
+}
+
+/* metallic border (full card) */
+.horse-grid .horse-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: inherit;
+  background: linear-gradient(135deg, #bfc6cc, #f5f7f8 25%, #a7adb3 50%, #e5e8ea 75%, #c7cdd1);
+  /* cut the middle out so only the ring shows */
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+  
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* inner container – radius reduced by the border width */
+.horse-grid .horse-item .content {
+  background: rgba(245,240,235,.9);
+  border-radius:
+    calc(var(--r)  - var(--bw))
+    calc(var(--r)  - var(--bw))
+    calc(var(--rb) - var(--bw))
+    calc(var(--rb) - var(--bw));
+  position: relative;
+  z-index: 1;
+}
+
+/* make the top image block follow the same top corners */
+.horse-grid .horse-item .miniature-block,
+.horse-grid .horse-item .miniature-block img,
+.horse-grid .horse-item .miniature {
+  border-top-left-radius:  calc(var(--r) - var(--bw));
+  border-top-right-radius: calc(var(--r) - var(--bw));
+  overflow: hidden; /* keep the image from poking out */
 }
