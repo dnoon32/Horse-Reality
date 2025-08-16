@@ -21,20 +21,14 @@
 }
 
 .side-nav a:hover {
-    color: rgba(201,145,107) !important; /* Or any accent color you like */
-    text-decoration: underline; /* Optional: underline on hover */
+    color: rgba(64, 94, 104) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
     transition: color 0.2s ease-in-out;
 }
 
-/* Female - Mare */
-.horse-item:has(img.sex-mare) .content {
-    background-color: rgb(253,176,192, 0.4) !important; /* soft pink */
-}
 
-/* Male - Stallion */
-.horse-item:has(img.sex-stallion) .content {
-    background-color: rgba(201,145,107, 0.4) !important; /* soft blue */  
-} 
 .horse-item h2 {
    color: #fff !important;
 }
@@ -44,14 +38,7 @@
 .horse-stats .horse-stat span {
  color: #fff !important;
 }
-.side-nav ul .subtitle {
-    font-size: 14px;
-    margin-bottom: 5px;
-    line-height: 21px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: rgba(201,145,107);
-}
+
 
 .side-nav ul a {
   
@@ -88,8 +75,97 @@ nav .pagination .page-item:not(.disabled) .page-link {
     color: #fff;
     background: rgba(201,145,107);
 }
+.horses-title h1 {
+    margin-right: 8px;
+    margin-bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-weight: 700;
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* darker depth */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmerH1 5s infinite linear;
+}
+
+@keyframes shimmerH1 {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.horses-title h2 {
+
+
+
+    font-weight: 700;
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* darker depth */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmerH1 5s infinite linear;
+}
+
+@keyframes shimmerH1 {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* shimmering indigo background */
 .header-menu {
-    background: rgba(201,145,107);
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* darker depth */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    );
+    background-size: 300% 300%;
+    animation: headerShimmer 6s infinite linear;
+}
+
+@keyframes headerShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .side-nav ul .subtitle {
   font-weight: 700;
@@ -132,6 +208,96 @@ nav .pagination .page-item:not(.disabled) .page-link {
   overflow: hidden;
 }
 
+:root {
+    --shimmer-duration: 12s;
+    --streak-duration: 12s;
+}
+
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes specularSweep {
+    0% {
+        background-position: -100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* === Female - Mare (pink shimmer) === */
+.horse-item:has(img.sex-mare) .content {
+    position: relative;
+    border-radius: inherit;
+    overflow: hidden;
+
+    background: linear-gradient( 120deg,
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
+    ) !important;
+    background-size: 400% 400%;
+    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+.horse-item:has(img.sex-mare) .content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient( 120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 55%);
+    background-size: 300% 300%;
+    animation: specularSweep var(--streak-duration) linear infinite;
+    pointer-events: none;
+}
+
+/* === Male - Stallion (blue shimmer) === */
+.horse-item:has(img.sex-stallion) .content {
+    position: relative;
+    border-radius: inherit;
+    overflow: hidden;
+
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* deeper navy */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    ) !important;
+    background-size: 400% 400%;
+    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+.horse-item:has(img.sex-stallion) .content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient( 120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 55%);
+    background-size: 300% 300%;
+    animation: specularSweep var(--streak-duration) linear infinite;
+    pointer-events: none;
+}
+
+/*
 /* metallic border (full card) */
 .horse-grid .horse-item::before {
   content: "";
@@ -169,4 +335,4 @@ nav .pagination .page-item:not(.disabled) .page-link {
   border-top-left-radius:  calc(var(--r) - var(--bw));
   border-top-right-radius: calc(var(--r) - var(--bw));
   overflow: hidden; /* keep the image from poking out */
-}
+} */
