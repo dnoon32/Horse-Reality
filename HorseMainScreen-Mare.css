@@ -21,7 +21,7 @@
    ========================================= */
 .main-content {
   position: relative;
-  background-color: rgba(226, 164, 187, 0.7) !important;
+  background-color: rgba(63, 64, 105, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
@@ -95,7 +95,7 @@
    ========================================= */
 .side-nav {
   position: relative;
-  background-color: rgba(226, 164, 187, 0.7) !important;
+  background-color: rgba(63, 64, 105, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
@@ -334,11 +334,11 @@ nav .pagination .page-item:not(.disabled) .page-link {
 .side-nav ul .subtitle {
     font-weight: 700;
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -414,11 +414,11 @@ nav .pagination .page-item:not(.disabled) .page-link {
 
     font-weight: 700;
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -447,11 +447,11 @@ nav .pagination .page-item:not(.disabled) .page-link {
 
     font-weight: 700;
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -476,11 +476,11 @@ nav .pagination .page-item:not(.disabled) .page-link {
 /* shimmering indigo background */
 .header-menu {
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
     );
     background-size: 300% 300%;
     animation: headerShimmer 6s infinite linear;
@@ -502,7 +502,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 /* === knobs === */
 .horse-grid .horse-item {
   --r: 18px;      /* base corner radius for the top corners  */
-  --rb: 64px;     /* big bottom radius                       */
+  --rb: 120px;     /* big bottom radius                       */
   --bw: 4px;      /* metallic border thickness               */
 
   position: relative;
