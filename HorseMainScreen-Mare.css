@@ -295,6 +295,19 @@
     pointer-events: none;
 }
 
+/* === Background image override, but only for mares === */
+.horse-item:has(img.sex-stallion) .image {
+    background-image: url("https://i.imgur.com/CMM9r9D.jpeg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Neutralize site’s inline background for mares */
+.horse-item:has(img.sex-stallione) .image[style] {
+    background-color: transparent !important;
+}
+
 
 
 
