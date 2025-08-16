@@ -242,7 +242,7 @@ button.normalize {
 }
 nav .pagination .page-item.active .page-link {
     color: #fff;
-    background: rgba(201, 145, 107);
+    background: rgba(226, 164, 187);
 }
 nav .pagination .page-item:not(.disabled) .page-link {
     color: #fff;
@@ -251,7 +251,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 .button.secondary.active,
 .button.secondary:hover {
     color: #fff;
-    background: rgba(201, 145, 107);
+    background: rgba(226, 164, 187);
 }
 
 /* metallic shimmering gold border (full card) */
