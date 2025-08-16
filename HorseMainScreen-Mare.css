@@ -316,7 +316,15 @@ button.normalize {
 nav .pagination .page-item.active .page-link {
 
     color: #fff;
-    background: rgba(201, 145, 107);
+    background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #ffe066, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
 }
 nav .pagination .page-item:not(.disabled) .page-link {
     color: #fff;
@@ -325,11 +333,17 @@ nav .pagination .page-item:not(.disabled) .page-link {
 .button.secondary.active,
 .button.secondary:hover {
     color: #fff;
-    background: rgba(201, 145, 107);
+    background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #ffe066, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
 }
-.header-menu {
-    background: rgba(201, 145, 107);
-}
+
 /* === shimmering indigo subtitle === */
 .side-nav ul .subtitle {
     font-weight: 700;
