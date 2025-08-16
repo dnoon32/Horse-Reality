@@ -1,1 +1,376 @@
+/* Horses Page Banner Behind Horse */
+.horse_banner img[alt="Background"] {
+    display: none !important;
+}
+/* Custom background override */
+body {
+    background: url("https://i.imgur.com/5ivroEs.jpeg") no-repeat fixed 0 0 / cover !important;
+    background-size: cover !important;
+}
+.horse_banner {
+    background-image: url("https://i.imgur.com/CMM9r9D.jpeg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+}
 
+
+
+
+/* Text Color */
+* {
+    color: #fff !important;
+}
+
+.container {
+    background-color: transparent !important;
+    
+}
+
+
+
+.center {
+    background-color: rgba(63, 64, 105, 0.5) !important;
+    border-radius: 20px;
+}
+
+
+.tabclick,
+.tabclick2,
+.tabclick3 {
+    background-color: rgba(63, 64, 105, 0.5) !important;
+}
+
+
+.tabclick:hover,
+.tabclick2:hover,
+.tabclick3:hover {
+    background-color: rgba(63, 64, 105) !important;
+    /* lighter gold tone */
+    cursor: pointer;
+    /* optional: show pointer on hover */
+    transition: background-color 0.2s ease-in-out;
+}
+.tabclick.tabsel,
+.tabclick2.tabsel,
+.tabclick3.tabsel {
+    background-color: rgba(63, 64, 105) !important;
+    /* or another color for active tab */
+    color: rgba(228, 223, 221, 255) !important;
+    /* text color for active tab */
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+/*
+.table_con {
+   background-color: rgba(201,145,107, 0.3) !important; 
+    
+}*/
+.training_left .horsetraining {
+    -webkit-flex-flow: initial !important;
+    -webkit-box-orient: initial !important;
+    -webkit-box-direction: initial !important;
+}
+/* Tab Interior Blocks */
+.pedigree {
+    background-color: transparent !important;
+}
+.table_con.private_notes *,
+.table_con.public_notes * {
+    box-sizing: content-box !important;
+}
+.container_12 .grid_12.stable_block {
+    background-color: rgba(63, 64, 105, 0.3) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.top {
+    background-color: rgba(63, 64, 105);
+    color: #fff;
+}
+
+.container_12 .grid_6.half_block {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: rgba(63, 64, 105, 0.3) !important;
+}
+
+.table_con.public_notes .text {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.table_con.public_notes .grid_12 {
+    background-color: rgba(63, 64, 105, 0.3) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+.container_12 .grid_8.training_left {
+    background-color: rgba(63, 64, 105, 0.3) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.training_left h6 {
+    background-color: rgba(63, 64, 105);
+}
+.container_12 .grid_4.training_right {
+    background-color: rgba(63, 64, 105, 0.3) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.energybar {
+    border: none !important;
+    background: transparent !important;
+}
+.training_left .horsetraining .traincon {
+    background: transparent !important;
+}
+.training_right > .block {
+    background: transparent !important;
+}
+.traincon.selected {
+    border: 4px solid rgba(63, 64, 105, 0.7);
+    /* adjust color & thickness */
+}
+
+
+.grid_6.genetics {
+    background-color: rgba(63, 64, 105, 0.3) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.subtop {
+    background-color: rgba(63, 64, 105);
+}
+
+
+.genetic_result {
+    background: transparent !important;
+}
+
+.genetic_tests .test_block .first {
+    background: transparent !important;
+}
+.genetic_potential {
+    background: transparent !important;
+}
+
+.row_300 {
+    background: transparent !important;
+}
+.row_460 {
+    background: transparent !important;
+}
+
+.row_960 {
+    background: transparent !important;
+}
+
+.textarea textarea {
+    background: rgba(63, 64, 105) !important;
+    /*   border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
+button.dark,
+input[type="submit"].dark {
+    background-color: rgba(75, 216, 75, 0.8);
+}
+input,
+select {
+    background: rgba(63, 64, 105) !important;
+    /* border: 4px solid rgba(201,145,107, 0.7); /* adjust color & thickness */
+}
+select#changeblock option {
+    background-color: rgba(63, 64, 105, 0.7);
+    /* adjust color & thickness */
+    color: #fff;
+    /* option text color */
+}
+.bluebar_container {
+    background-color: rgba(63, 64, 105)
+}
+
+
+
+/* === Global knobs so both shimmer in perfect sync === */
+:root {
+  --bw: 4px;         /* border thickness */
+  --br: 20px;        /* corner radius    */
+  --shine-speed: 6s; /* animation speed  */
+}
+
+/* === Shared animations (both sections use the same ones) === */
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shineSweep {
+  0%   { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+.horse_left {
+  
+  background-color: rgba(63, 64, 105, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: var(--br) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  border: none !important;
+  color: #fff !important;
+  overflow: hidden;
+}
+
+/* shimmering metallic gold border */
+.horse_left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: var(--br);
+
+  /* high-contrast golds (same palette as side-nav) */
+  background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #fff4cc, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+
+  /* cut out the middle so only the ring shows */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* extra reflective streak */
+.horse_left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br);
+  padding: var(--bw);
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%, /* bright streak */
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: shineSweep var(--shine-speed) linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =========================================
+   SIDE NAV
+   ========================================= */
+.leftnav {
+  position: relative;
+  background-color: rgba(63, 64, 105, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: var(--br) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  border: none !important;
+  color: #fff !important;
+  overflow: hidden;
+}
+
+/* shimmering metallic gold border */
+.leftnav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: var(--br);
+
+  /* use the EXACT same palette and animation as .main-content */
+  background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #fff4cc, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* extra reflective streak */
+.leftnav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br);
+  padding: var(--bw);
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: shineSweep var(--shine-speed) linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* (Optional) Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .horse_left::before,
+  .horse_left::after,
+  .leftnav::before,
+  .leftnav::after {
+    animation: none;
+  }
+}
