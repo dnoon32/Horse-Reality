@@ -502,7 +502,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 /* === knobs === */
 .horse-grid .horse-item {
   --r: 18px;      /* base corner radius for the top corners  */
-  --rb: 64px;     /* big bottom radius                       */
+  --rb: 120px;     /* big bottom radius                       */
   --bw: 4px;      /* metallic border thickness               */
 
   position: relative;
