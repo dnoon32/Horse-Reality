@@ -21,7 +21,7 @@
    ========================================= */
 .main-content {
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
+  background-color: rgba(226, 164, 187, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
@@ -95,7 +95,7 @@
    ========================================= */
 .side-nav {
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
+  background-color: rgba(226, 164, 187, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
@@ -187,6 +187,149 @@
     transition: color 0.2s ease-in-out;
 }
 
+:root {
+    --shimmer-duration: 12s;
+    --streak-duration: 12s;
+}
+
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes specularSweep {
+    0% {
+        background-position: -100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* === Female - Mare (pink shimmer) === */
+.horse-item:has(img.sex-mare) .content {
+    position: relative;
+    border-radius: inherit;
+    overflow: hidden;
+
+    background: linear-gradient( 120deg,
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
+    ) !important;
+    background-size: 400% 400%;
+    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+.horse-item:has(img.sex-mare) .content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient( 120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 55%);
+    background-size: 300% 300%;
+    animation: specularSweep var(--streak-duration) linear infinite;
+    pointer-events: none;
+}
+
+/* === Male - Stallion (blue shimmer) === */
+.horse-item:has(img.sex-stallion) .content {
+    position: relative;
+    border-radius: inherit;
+    overflow: hidden;
+
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* deeper navy */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    ) !important;
+    background-size: 400% 400%;
+    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+.horse-item:has(img.sex-stallion) .content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient( 120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 55%);
+    background-size: 300% 300%;
+    animation: specularSweep var(--streak-duration) linear infinite;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+.tabs .tab.active {
+     background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #ffe066, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+color: #000; /* cornsilk / cream */
+
+
+
+
+
+
+}
+.horse-item .tagline {
+    color: #fff;
+}
+h1 {
+    color: #fff;
+}
+h1 a:hover,
+h2 {
+    color: #fff;
+}
+button.normalize {
+    color: #fff;
+}
+nav .pagination .page-item.active .page-link {
+
+    color: #fff;
+    background: rgba(201, 145, 107);
+}
+nav .pagination .page-item:not(.disabled) .page-link {
+    color: #fff;
+}
+.button.black,
+.button.secondary.active,
+.button.secondary:hover {
+    color: #fff;
+    background: rgba(201, 145, 107);
+}
+.header-menu {
+    background: rgba(201, 145, 107);
+}
 /* === shimmering indigo subtitle === */
 .side-nav ul .subtitle {
     font-weight: 700;
@@ -216,6 +359,51 @@
         background-position: 0% 50%;
     }
 }
+
+
+
+
+/* metallic shimmering gold border (full card) */
+.horse-grid .horse-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--bw);
+    border-radius: inherit;
+
+    /* gold gradient from screenshot */
+    background: linear-gradient( 135deg,
+    #7a5a21, /* dark bronze */
+    #d4af37 25%, /* mid gold */
+    #ffe066 45%, /* bright highlight */
+    #fff4cc 65%, /* pale shine */
+    #a67c00 85%, /* rich gold depth */
+    #7a5a21);
+    background-size: 300% 300%;
+    animation: goldShimmer 6s infinite linear;
+
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes goldShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 .horses-title h1 {
     margin-right: 8px;
@@ -307,5 +495,44 @@
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+
+/* === knobs === */
+.horse-grid .horse-item {
+  --r: 18px;      /* base corner radius for the top corners  */
+  --rb: 64px;     /* big bottom radius                       */
+  --bw: 4px;      /* metallic border thickness               */
+
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
+}
+
+:root {
+    --shimmer-duration: 12s;
+    --streak-duration: 12s;
+}
+
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes specularSweep {
+    0% {
+        background-position: -100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
     }
 }
