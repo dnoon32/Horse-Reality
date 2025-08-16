@@ -169,6 +169,42 @@
         background-position: 200% 50%;
     }
 }
+/* === knobs === */
+.horse-grid .horse-item {
+    --r: 15px;
+    /* base corner radius for the top corners */
+    --rb: 120px;
+    /* big bottom radius */
+    --bw: 5px;
+    /* metallic border thickness */
+    position: relative;
+    border-radius: var(--r) var(--r) var(--rb) var(--rb);
+    overflow: hidden;
+}
+:root {
+    --shimmer-duration: 12s;
+    --streak-duration: 12s;
+}
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes specularSweep {
+    0% {
+        background-position: -100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
 /* === Female - Mare (pink shimmer) === */
 .horse-item:has(img.sex-mare) .content {
     position: relative;
@@ -254,39 +290,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
     background: rgba(226, 164, 187);
 }
 
-/* metallic shimmering gold border (full card) */
-.horse-grid .horse-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: var(--bw);
-    border-radius: inherit;
-    /* gold gradient from screenshot */
-    background: linear-gradient( 135deg, #7a5a21, /* dark bronze */
-    #d4af37 25%, /* mid gold */
-    #ffe066 45%, /* bright highlight */
-    #fff4cc 65%, /* pale shine */
-    #a67c00 85%, /* rich gold depth */
-    #7a5a21);
-    background-size: 300% 300%;
-    animation: goldShimmer 6s infinite linear;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 2;
-}
-@keyframes goldShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
 /* === shimmering subtitle text only === */
 .side-nav ul .subtitle {
     font-weight: 700;
