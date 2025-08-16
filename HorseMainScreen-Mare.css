@@ -315,7 +315,7 @@ button.normalize {
 }
 nav .pagination .page-item.active .page-link {
 
-    color: #fff;
+    color: rgba(226, 164, 187);
     background: linear-gradient(
     120deg,
     #7a5a21, /* dark bronze */
@@ -327,12 +327,12 @@ nav .pagination .page-item.active .page-link {
   );
 }
 nav .pagination .page-item:not(.disabled) .page-link {
-    color: #fff;
+    color: rgba(226, 164, 187);
 }
 .button.black,
 .button.secondary.active,
 .button.secondary:hover {
-    color: #fff;
+    color: rgba(226, 164, 187);
     background: linear-gradient(
     120deg,
     #7a5a21, /* dark bronze */
