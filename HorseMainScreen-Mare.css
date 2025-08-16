@@ -1,536 +1,268 @@
-/* === Global knobs so both shimmer in perfect sync === */
-:root {
-  --bw: 4px;         /* border thickness */
-  --br: 20px;        /* corner radius    */
-  --shine-speed: 6s; /* animation speed  */
+/* ===== GLOBAL KNOBS (one source of truth) ===== */
+:root{
+  --bw: 4px;          /* border thickness */
+  --br: 20px;         /* corner radius    */
+  --shine-speed: 6s;  /* gold ring sweep  */
+  --card-sweep: 12s;  /* card bg shimmer  */
 }
 
-/* === Shared animations (both sections use the same ones) === */
+/* ===== SHARED ANIMATIONS ===== */
 @keyframes goldShimmer {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
 }
 @keyframes shineSweep {
-  0%   { background-position: -100% 50%; }
-  100% { background-position: 200% 50%; }
+  0% { background-position: -100% 50%; }
+  100%{ background-position: 200% 50%; }
+}
+@keyframes shimmerSweep { /* for card bg shimmer */
+  0% { background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+@keyframes shimmerText {  /* for text-only shimmer */
+  0% { background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+/* ===== GOLD PALETTE (used everywhere for borders) ===== */
+:root{
+  --gold-1:#7a5a21; /* dark bronze */
+  --gold-2:#d4af37; /* mid gold    */
+  --gold-3:#ffe066; /* bright      */
+  --gold-4:#fff4cc; /* pale shine  */
+  --gold-5:#a67c00; /* deep gold   */
 }
 
 /* =========================================
    MAIN CONTENT
    ========================================= */
-.main-content {
+.main-content{
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
+  background-color: rgba(63,64,105,0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  box-shadow: 0 0 10px rgba(0,0,0,.2) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* shimmering metallic gold border */
-.main-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: var(--bw);
-  border-radius: var(--br);
-
-  /* high-contrast golds (same palette as side-nav) */
-  background: linear-gradient(
+.main-content::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:var(--bw);
+  border-radius:var(--br);
+  background:linear-gradient(
     120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #fff4cc, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
+    var(--gold-1),
+    var(--gold-2),
+    var(--gold-3),
+    var(--gold-4),
+    var(--gold-5),
+    var(--gold-1)
   );
-  background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
-
-  /* cut out the middle so only the ring shows */
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 1;
+  background-size:400% 400%;
+  animation:goldShimmer var(--shine-speed) ease-in-out infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  pointer-events:none;
+  z-index:1;
 }
-
-/* extra reflective streak */
-.main-content::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--br);
-  padding: var(--bw);
-
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%, /* bright streak */
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 2;
+.main-content::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:var(--br);
+  padding:var(--bw);
+  background:linear-gradient(120deg, transparent 45%, rgba(255,255,255,.7) 50%, transparent 55%);
+  background-size:300% 300%;
+  animation:shineSweep var(--shine-speed) linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  pointer-events:none;
+  z-index:2;
 }
 
 /* =========================================
    SIDE NAV
    ========================================= */
-.side-nav {
+.side-nav{
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
+  background-color: rgba(63,64,105,0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  box-shadow: 0 0 10px rgba(0,0,0,.2) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* shimmering metallic gold border */
-.side-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: var(--bw);
-  border-radius: var(--br);
-
-  /* use the EXACT same palette and animation as .main-content */
-  background: linear-gradient(
+.side-nav::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:var(--bw);
+  border-radius:var(--br);
+  background:linear-gradient(
     120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #fff4cc, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
+    var(--gold-1),
+    var(--gold-2),
+    var(--gold-3),
+    var(--gold-4),
+    var(--gold-5),
+    var(--gold-1)
   );
+  background-size:400% 400%;
+  animation:goldShimmer var(--shine-speed) ease-in-out infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  pointer-events:none;
+  z-index:1;
+}
+.side-nav::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:var(--br);
+  padding:var(--bw);
+  background:linear-gradient(120deg, transparent 45%, rgba(255,255,255,.7) 50%, transparent 55%);
+  background-size:300% 300%;
+  animation:shineSweep var(--shine-speed) linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* Link hover fix (valid color) */
+.side-nav a:hover{
+  color: rgba(226,164,187,1) !important;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
+}
+
+/* =========================================
+   MARE (pink) & STALLION (blue) CARD SHIMMERS
+   ========================================= */
+.horse-item:has(img.sex-mare) .content,
+.horse-item:has(img.sex-stallion) .content{
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
   background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 1;
+  animation: shimmerSweep var(--card-sweep) ease-in-out infinite;
 }
-
-/* extra reflective streak */
-.side-nav::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--br);
-  padding: var(--bw);
-
+.horse-item:has(img.sex-mare) .content{
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%,
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 2;
+    rgba(226,164,187,1),
+    rgba(255,200,220,1),
+    rgba(226,164,187,1),
+    rgba(190,110,140,1),
+    rgba(255,220,235,1)
+  ) !important;
+}
+.horse-item:has(img.sex-stallion) .content{
+  background: linear-gradient(
+    120deg,
+    rgba(63,64,105,1),
+    rgba(110,112,165,1),
+    rgba(63,64,105,1),
+    rgba(40,41,70,1),
+    rgba(150,152,200,1)
+  ) !important;
+}
+.horse-item:has(img.sex-mare) .content::after,
+.horse-item:has(img.sex-stallion) .content::after{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:inherit;
+  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,.4) 50%, transparent 55%);
+  background-size:300% 300%;
+  animation: shimmerSweep var(--card-sweep) linear infinite;
+  pointer-events:none;
 }
 
-/* (Optional) Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
+/* =========================================
+   TITLES & HEADER SHIMMERS (TEXT ONLY)
+   ========================================= */
+.side-nav ul .subtitle,
+.horses-title h1,
+.horses-title h2{
+  font-weight:700;
+  background: linear-gradient(
+    120deg,
+    rgba(226,164,187,1),
+    rgba(255,200,220,1),
+    rgba(226,164,187,1),
+    rgba(190,110,140,1),
+    rgba(255,220,235,1)
+  ) !important;
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation: shimmerText 5s linear infinite;
+}
+
+.header-menu{
+  background: linear-gradient(
+    120deg,
+    rgba(226,164,187,1),
+    rgba(255,200,220,1),
+    rgba(226,164,187,1),
+    rgba(190,110,140,1),
+    rgba(255,220,235,1)
+  ) !important;
+  background-size:300% 300%;
+  animation: shimmerText 6s linear infinite;
+}
+
+/* =========================================
+   TABS ACTIVE (gold)
+   ========================================= */
+.tabs .tab.active{
+  background: linear-gradient(
+    120deg,
+    var(--gold-1),
+    var(--gold-2),
+    var(--gold-3),
+    var(--gold-3),
+    var(--gold-5),
+    var(--gold-1)
+  );
+  color:#000; /* readable over bright gold */
+}
+
+/* Optional: keep important content above rings */
+.main-content > *, .side-nav > *{
+  position: relative;
+  z-index: 3;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
   .main-content::before,
   .main-content::after,
   .side-nav::before,
-  .side-nav::after {
-    animation: none;
-  }
+  .side-nav::after,
+  .horse-item:has(img.sex-mare) .content,
+  .horse-item:has(img.sex-stallion) .content,
+  .horse-item:has(img.sex-mare) .content::after,
+  .horse-item:has(img.sex-stallion) .content::after,
+  .side-nav ul .subtitle,
+  .horses-title h1,
+  .horses-title h2,
+  .header-menu{ animation: none; }
 }
 
-
-
-
-
-
-
-.side-nav a:hover {
-    color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-}
-
-:root {
-    --shimmer-duration: 12s;
-    --streak-duration: 12s;
-}
-
-/* Shared keyframes for sync */
-@keyframes shimmerSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes specularSweep {
-    0% {
-        background-position: -100% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
-}
-
-/* === Female - Mare (pink shimmer) === */
-.horse-item:has(img.sex-mare) .content {
-    position: relative;
-    border-radius: inherit;
-    overflow: hidden;
-
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 400% 400%;
-    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
-}
-
-.horse-item:has(img.sex-mare) .content::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient( 120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 55%);
-    background-size: 300% 300%;
-    animation: specularSweep var(--streak-duration) linear infinite;
-    pointer-events: none;
-}
-
-/* === Male - Stallion (blue shimmer) === */
-.horse-item:has(img.sex-stallion) .content {
-    position: relative;
-    border-radius: inherit;
-    overflow: hidden;
-
-    background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* deeper navy */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
-    ) !important;
-    background-size: 400% 400%;
-    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
-}
-
-.horse-item:has(img.sex-stallion) .content::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient( 120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 55%);
-    background-size: 300% 300%;
-    animation: specularSweep var(--streak-duration) linear infinite;
-    pointer-events: none;
-}
-
-
-
-
-
-
-
-.tabs .tab.active {
-     background: linear-gradient(
-    120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #ffe066, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
-  );
-color: #000; /* cornsilk / cream */
-
-
-
-
-
-
-}
-.horse-item .tagline {
-    color: #fff;
-}
-h1 {
-    color: #fff;
-}
-h1 a:hover,
-h2 {
-    color: #fff;
-}
-button.normalize {
-    color: #fff;
-}
-nav .pagination .page-item.active .page-link {
-
-    color: #fff;
-    background: rgba(201, 145, 107);
-}
-nav .pagination .page-item:not(.disabled) .page-link {
-    color: #fff;
-}
-.button.black,
-.button.secondary.active,
-.button.secondary:hover {
-    color: #fff;
-    background: rgba(201, 145, 107);
-}
-
-/* === shimmering indigo subtitle === */
-.side-nav ul .subtitle {
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmer 5s infinite linear;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-
-
-/* metallic shimmering gold border (full card) */
-.horse-grid .horse-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: var(--bw);
-    border-radius: inherit;
-
-    /* gold gradient from screenshot */
-    background: linear-gradient( 135deg,
-    #7a5a21, /* dark bronze */
-    #d4af37 25%, /* mid gold */
-    #ffe066 45%, /* bright highlight */
-    #fff4cc 65%, /* pale shine */
-    #a67c00 85%, /* rich gold depth */
-    #7a5a21);
-    background-size: 300% 300%;
-    animation: goldShimmer 6s infinite linear;
-
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    pointer-events: none;
-    z-index: 2;
-}
-
-@keyframes goldShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-
-.horses-title h1 {
-    margin-right: 8px;
-    margin-bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmerH1 5s infinite linear;
-}
-
-@keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-.horses-title h2 {
-
-
-
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmerH1 5s infinite linear;
-}
-
-@keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* shimmering indigo background */
-.header-menu {
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 300% 300%;
-    animation: headerShimmer 6s infinite linear;
-}
-
-@keyframes headerShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* === knobs === */
-.horse-grid .horse-item {
-  --r: 18px;      /* base corner radius for the top corners  */
-  --rb: 64px;     /* big bottom radius                       */
-  --bw: 4px;      /* metallic border thickness               */
-
-  position: relative;
-  border-radius: var(--r) var(--r) var(--rb) var(--rb);
-  overflow: hidden;
-}
-
-:root {
-    --shimmer-duration: 12s;
-    --streak-duration: 12s;
-}
-
-/* Shared keyframes for sync */
-@keyframes shimmerSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes specularSweep {
-    0% {
-        background-position: -100% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
-}
