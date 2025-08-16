@@ -253,33 +253,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
     color: #fff;
     background: rgba(201, 145, 107);
 }
-/* === shimmering indigo subtitle === */
-.side-nav ul .subtitle {
-    font-weight: 700;
-    background: linear-gradient( 120deg, rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmer 5s infinite linear;
-}
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
 /* metallic shimmering gold border (full card) */
 .horse-grid .horse-item::before {
     content: "";
@@ -313,63 +287,60 @@ nav .pagination .page-item:not(.disabled) .page-link {
         background-position: 0% 50%;
     }
 }
-.horses-title h1 {
-    margin-right: 8px;
-    margin-bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* === shimmering subtitle text only === */
+.side-nav ul .subtitle {
     font-weight: 700;
-    background: linear-gradient( 120deg, rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
+    background: linear-gradient(
+        120deg,
+        rgba(226, 164, 187, 1),
+        rgba(255, 200, 220, 1),
+        rgba(226, 164, 187, 1),
+        rgba(190, 110, 140, 1),
+        rgba(255, 220, 235, 1)
+    );
     background-size: 300% 300%;
+    animation: shimmer 5s infinite linear;
+
+    /* the magic: clip to text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmerH1 5s infinite linear;
+    background-clip: text; /* Firefox */
+    color: transparent;    /* fallback */
 }
-@keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
+/* === shimmering title text only (h1/h2) === */
+.horses-title h1,
 .horses-title h2 {
     font-weight: 700;
-    background: linear-gradient( 120deg, rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    ) !important;
+    background: linear-gradient(
+        120deg,
+        rgba(226, 164, 187, 1),
+        rgba(255, 200, 220, 1),
+        rgba(226, 164, 187, 1),
+        rgba(190, 110, 140, 1),
+        rgba(255, 220, 235, 1)
+    );
     background-size: 300% 300%;
+    animation: shimmerH1 5s infinite linear;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* Firefox support */
-    animation: shimmerH1 5s infinite linear;
+    color: transparent;
 }
+
+@keyframes shimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 @keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
 /* shimmering indigo background */
 .header-menu {
     background: linear-gradient( 120deg, rgba(226, 164, 187, 1), /* base pink */
