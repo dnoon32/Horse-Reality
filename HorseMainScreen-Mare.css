@@ -21,7 +21,7 @@
    ========================================= */
 .main-content {
   position: relative;
-  background-color: rgba(226, 164, 187, 0.7) !important;
+  background-color: rgba(63, 64, 105, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
@@ -95,7 +95,7 @@
    ========================================= */
 .side-nav {
   position: relative;
-  background-color: rgba(226, 164, 187, 0.7) !important;
+  background-color: rgba(63, 64, 105, 0.7) !important;
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
