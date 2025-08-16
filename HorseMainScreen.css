@@ -497,3 +497,42 @@ nav .pagination .page-item:not(.disabled) .page-link {
         background-position: 0% 50%;
     }
 }
+
+
+/* === knobs === */
+.horse-grid .horse-item {
+  --r: 18px;      /* base corner radius for the top corners  */
+  --rb: 64px;     /* big bottom radius                       */
+  --bw: 4px;      /* metallic border thickness               */
+
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
+}
+
+:root {
+    --shimmer-duration: 12s;
+    --streak-duration: 12s;
+}
+
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes specularSweep {
+    0% {
+        background-position: -100% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
