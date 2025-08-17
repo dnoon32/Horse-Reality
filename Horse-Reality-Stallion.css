@@ -14,7 +14,12 @@ body {
     background-repeat: no-repeat !important;
     background-color: transparent !important;
 }
-
+.looking_at {
+  background: linear-gradient(45deg, #7a5a21, #d4af37, #ffe066, #fff4cc, #a67c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
 .subtitle {
    background: linear-gradient( 120deg,
     rgba(226, 164, 187, 1), /* base pink */
