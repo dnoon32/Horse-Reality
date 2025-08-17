@@ -14,7 +14,13 @@ body {
     background-repeat: no-repeat !important;
     background-color: transparent !important;
 }
-
+.table_con.private_notes .grid_12, .table_con.public_notes .grid_12 {
+    background: transparent !important;
+    border: none !important;
+}
+.table_con.private_notes .text, .table_con.public_notes .text {
+    background: transparent !important;
+}
 .looking_at {
   background: linear-gradient(45deg, #7a5a21, #d4af37, #ffe066, #fff4cc, #a67c00);
   -webkit-background-clip: text;
