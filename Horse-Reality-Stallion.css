@@ -20,6 +20,13 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+.table_con.private_notes .grid_12, .table_con.public_notes .grid_12 {
+    background: transparent !important;
+    border: none !important;
+}
+.table_con.private_notes .text, .table_con.public_notes .text {
+    background: transparent !important;
+}
 .subtitle {
    background: linear-gradient( 120deg,
     rgba(226, 164, 187, 1), /* base pink */
