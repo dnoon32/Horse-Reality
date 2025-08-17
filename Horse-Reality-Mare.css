@@ -16,7 +16,33 @@ body {
 }
 
 
+.subtitle {
+    background: linear-gradient( 120deg,
+    rgba(63, 64, 105, 1), /* base indigo */
+    rgba(110, 112, 165, 1), /* lighter highlight */
+    rgba(63, 64, 105, 1), /* return to base */
+    rgba(40, 41, 70, 1), /* darker depth */
+    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmer 5s infinite linear;
+}
 
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 /* Text Color */
 * {
