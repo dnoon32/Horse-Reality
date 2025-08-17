@@ -4,6 +4,59 @@ body {
     background-size: cover !important;
 } 
 
+.tabs .tab.active {
+     background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #ffe066, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+color: #000; /* cornsilk / cream */
+}
+
+/* === shimmering indigo subtitle === */
+.side-nav ul .subtitle {
+    font-weight: 700;
+    background: linear-gradient( 120deg,
+    rgba(226, 164, 187, 1), /* base pink */
+        rgba(255, 200, 220, 1), /* lighter highlight */
+        rgba(226, 164, 187, 1), /* return to base */
+        rgba(190, 110, 140, 1), /* deeper pink */
+        rgba(255, 220, 235, 1)  /* bright streak */
+    ) ;
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmer 5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.side-nav a:hover {
+    color: rgba(226, 164, 187) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+}
+
+
 
 
 /* === Global knobs so both shimmer in perfect sync === */
@@ -187,13 +240,7 @@ body {
 
 
 
-.side-nav a:hover {
-    color: rgba(63, 64, 105) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-}
+
 
 
 /* === Globals === */
@@ -400,23 +447,13 @@ body {
 .horse-stats .horse-stat span {
  color: #fff !important;
 }
-.side-nav ul .subtitle {
-    font-size: 14px;
-    margin-bottom: 5px;
-    line-height: 21px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: rgba(63, 64, 105);
-}
+
 
 .side-nav ul a {
   
     color: #fff;
 }
-.side-nav ul .subtitle{
 
-    color: rgba(63, 64, 105);
-}
 .tabs .tab.active {
     background: rgba(63, 64, 105);
     color: #fff;
