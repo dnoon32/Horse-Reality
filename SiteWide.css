@@ -6,32 +6,195 @@ body {
 
 
 
-.main-content {
-    background-color: rgba(63, 64, 105, 0.5) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
-    border: 2px solid rgba(63, 64, 105, 0.8) !important;
-    color: #fff !important;
+/* === Global knobs so both shimmer in perfect sync === */
+:root {
+  --bw: 4px;         /* border thickness */
+  --br: 20px;        /* corner radius    */
+  --shine-speed: 6s; /* animation speed  */
 }
 
-/* Side or left nav section (Transparent to Background Image) */ 
-.side-nav {
-    background-color: rgba(63, 64, 105, 0.5) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
-    border: 2px solid rgba(63, 64, 105, 0.8) !important;
-    color: #fff !important;
+/* === Shared animations (both sections use the same ones) === */
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+@keyframes shineSweep {
+  0%   { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+.main-content {
+  position: relative;
+  background-color: rgba(63, 64, 105, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: var(--br) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  border: none !important;
+  color: #fff !important;
+  overflow: hidden;
+}
+
+/* shimmering metallic gold border */
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: var(--br);
+
+  /* high-contrast golds (same palette as side-nav) */
+  background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #fff4cc, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+
+  /* cut out the middle so only the ring shows */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* extra reflective streak */
+.main-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br);
+  padding: var(--bw);
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%, /* bright streak */
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: shineSweep var(--shine-speed) linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =========================================
+   SIDE NAV
+   ========================================= */
+.side-nav {
+  position: relative;
+  background-color: rgba(63, 64, 105, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: var(--br) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  border: none !important;
+  color: #fff !important;
+  overflow: hidden;
+}
+
+/* shimmering metallic gold border */
+.side-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: var(--br);
+
+  /* use the EXACT same palette and animation as .main-content */
+  background: linear-gradient(
+    120deg,
+    #7a5a21, /* dark bronze */
+    #d4af37, /* mid gold */
+    #ffe066, /* bright highlight */
+    #fff4cc, /* pale shine */
+    #a67c00, /* rich gold depth */
+    #7a5a21
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* extra reflective streak */
+.side-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br);
+  padding: var(--bw);
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: shineSweep var(--shine-speed) linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* (Optional) Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .main-content::before,
+  .main-content::after,
+  .side-nav::before,
+  .side-nav::after {
+    animation: none;
+  }
+}
+
+
+
+
+
+
 
 .side-nav a:hover {
-    color: rgba(63, 64, 105) !important; /* Or any accent color you like */
-    text-decoration: underline; /* Optional: underline on hover */
+    color: rgba(63, 64, 105) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
     transition: color 0.2s ease-in-out;
 }
+
 
 /* === Globals === */
 :root {
