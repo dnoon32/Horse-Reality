@@ -507,9 +507,9 @@ p {
 
 .info {background:rgba(63, 64, 105,0.4) !important;
 }
-.component.frame .wrapper {
+/*.component.frame .wrapper {
     background: rgba(63, 64, 105,0.4) !important;
-}
+} */
 
 .cta {
     background: transparent !important;
@@ -523,6 +523,23 @@ a {
     color: #fff;
 }
 
-.component.frame .wrapper .content {
+/*.component.frame .wrapper .content {
     background:  rgba(63, 64, 105) !important;
+}*/
+
+/* clickable only when .inner has .active — matches your pointer-events logic */
+.component.frame .wrapper .content .inner a,
+.component.frame .wrapper .content .inner a:link,
+.component.frame .wrapper .content .inner a:visited {
+  color: #d4af37 !important;   /* gold */
+  text-decoration: none;
 }
+.component.frame .wrapper .content .inner a:hover,
+.component.frame .wrapper .content .inner a:focus {
+  color: #ffe066 !important;    /* lighter on hover */
+  text-decoration: underline;
+}
+.component.frame .wrapper .content .inner a:active {
+  color: #a67c00 !important;    /* pressed */
+}
+
