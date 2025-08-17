@@ -23,23 +23,48 @@
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-/* Side or left nav section (Transparent to Background Image) */
-.side-nav {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: #fff !important;
-}
+
 
 /* Profile Name CSS */
  .user-profile .profile-name-and-estate .profile-username {
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    margin-bottom: 5px !important;
-    color: #EFBF04;
+   font-size: 32px !important;
+    background: linear-gradient(120deg,
+    rgba(226, 164, 187, 1), /* base pink */
+        rgba(255, 200, 220, 1), /* lighter highlight */
+        rgba(226, 164, 187, 1), /* return to base */
+        rgba(190, 110, 140, 1), /* deeper pink */
+        rgba(255, 220, 235, 1)  /* bright streak */
+    ) ;
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmer 5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+/* remove the shadow on the label itself */
+.user-profile .profile-name-and-estate {
+  text-shadow: none !important;
+}
+
+/* just in case child elements add shadows */
+.user-profile .profile-name-and-estate *,
+.user-profile .profile-name-and-estate::before,
+.user-profile .profile-name-and-estate::after {
+  text-shadow: none !important;
 }
 
 /* Estate name CSS */
