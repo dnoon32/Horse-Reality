@@ -454,10 +454,7 @@ color: #000; /* cornsilk / cream */
     color: #fff;
 }
 
-.tabs .tab.active {
-    background: rgba(63, 64, 105);
-    color: #fff;
-}
+
 .horse-item .tagline
  {
     color: #fff;
