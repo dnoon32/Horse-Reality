@@ -33,15 +33,201 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
-/* Female - Mare */
-.horse-item:has(img.sex-mare) .content {
-    background-color: rgb(253,176,192, 0.4) !important; /* soft pink */
+/* === Globals === */
+:root {
+  --shimmer-duration: 12s;
+  --streak-duration: 12s;
+  --bw: 6px;                 /* gold border thickness */
 }
 
-/* Male - Stallion */
-.horse-item:has(img.sex-stallion) .content {
-    background-color: rgba(63, 64, 105, 0.4) !important; /* soft blue */  
-} 
+/* === Base card shape & layout === */
+.card-item {
+  --r: 18px;                 /* top corners */
+  --rb: 120px;               /* big bottom corners */
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
+  background-color: transparent !important;
+  isolation: isolate;
+  box-sizing: border-box;
+}
+
+/* === HARD image alignment fix (prevents right-shift) === */
+.card-item .image,
+.card-item .card-image,
+.card-item [class*="image"] {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
+  text-align: left !important;      /* beat themes that set text-align:right */
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.card-item .image > img,
+.card-item .card-image > img,
+.card-item [class*="image"] > img {
+  display: block !important;        /* ignore text-align */
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  border: 0 !important;
+  float: none !important;
+}
+
+/* === Shared animations === */
+@keyframes shimmerSweep {
+  0% { background-position: 0% 50%, 0% 50%; }
+  50% { background-position: 100% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 0% 50%; }
+}
+@keyframes specularSweep {
+  0% { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === GOLD border palette (used by both sexes) === */
+:root {
+  /* nothing else needed; using gradients inline */
+}
+
+/* === Stallion: inner shimmer + GOLD border === */
+.card-item:has(.card-item-name img.gender[src*="sex-stallion"]) {
+  border: var(--bw) solid transparent !important;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb) !important;
+
+  background-image:
+    /* inner shimmer (padding-box) */
+    linear-gradient(120deg,
+      rgba(63,64,105,1),
+      rgba(110,112,165,1),
+      rgba(63,64,105,1),
+      rgba(40,41,70,1),
+      rgba(150,152,200,1)
+    ),
+    /* gold ring (border-box) */
+    linear-gradient(135deg,
+      #7a5a21,
+      #d4af37 25%,
+      #ffe066 45%,
+      #fff4cc 65%,
+      #a67c00 85%,
+      #7a5a21
+    );
+
+  background-size: 400% 400%, 300% 300%;
+  background-position: 0% 50%, 0% 50%;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    goldShimmer 6s linear infinite;
+}
+
+/* Stallion streak */
+.card-item:has(.card-item-name img.gender[src*="sex-stallion"])::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,.4) 50%, transparent 55%);
+  background-size: 300% 300%;
+  animation: specularSweep var(--streak-duration) linear infinite;
+  pointer-events: none;
+}
+
+/* === Mare: pink inner shimmer + GOLD border === */
+.card-item:has(.card-item-name img.gender[src*="sex-mare"]) {
+  border: var(--bw) solid transparent !important;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb) !important;
+
+  background-image:
+    /* inner shimmer (padding-box) — pinks */
+    linear-gradient(120deg,
+      rgba(253,176,192,0.9),
+      rgba(255,200,220,1),
+      rgba(253,176,192,0.9),
+      rgba(190,110,140,1),
+      rgba(255,220,235,1)
+    ),
+    /* gold ring (border-box) — same as stallion */
+    linear-gradient(135deg,
+      #7a5a21,
+      #d4af37 25%,
+      #ffe066 45%,
+      #fff4cc 65%,
+      #a67c00 85%,
+      #7a5a21
+    );
+
+  background-size: 400% 400%, 300% 300%;
+  background-position: 0% 50%, 0% 50%;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    goldShimmer 6s linear infinite;
+}
+
+/* Mare streak */
+.card-item:has(.card-item-name img.gender[src*="sex-mare"])::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,.4) 50%, transparent 55%);
+  background-size: 300% 300%;
+  animation: specularSweep var(--streak-duration) linear infinite;
+  pointer-events: none;
+}
+
+/* Base Asia tile (default image, centered) */
+.foal-pastures .miniature-block.asia {
+  background: url("https://i.imgur.com/wxLiFmi.jpeg") center / cover no-repeat !important;
+}
+
+/* Stallion variant — works whether the icon is inside the tile OR elsewhere in the same card */
+.foal-pastures .miniature-block.asia:has(img.gender[src*="sex-stallion"]),
+.foal-pastures .miniature-block.asia:has([class*="sex-stallion"]),
+.foal-pastures .miniature-block.asia:has(use[href*="sex-stallion"]),
+/* parent wrapper contains icon + the asia tile */
+:is(.card-item, .horse-item, .miniature, .stall, .horse-card):has(
+  img.gender[src*="sex-stallion"],
+  img[src*="sex-stallion"],
+  [class*="sex-stallion"],
+  use[href*="sex-stallion"],
+  use[xlink\:href*="sex-stallion"]
+) .miniature-block.asia {
+  background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+}
+
+/* Mare variant — same logic */
+.foal-pastures .miniature-block.asia:has(img.gender[src*="sex-mare"]),
+.foal-pastures .miniature-block.asia:has([class*="sex-mare"]),
+.foal-pastures .miniature-block.asia:has(use[href*="sex-mare"]),
+:is(.card-item, .horse-item, .miniature, .stall, .horse-card):has(
+  img.gender[src*="sex-mare"],
+  img[src*="sex-mare"],
+  [class*="sex-mare"],
+  use[href*="sex-mare"],
+  use[xlink\:href*="sex-mare"]
+) .miniature-block.asia {
+  background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important; /* your mare image */
+}
+
+
+
 .horse-item h2 {
    color: #fff !important;
 }
@@ -104,31 +290,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 
 /* -------------------------------------*/
 
-.card-item {
-    background-color: #eaf0f2;
-    padding: 10px 15px;
-    width: 100% !important;
-    height: 100%;
-    display: flex
-;
-    flex-direction: column;
 
-}
-/* Foal Pastures: color the whole white card panel by gender */
-
-/* Stallion */
-.card-item:has(.card-item-name img.gender[src*="sex-stallion"]) {
-  background-color: rgba(63, 64, 105,0.4) !important;  /* soft brown */
-    border-radius: 20px !important;
-    border: 2px solid rgba(63, 64, 105, 0.4) !important; 
-}
-
-/* Mare */
-.card-item:has(.card-item-name img.gender[src*="sex-mare"]) {
-  background-color: rgba(253,176,192,0.4) !important;  /* soft pink */
-    border-radius: 20px !important;
-    border: 2px solid rgb(253,176,192, 0.4) !important;
-}
 
 .card-item-name {
     color: #fff;
