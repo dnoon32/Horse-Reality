@@ -577,3 +577,157 @@ a {
     background-color: transparent !important;
     
 }
+
+
+.leftnav > ul > li > ul > li a:active, .leftnav > ul > li > ul > li a:hover {
+    color: rgba(226, 164, 187) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+}
+
+.leftnav > ul > li > ul > li a:active, .leftnav > ul > li > ul > li a:link, .leftnav > ul > li > ul > li a:visited {
+    color: #fff;
+}
+
+.mail_header {
+   
+    background-color: rgba(63, 64, 105);
+}
+
+.mail_subheader {
+    background-color: rgba(63, 64, 105);
+}
+
+#mail_right {
+    background-color: rgba(226, 164, 187);
+}
+
+.center {
+    background-color: rgba(226, 164, 187, 0.7) !important;
+    border-radius: 20px;
+}
+
+#mail_right   
+    ,a:hover {
+    color: rgba(226, 164, 187) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+}
+
+#mail_right p a:link {
+    color: #fff;
+}
+
+.bluebar_container {
+    background-color: rgba(63, 64, 105);
+    height: 50px;
+    z-index: 1000;
+}
+
+/* base text + smooth transition */
+.mail_row {
+  color: #ffffff !important;
+  transition: color .2s ease, background-color .2s ease;
+    background-color: rgba(63, 64, 105, 0.7) !important;
+}
+/* make children follow the row color */
+.mail_row * {
+  color: inherit !important;
+}
+/* row hover = change every descendant’s color */
+.mail_row:hover {
+  background-color: rgba(90, 92, 140, 0.9) !important;
+  color: #ffd700 !important; /* pick your hover text color */
+}
+
+/* === Global knobs so both shimmer in perfect sync === */
+:root {
+  --bw: 4px;         /* border thickness */
+  --br: 20px;        /* corner radius    */
+  --shine-speed: 6s; /* animation speed  */
+}
+
+/* === Shared animations === */
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shineSweep {
+  0%   { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+
+
+/* =========================================
+   SIDE NAV (your working version)
+   ========================================= */
+.leftnav {
+  position: relative;
+  background-color: rgba(63, 64, 105, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: var(--br) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  border: none !important;
+  color: #fff !important;
+  overflow: hidden;
+}
+.leftnav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: var(--br);
+  background: linear-gradient(
+    120deg,
+    #7a5a21, #d4af37, #ffe066, #fff4cc, #a67c00, #7a5a21
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+.leftnav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br);
+  padding: var(--bw);
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: shineSweep var(--shine-speed) linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  
+  .leftnav::before,
+  .leftnav::after {
+    animation: none !important;
+  }
+}
+
+
