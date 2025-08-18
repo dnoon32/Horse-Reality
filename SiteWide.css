@@ -730,4 +730,118 @@ a {
   }
 }
 
+/* Durations (tweak as you like) */
+:root {
+  --shimmer-duration: 6s;
+  --streak-duration: 6s;
+  --row-radius: 14px;
+}
 
+/* Shared keyframes for sync */
+@keyframes shimmerSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes specularSweep {
+  0% { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Base row styling */
+.col-12 {
+  position: relative;
+  border-radius: var(--row-radius);
+  overflow: hidden;
+}
+
+/* ================================
+   Mare rows (pink shimmer)
+   ================================ */
+.col-12:has(img.sex-mare) {
+  background: linear-gradient(
+    120deg,
+    rgba(226,164,187,1),  /* base pink */
+    rgba(255,200,220,1),  /* lighter */
+    rgba(226,164,187,1),  /* base again */
+    rgba(190,110,140,1),  /* deeper */
+    rgba(255,220,235,1)   /* bright streak */
+  ) !important;
+  background-size: 400% 400%;
+  animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+/* Streak overlay */
+.col-12:has(img.sex-mare)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255,255,255,0.40) 50%,
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: specularSweep var(--streak-duration) linear infinite;
+  mix-blend-mode: screen; /* subtle */
+}
+
+/* ================================
+   Stallion rows (indigo/blue shimmer)
+   ================================ */
+.col-12:has(img.sex-stallion) {
+  background: linear-gradient(
+    120deg,
+    rgba(63,64,105,1),    /* base indigo */
+    rgba(110,112,165,1),  /* lighter */
+    rgba(63,64,105,1),    /* base again */
+    rgba(40,41,70,1),     /* deeper */
+    rgba(150,152,200,1)   /* bright streak */
+  ) !important;
+  background-size: 400% 400%;
+  animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+}
+
+.col-12:has(img.sex-stallion)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 55%
+  );
+  background-size: 300% 300%;
+  animation: specularSweep var(--streak-duration) linear infinite;
+  mix-blend-mode: screen;
+}
+
+/* Optional: smooth text/link color shift on hover within the row */
+.col-12:has(img.sex-mare) a,
+.col-12:has(img.sex-stallion) a {
+  transition: color .2s ease;
+}
+.col-12:has(img.sex-mare):hover a { color: rgba(255,240,246,1) !important; }
+.col-12:has(img.sex-stallion):hover a { color: #e0e4ff !important; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .col-12:has(img.sex-mare),
+  .col-12:has(img.sex-stallion),
+  .col-12:has(img.sex-mare)::after,
+  .col-12:has(img.sex-stallion)::after {
+    animation: none !important;
+  }
+}
+
+.market-office-table .market-office-table-row-highestbid, .market-office-table .market-office-table-row-offers, .market-office-table .market-office-table-row-timer
+  {color:#fff;}
+
+ .market-office-table .market-office-table-row-autobuy
+ {color:red;}
