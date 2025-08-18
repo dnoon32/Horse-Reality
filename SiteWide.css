@@ -545,3 +545,35 @@ a {
   color: #a67c00 !important;    /* pressed */
 }
 
+.subtitle {
+   background: linear-gradient( 120deg,
+    rgba(226, 164, 187, 1), /* base pink */
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)/* bright streak */
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Firefox support */
+    animation: shimmer 5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    background-color: transparent !important;
+    
+}
