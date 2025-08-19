@@ -1088,3 +1088,10 @@ p a:active, p a:link, p a:visited {
     background-color
 : #000;
 }
+
+.fitting-room .selectedRow {
+    background-color:  rgba(63, 64, 105, 0.7) !important;
+}
+.component.table .table tbody tr:nth-of-type(odd),.component.table .table tbody tr:nth-of-type(even) {
+    background-color: #000;
+}
