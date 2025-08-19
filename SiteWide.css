@@ -1083,3 +1083,8 @@ p a:active, p a:link, p a:visited {
 }
 
 .grid_12 form fieldset label, .grid_12 fieldset label {color: #fff}
+
+.odd {
+    background-color
+: #000;
+}
