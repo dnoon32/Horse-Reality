@@ -863,3 +863,6 @@ h1 a:active, h1 a:link, h1 a:visited {
     color: #d4af37 !important;
    
 }
+.market .breadcrumbs {
+    background-color: transparent !important;
+}
