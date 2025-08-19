@@ -1103,3 +1103,7 @@ p a:active, p a:link, p a:visited {
 .city .mobile-world-menu a {
     color: #fff; 
 }
+
+.storeblocks, .horseblocks {
+    background-color: rgba(63, 64, 105, 0.7) !important;
+}
