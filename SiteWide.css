@@ -1095,3 +1095,7 @@ p a:active, p a:link, p a:visited {
 .component.table .table tbody tr:nth-of-type(odd),.component.table .table tbody tr:nth-of-type(even) {
     background-color: #000;
 }
+
+.delta-store-history table tbody tr:nth-child(odd) {
+    background: rgba(63, 64, 105, 0.7);
+}
