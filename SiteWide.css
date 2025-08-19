@@ -881,3 +881,195 @@ h1 a:active, h1 a:link, h1 a:visited {
 p a:active, p a:link, p a:visited {
     color: pink;
 }
+
+/* === Globals === */
+:root{
+  --shimmer-duration:12s;
+  --streak-duration:12s;
+  --bw:6px;               /* gold border thickness */
+  --r:18px;               /* top corners */
+  --rb:120px;             /* big bottom corners */
+}
+
+/* === Treat every adopt card as our "card item" === */
+.adopt_blocks{
+  position:relative;
+  border-radius:var(--r) var(--r) var(--rb) var(--rb);
+  overflow:hidden;
+  isolation:isolate;
+  box-sizing:border-box;
+  border:var(--bw) solid transparent !important; /* needed for gold ring */
+  background-color:transparent !important;       /* reveal inner shimmer */
+}
+
+/* Some HR themes wrap content in a container with its own bg. Nuke it. */
+.adopt_blocks .store_flex{ background:transparent !important; }
+
+
+
+/* === HARD image alignment fix === */
+.adopt_blocks .adopt_blockimg{
+  display:block !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-sizing:border-box !important;
+  text-align:left !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+
+
+/* === Animations === */
+@keyframes shimmerSweep{
+  0%{background-position:0% 50%,0% 50%}
+  50%{background-position:100% 50%,100% 50%}
+  100%{background-position:0% 50%,0% 50%}
+}
+@keyframes specularSweep{
+  0%{background-position:-100% 50%}
+  100%{background-position:200% 50%}
+}
+@keyframes goldShimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* =========================
+   GENDER-DRIVEN CARD RINGS
+   We detect by icon src in the title area.
+   ========================= */
+
+/* STALLION: blue/indigo inner shimmer + gold ring */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]){
+  background-image:
+    /* inner shimmer (padding-box) */
+    linear-gradient(120deg,
+      rgba(63,64,105,1),
+      rgba(110,112,165,1),
+      rgba(63,64,105,1),
+      rgba(40,41,70,1),
+      rgba(150,152,200,1)
+    ),
+    /* gold ring (border-box) */
+    linear-gradient(135deg,
+      #7a5a21,
+      #d4af37 25%,
+      #ffe066 45%,
+      #fff4cc 65%,
+      #a67c00 85%,
+      #7a5a21
+    );
+  background-size:400% 400%,300% 300%;
+  background-position:0% 50%,0% 50%;
+  background-origin:padding-box,border-box;
+  background-clip:padding-box,border-box;
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    goldShimmer 6s linear infinite;
+}
+
+/* Stallion specular sweep */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"])::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(120deg,transparent 45%,rgba(255,255,255,.4) 50%,transparent 55%);
+  background-size:300% 300%;
+  animation:specularSweep var(--streak-duration) linear infinite;
+  pointer-events:none;
+}
+
+/* MARE: pink inner shimmer + same gold ring */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]){
+  background-image:
+    linear-gradient(120deg,
+      rgba(253,176,192,.9),
+      rgba(255,200,220,1),
+      rgba(253,176,192,.9),
+      rgba(190,110,140,1),
+      rgba(255,220,235,1)
+    ),
+    linear-gradient(135deg,
+      #7a5a21,
+      #d4af37 25%,
+      #ffe066 45%,
+      #fff4cc 65%,
+      #a67c00 85%,
+      #7a5a21
+    );
+  background-size:400% 400%,300% 300%;
+  background-position:0% 50%,0% 50%;
+  background-origin:padding-box,border-box;
+  background-clip:padding-box,border-box;
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    goldShimmer 6s linear infinite;
+}
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"])::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(120deg,transparent 45%,rgba(255,255,255,.4) 50%,transparent 55%);
+  background-size:300% 300%;
+  animation:specularSweep var(--streak-duration) linear infinite;
+  pointer-events:none;
+}
+
+/* ==============================
+   Asia tile backgrounds (yours)
+   ============================== */
+.foal-pastures .miniature-block.asia,
+.adopt_blocks .adopt_blockimg.asia{
+  background:url("https://i.imgur.com/wxLiFmi.jpeg") center/cover no-repeat !important;
+}
+
+/* Stallion variant */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]) .adopt_blockimg.asia{
+  background-image:url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+}
+
+/* Mare variant */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]) .adopt_blockimg.asia{
+  background-image:url("https://i.imgur.com/wxLiFmi.jpeg") !important;
+}
+
+/* Minor polish */
+.adopt_blocks .adopt_blocktitle b{
+  display:inline-flex; align-items:center; gap:.4rem;
+}
+.adopt_blocks .adopt_button{ display:flex; padding-top:6px; }
+.adopt_blocks .adopt_button .buy_fhorse{ width:100%; }
+
+.adopt_blocktext p a:active, .adopt_blocktext p a:link, .adopt_blocktext p a:visited {
+    text-decoration: none;
+    color: #d4af37 !important;
+}
+
+.adopt_blocktext p a:hover {
+     color: rgba(226, 164, 187) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+}
+
+.adopt_blocktitle a:active, .adopt_blocktitle a:link, .adopt_blocktitle a:visited {
+    color:  #d4af37 !important;
+}
+
+.adopt_blocktitle a:hover {color: rgba(226, 164, 187) !important;
+    /* Or any accent color you like */
+    text-decoration: underline;
+    /* Optional: underline on hover */
+    transition: color 0.2s ease-in-out;
+    }
+
+.npc_box {
+    background-color: rgba(63, 64, 105, 0.7) !important;
+}
