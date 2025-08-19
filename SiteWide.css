@@ -533,7 +533,7 @@ a {
 .component.frame .wrapper .content .inner a,
 .component.frame .wrapper .content .inner a:link,
 .component.frame .wrapper .content .inner a:visited {
-  color: #d4af37 !important;   /* gold */
+  color: gold !important;   /* gold */
   text-decoration: none;
 }
 .component.frame .wrapper .content .inner a:hover,
@@ -1072,4 +1072,12 @@ p a:active, p a:link, p a:visited {
 
 .npc_box {
     background-color: rgba(63, 64, 105, 0.7) !important;
+}
+
+.btn.btn-cta, .btn.btn-primary {
+    background-color: purple;
+    border-color: transparent !important;
+}
+.btn.btn-darkblue {
+    background-color: #081b28;
 }
