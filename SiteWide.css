@@ -1107,3 +1107,7 @@ p a:active, p a:link, p a:visited {
 .storeblocks, .horseblocks {
     background-color: rgba(63, 64, 105, 0.7) !important;
 }
+
+.table {
+    color: #fff;
+}
