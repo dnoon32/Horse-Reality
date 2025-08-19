@@ -1107,9 +1107,9 @@ p a:active, p a:link, p a:visited {
 }
 
 .table {
-    color: #fff;
+    color: #000;
 }
 
 .component.table .table tbody tr:nth-of-type(odd),.component.table .table tbody tr:nth-of-type(even) {
-    background-color: #000;
+    background-color:transparent !important;
 }
