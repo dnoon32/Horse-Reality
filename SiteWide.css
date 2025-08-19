@@ -845,3 +845,7 @@ a {
 
  .market-office-table .market-office-table-row-autobuy
  {color:red;}
+
+nav .pagination .page-item:not(.disabled) .page-link {
+    color:  #d4af37 !important;
+}
