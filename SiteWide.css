@@ -840,9 +840,9 @@ a {
   }
 }
 
-.market-office-table .market-office-table-row-highestbid, .market-office-table .market-office-table-row-offers, .market-office-table .market-office-table-row-timer
+.market-office-table .market-office-table-row-offers, .market-office-table .market-office-table-row-timer
   {color:#fff;}
-
+.market-office-table .market-office-table-row-highestbid  {color:lightgreen;}
  .market-office-table .market-office-table-row-autobuy
  {color:red;}
 
