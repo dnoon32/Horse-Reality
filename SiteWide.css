@@ -849,3 +849,17 @@ a {
 nav .pagination .page-item:not(.disabled) .page-link {
     color:  #d4af37 !important;
 }
+
+.component.frame .wrapper .content {
+    background: rgba(63,64,105,0.7);
+}
+
+h1 a:hover {
+  color: #ffe066 !important; /* lighter gold/yellow, pick any color */
+  text-decoration: underline; /* optional: underline on hover */
+  transition: color 0.2s ease-in-out;
+}
+h1 a:active, h1 a:link, h1 a:visited {
+    color: #d4af37 !important;
+   
+}
