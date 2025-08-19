@@ -1099,3 +1099,7 @@ p a:active, p a:link, p a:visited {
 .delta-store-history table tbody tr:nth-child(odd) {
     background: rgba(63, 64, 105, 0.7);
 }
+
+.city .mobile-world-menu a {
+    color: #fff; 
+}
