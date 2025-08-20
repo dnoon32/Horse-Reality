@@ -1121,3 +1121,13 @@ p a:active, p a:link, p a:visited {
 .job-item {
     background-color: rgba(63, 64, 105, 0.7) !important;
 }
+
+.link-table-row-outer:nth-child(2n), .market-office-table-row-outer:nth-child(2n) {
+    background-color: rgba(63, 64, 105, 0.4) !important;
+}
+.total-horses, .total-items, .total-vials {
+    color: #fff;
+}
+.total-horses i, .total-items i, .total-vials i {
+    color: gold;
+}
