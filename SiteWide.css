@@ -1132,3 +1132,48 @@ p a:active, p a:link, p a:visited {
     color: gold;
 }
 
+/* Keep modal above your shiny UI, but let Bootstrap control show/hide */
+#marketFilters.modal { position: fixed !important; z-index: 2147483640 !important; }
+.modal-backdrop      { z-index: 2147483630 !important; }
+
+/* Do NOT force display/opacity here. Let Bootstrap toggle them. */
+/* .modal.show { ... }  <-- not needed */
+
+/* Undo your broad grid styling inside the modal only (prevents “distortions”) */
+#marketFilters .container,
+#marketFilters .col-12 {
+  overflow: visible !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  position: static !important;
+}
+
+/* Make sure the close button is visible & clickable (BS4 + BS5) */
+#marketFilters .close,
+#marketFilters .btn-close {
+  position: absolute;
+  top: .75rem; right: .75rem;
+  pointer-events: auto !important;
+  filter: none !important; transform: none !important;
+}
+
+/* Keep clicks enabled inside the modal */
+#marketFilters, #marketFilters * { pointer-events: auto !important; }
+
+/* While a modal is open, avoid clipping/restacking by big wrappers */
+.modal-open .main-content,
+.modal-open .side-nav,
+.modal-open .leftnav,
+.modal-open .center,
+.modal-open .bluebar_container {
+  overflow: visible !important;
+  transform: none !important;
+  filter: none !important;
+  /* re-enable backdrop-filter later if you want and it proves safe */
+  backdrop-filter: none !important;
+}
+
+/* Decorative layers shouldn't intercept clicks */
+.leftnav::before, .leftnav::after,
+.side-nav::before, .side-nav::after,
+.main-content::before, .main-content::after { pointer-events: none !important; }
