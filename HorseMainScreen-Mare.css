@@ -252,7 +252,7 @@
 
 /* === Background image override, but only for mares === */
 .horse-item:has(img.sex-mare) .image {
-    background-image: url("https://i.imgur.com/ssn2iOb.jpeg") !important;
+    background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
