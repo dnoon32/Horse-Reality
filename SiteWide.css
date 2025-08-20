@@ -1113,3 +1113,7 @@ p a:active, p a:link, p a:visited {
 .component.table .table tbody tr:nth-of-type(odd),.component.table .table tbody tr:nth-of-type(even) {
     background-color:transparent !important;
 }
+
+.component.frame .wrapper .content .form-group:last-child, .component.frame .wrapper .content p:last-child {
+    color: #000;
+}
