@@ -1131,3 +1131,25 @@ p a:active, p a:link, p a:visited {
 .total-horses i, .total-items i, .total-vials i {
     color: gold;
 }
+
+/* Keep decorative layers non-interactive (just in case) */
+.leftnav::before, .leftnav::after,
+.side-nav::before, .side-nav::after,
+.main-content::before, .main-content::after {
+  pointer-events: none !important;
+}
+
+/* Ensure Bootstrap modal sits on top of everything */
+.modal       { position: fixed !important; z-index: 200000 !important; inset: 0 auto auto 0 !important; }
+.modal-backdrop { z-index: 199990 !important; }
+
+/* When a modal is open, don't clip it and don't create stacking contexts */
+.modal-open .main-content,
+.modal-open .side-nav,
+.modal-open .leftnav {
+  overflow: visible !important;
+  transform: none !important;
+  filter: none !important;
+  /* Keep your blur; if it still causes issues, comment the next line */
+  /* backdrop-filter: none !important; - uncomment only if needed */
+}
