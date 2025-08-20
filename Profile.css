@@ -71,7 +71,32 @@
     p {
     font-family: monospace;
 }
+/* Change Color Of Player, Milestones, and Estate Blocks */
+.user-profile.periwinkle-pony .breadcrumb, .user-profile.periwinkle-pony .milestones, .user-profile.periwinkle-pony .profile-container .table tbody tr:nth-of-type(odd), .user-profile.periwinkle-pony .profile-side-panel-section {
+    background-color: rgba(63, 64, 105, 0.4) !important; /* 🔁 Change this color */
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px 0 20px 20px;
+    border: 2px solid rgba(63, 64, 105, 0.5); 
+}
 
+.user-profile.periwinkle-pony .profile-container a:hover, .user-profile.periwinkle-pony .title-text, .user-profile.periwinkle-pony h2.profile-side-panel-title, .user-profile.periwinkle-pony td.bold {
+    color: rgba(226, 164, 187) !important;
+}
+
+.user-profile .profile-side-panel-section .tag-player , .user-profile .profile-side-panel-section table tr td {
+  color: gold !important;
+}
+
+.user-profile.periwinkle-pony .profile-container a {
+    color: rgba(226, 164, 187) !important;
+}
+.user-profile.periwinkle-pony .profile-container a:hover {
+    color: gold !important;
+}
+.user-profile.periwinkle-pony .milestone-summary hr-milestone-card {
+  --colour-labels-900: rgba(226, 164, 187) !important;
+}
 
     /* Player, estate, milestone font left side */
     .user-profile.royal-russet .profile-container a:hover, .user-profile.royal-russet .title-text, .user-profile.royal-russet h2.profile-side-panel-title, .user-profile.royal-russet td.bold {
