@@ -13,7 +13,9 @@
     border: 2px solid rgba(63, 64, 105) !important;
 }
 
-
+.main-content {
+    color: #000 !important;
+}
 
 
 /* Profile Name CSS */
