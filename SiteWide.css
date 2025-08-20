@@ -91,7 +91,7 @@ color: #000; /* cornsilk / cream */
   box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
   border: none !important;
   color: #fff !important;
-  /*   overflow: hidden; */
+  overflow: hidden; 
 }
 
 /* shimmering metallic gold border */
@@ -165,7 +165,7 @@ color: #000; /* cornsilk / cream */
   box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
   border: none !important;
   color: #fff !important;
-  /* overflow: hidden; */
+ overflow: hidden; 
 }
 
 /* shimmering metallic gold border */
@@ -258,7 +258,7 @@ color: #000; /* cornsilk / cream */
   --rb: 120px;               /* big bottom corners */
   position: relative;
   border-radius: var(--r) var(--r) var(--rb) var(--rb);
-  /* overflow: hidden; */
+   overflow: hidden; 
   background-color: transparent !important;
   isolation: isolate;
   box-sizing: border-box;
@@ -676,7 +676,7 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
   border: none !important;
   color: #fff !important;
-  /* overflow: hidden; */
+   overflow: hidden; 
 }
 .leftnav::before {
   content: "";
@@ -752,7 +752,7 @@ a {
 .col-12 {
   position: relative;
   border-radius: var(--row-radius);
- /* overflow: hidden; */
+  overflow: hidden; 
 }
 
 /* ================================
@@ -895,7 +895,7 @@ p a:active, p a:link, p a:visited {
 .adopt_blocks{
   position:relative;
   border-radius:var(--r) var(--r) var(--rb) var(--rb);
-  /* overflow:hidden; */
+   overflow:hidden; 
   isolation:isolate;
   box-sizing:border-box;
   border:var(--bw) solid transparent !important; /* needed for gold ring */
