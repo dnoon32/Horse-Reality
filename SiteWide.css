@@ -1117,3 +1117,7 @@ p a:active, p a:link, p a:visited {
 .component.frame .wrapper .content .form-group:last-child, .component.frame .wrapper .content p:last-child {
     color: #000;
 }
+
+.job-item {
+    background-color: rgba(63, 64, 105, 0.7) !important;
+}
