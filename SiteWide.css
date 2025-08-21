@@ -1194,3 +1194,7 @@ p a:active, p a:link, p a:visited {
 .market .col-form-label {
     color: gold;
 }
+
+.market-item-price .item-price .content-background {
+background: transparent !important;
+}
