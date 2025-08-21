@@ -1186,3 +1186,7 @@ p a:active, p a:link, p a:visited {
     border-bottom: 1px solid #fff;
     background-color: rgba(226, 164, 187) !important;
 }
+
+.component.frame .wrapper .content p:last-child {
+    color: #fff;
+}
