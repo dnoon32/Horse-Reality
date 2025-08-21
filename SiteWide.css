@@ -1190,3 +1190,7 @@ p a:active, p a:link, p a:visited {
 .component.frame .wrapper .content p:last-child {
     color: #fff;
 }
+
+.market .col-form-label {
+    color: gold;
+}
