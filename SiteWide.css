@@ -1177,3 +1177,12 @@ p a:active, p a:link, p a:visited {
 .leftnav::before, .leftnav::after,
 .side-nav::before, .side-nav::after,
 .main-content::before, .main-content::after { pointer-events: none !important; }
+
+.component .odd-row
+ {
+    background-color: transparent !important;
+}
+.responsive-table .mine {
+    border-bottom: 1px solid #fff;
+    background-color: rgba(226, 164, 187) !important;
+}
