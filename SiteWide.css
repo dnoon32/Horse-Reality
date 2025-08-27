@@ -1195,6 +1195,6 @@ p a:active, p a:link, p a:visited {
     color: gold;
 }
 
-.market-item-price .item-price .content-background {
-background: transparent !important;
+html body .market-item-price .item-price .content-background {
+    background: transparent !important;
 }
