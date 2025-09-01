@@ -304,10 +304,13 @@
 }
 
 /* Neutralize site’s inline background for mares */
-.horse-item:has(img.sex-stallione) .image[style] {
+.horse-item:has(img.sex-stallion) .image[style] {
     background-color: transparent !important;
 }
 
+.horse-item:has(img.sex-stallion) h2 {
+    color: rgba(226, 164, 187, 1) !important;
+}
 
 
 
