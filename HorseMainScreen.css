@@ -326,7 +326,7 @@
     #a67c00, /* rich gold depth */
     #7a5a21
   );
-color: #000; /* cornsilk / cream */
+color: #000 !important; /* cornsilk / cream */
 
 
 
@@ -335,21 +335,21 @@ color: #000; /* cornsilk / cream */
 
 }
 .horse-item .tagline {
-    color: #fff;
+    color: #fff !important;
 }
 h1 {
-    color: #fff;
+    color: #fff !important;
 }
 h1 a:hover,
 h2 {
-    color: #fff;
+    color: #fff !important;
 }
 button.normalize {
-    color: #fff;
+    color: #fff !important;
 }
 nav .pagination .page-item.active .page-link {
 
-    color:  #000;
+    color:  #000 !important;
    background: linear-gradient(
     120deg,
     #7a5a21, /* dark bronze */
@@ -361,12 +361,12 @@ nav .pagination .page-item.active .page-link {
   );
 }
 nav .pagination .page-item:not(.disabled) .page-link {
-    color:#000;
+    color:#000 !important;
 }
 .button.black,
 .button.secondary.active,
 .button.secondary:hover {
-    color: #000;
+    color: #000 !important;
     background: linear-gradient(
     120deg,
     #7a5a21, /* dark bronze */
