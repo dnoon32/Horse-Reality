@@ -1198,3 +1198,7 @@ p a:active, p a:link, p a:visited {
 html body .market-item-price .item-price .content-background {
     background: transparent !important;
 }
+
+.component.table .table tbody {
+    background-color: rgba(63, 64, 105,0.8);
+}
