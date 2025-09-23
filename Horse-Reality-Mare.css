@@ -125,7 +125,7 @@ body {
     border: none !important;
     box-shadow: none !important;
 }
-body .top {
+div.top {
     background-color: rgba(226, 164, 187) !important;
     color: #fff !important;
 }
