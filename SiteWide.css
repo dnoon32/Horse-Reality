@@ -18,7 +18,10 @@ body {
   );
 color: #000; /* cornsilk / cream */
 }
-
+.top {
+    background-color: rgba(226, 164, 187) !important;
+    color: #fff !important;
+}
 /* === shimmering indigo subtitle === */
 .side-nav ul .subtitle {
     font-weight: 700;
