@@ -16,6 +16,7 @@ body {
 }
 .grid_12.genetics {
     background-color: transparent !important;
+    border: none !important;
 }
 .info_table_row .info_label {
     background-color: rgba(63, 64, 105, 0.5) !important;
