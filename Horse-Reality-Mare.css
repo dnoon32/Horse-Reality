@@ -27,6 +27,10 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
+.grid_12.genetics {
+    background-color: transparent !important;
+}
 .subtitle {
     background: linear-gradient( 120deg,
     rgba(63, 64, 105, 1), /* base indigo */
