@@ -14,6 +14,9 @@ body {
     background-repeat: no-repeat !important;
     background-color: transparent !important;
 }
+.grid_12.genetics {
+    background-color: transparent !important;
+}
 .looking_at {
   background: linear-gradient(45deg, #7a5a21, #d4af37, #ffe066, #fff4cc, #a67c00);
   -webkit-background-clip: text;
