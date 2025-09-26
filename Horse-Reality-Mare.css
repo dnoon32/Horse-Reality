@@ -33,6 +33,7 @@ body {
 
 .grid_12.genetics {
     background-color: transparent !important;
+    border: none !important;
 }
 .subtitle {
     background: linear-gradient( 120deg,
