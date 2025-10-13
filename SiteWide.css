@@ -84,8 +84,8 @@ color: #000; /* cornsilk / cream */
    ========================================= */
 .main-content {
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
-  backdrop-filter: blur(6px) !important;
+  background-color: rgba(63, 64, 105, 0.1) !important;
+  backdrop-filter: blur(2px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
@@ -158,8 +158,8 @@ color: #000; /* cornsilk / cream */
    ========================================= */
 .side-nav {
   position: relative;
-  background-color: rgba(63, 64, 105, 0.7) !important;
-  backdrop-filter: blur(6px) !important;
+  background-color: rgba(63, 64, 105, 0.1) !important;
+  backdrop-filter: blur(2px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-radius: var(--br) !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
