@@ -2,11 +2,7 @@
 .horse_banner img[alt="Background"] {
     display: none !important;
 }
-/* Custom background override */
-body {
-    background: url("https://i.imgur.com/5ivroEs.jpeg") no-repeat fixed 0 0 / cover !important;
-    background-size: cover !important;
-}
+
 .horse_banner {
     background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
     background-size: cover !important;
