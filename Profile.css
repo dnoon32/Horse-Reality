@@ -19,7 +19,7 @@
 .component.frame .wrapper .content .inner a,
 .component.frame .wrapper .content .inner a:link,
 .component.frame .wrapper .content .inner a:visited {
-  color: #000 !important;   /* gold */
+  color: #393A3F !important;   /* gold */
   text-decoration: none;
 }
 @keyframes shimmer {
@@ -71,7 +71,7 @@
 }
 
 .user-profile .profile-side-panel-section .tag-player , .user-profile .profile-side-panel-section table tr td {
-  color: #000 important;
+  color: #393A3F important;
 }
 
 .user-profile.periwinkle-pony .profile-container a {
