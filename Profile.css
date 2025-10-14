@@ -19,7 +19,7 @@
 .component.frame .wrapper .content .inner a,
 .component.frame .wrapper .content .inner a:link,
 .component.frame .wrapper .content .inner a:visited {
-  color: gray !important;   /* gold */
+  color: grey !important;   /* gold */
   text-decoration: none;
 }
 @keyframes shimmer {
