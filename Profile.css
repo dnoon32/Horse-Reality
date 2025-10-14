@@ -65,7 +65,7 @@
 }
 
 .user-profile .profile-side-panel-section .tag-player , .user-profile .profile-side-panel-section table tr td {
- color: gold !important;
+ color: rgba(0, 0, 0, 0.33) !important;
 }
 
 .user-profile.periwinkle-pony .profile-container a {
