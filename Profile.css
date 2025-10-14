@@ -15,13 +15,7 @@
     /* Firefox support */
     animation: shimmer 5s infinite linear;
 }
-/* clickable only when .inner has .active — matches your pointer-events logic */
-.component.frame .wrapper .content .inner a,
-.component.frame .wrapper .content .inner a:link,
-.component.frame .wrapper .content .inner a:visited {
-  color: gold !important;   /* gold */
-  text-decoration: none;
-}
+
 @keyframes shimmer {
     0% {
         background-position: 0% 50%;
