@@ -533,7 +533,7 @@ a {
 .component.frame .wrapper .content .inner a,
 .component.frame .wrapper .content .inner a:link,
 .component.frame .wrapper .content .inner a:visited {
-  color: gold !important;   /* gold */
+  color: rgba(0,0,0) !important;   /* gold */
   text-decoration: none;
 }
 .component.frame .wrapper .content .inner a:hover,
