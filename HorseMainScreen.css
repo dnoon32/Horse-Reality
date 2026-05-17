@@ -564,7 +564,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 }
 
 /* Shared keyframes for sync */
-@keyframes shimmerSweep {
+/* @keyframes shimmerSweep {
     0% {
         background-position: 0% 50%;
     }
@@ -583,4 +583,4 @@ nav .pagination .page-item:not(.disabled) .page-link {
     100% {
         background-position: 200% 50%;
     }
-}
+} */
