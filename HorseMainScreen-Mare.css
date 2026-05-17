@@ -6,7 +6,7 @@
 }
 
 /* === Shared animations (both sections use the same ones) === */
-@keyframes goldShimmer {
+/* @keyframes goldShimmer {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -14,7 +14,7 @@
 @keyframes shineSweep {
   0%   { background-position: -100% 50%; }
   100% { background-position: 200% 50%; }
-}
+} */
 
 /* =========================================
    MAIN CONTENT
@@ -50,7 +50,7 @@
     #7a5a21
   );
   background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+  /* animation: goldShimmer var(--shine-speed) ease-in-out infinite; */
 
   /* cut out the middle so only the ring shows */
   -webkit-mask:
@@ -78,7 +78,7 @@
     transparent 55%
   );
   background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
+ /* animation: shineSweep var(--shine-speed) linear infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
