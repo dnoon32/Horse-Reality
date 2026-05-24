@@ -213,7 +213,7 @@
     /* Shimmer gradient background */
     background: linear-gradient(
         120deg,
-        rgba(68, 45, 44, 1)
+        rgba(173, 101, 104)
     ) !important;
     background-size: 400% 400%;
 /*    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite; */
