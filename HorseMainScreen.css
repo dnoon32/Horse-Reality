@@ -1,53 +1,109 @@
-/* === Global knobs so both shimmer in perfect sync === */
- :root {
-  --bw: 4px;         /* border thickness */
-  --br: 20px;        /* corner radius    */
-  /*--shine-speed: 6s; */ /* animation speed  */
-} 
+/* =========================================================
+   KAIVALYA VIVEK MAIN SCREEN THEME
+   Header Image: https://i.imgur.com/mItVcJ4.jpeg
+   Keeps original mare + stallion color families
+   Reworked borders into soft antique rose / smoke metal
+   ========================================================= */
 
-/* === Shared animations (both sections use the same ones) === */
-/*@keyframes goldShimmer {
+
+/* =========================================================
+   GLOBAL VARIABLES
+   ========================================================= */
+
+:root {
+  --bw: 4px;
+  --br: 20px;
+
+  /* Core Kaivalya Vivek palette */
+  --kv-dark: rgba(45, 34, 36, 1);
+  --kv-brown: rgba(68, 45, 44, 1);
+  --kv-muted: rgba(157, 128, 136, 1);
+  --kv-rose: rgba(226, 164, 187, 1);
+  --kv-light: rgba(245, 224, 232, 1);
+  --kv-cream: rgba(248, 236, 226, 1);
+  --kv-smoke: rgba(78, 82, 86, 1);
+  --kv-bluegray: rgba(64, 94, 104, 1);
+
+  /* Soft metallic border */
+  --kv-metal: linear-gradient(
+    135deg,
+    rgba(45, 34, 36, 1),
+    rgba(118, 86, 91, 1),
+    rgba(213, 178, 187, 1),
+    rgba(246, 226, 230, 1),
+    rgba(157, 128, 136, 1),
+    rgba(68, 45, 44, 1)
+  );
+
+  /* Mare and stallion colors preserved from your original theme */
+  --mare-card: rgba(173, 101, 104, 1);
+  --stallion-card: rgba(78, 82, 86, 1);
+
+  --soft-shadow: 0 0 14px rgba(0, 0, 0, .28);
+}
+
+
+/* =========================================================
+   OPTIONAL ANIMATIONS
+   Currently OFF.
+   Remove the comment marks around animation lines if desired.
+   ========================================================= */
+
+/*
+@keyframes kvMetalShift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-@keyframes shineSweep {
+
+@keyframes kvLightSweep {
   0%   { background-position: -100% 50%; }
   100% { background-position: 200% 50%; }
 }
 */
-/* =========================================
-   MAIN CONTENT
-   ========================================= */
+
+
+/* =========================================================
+   MAIN CONTENT PANEL
+   ========================================================= */
+
 .main-content {
   position: relative;
-  background-color: rgba(226, 164, 187, 0.1) !important;
-  backdrop-filter: blur(2px) !important;
+
+  background:
+    linear-gradient(
+      rgba(245, 224, 232, .18),
+      rgba(68, 45, 44, .16)
+    ),
+    url("https://i.imgur.com/mItVcJ4.jpeg") !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: soft-light !important;
+
+  backdrop-filter: blur(3px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
+
   border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  box-shadow: var(--soft-shadow) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* shimmering metallic gold border */
+/* Main content metallic border */
 .main-content::before {
   content: "";
   position: absolute;
   inset: 0;
   padding: var(--bw);
-  border-radius: var(--br); 
+  border-radius: var(--br);
 
-  /* high-contrast golds (same palette as side-nav) */
-  background: linear-gradient(
-    120deg,
-   rgba(157, 128, 136)
-  );
-  background-size: 400% 400%;
-/*  animation: goldShimmer var(--shine-speed) ease-in-out infinite; */
+  background: var(--kv-metal);
+  background-size: 300% 300%;
+  /* animation: kvMetalShift 10s ease-in-out infinite; */
 
-  /* cut out the middle so only the ring shows */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -58,22 +114,22 @@
   z-index: 1;
 }
 
-/* extra reflective streak */
+/* Subtle light reflection on main border */
 .main-content::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: var(--br);
   padding: var(--bw);
+  border-radius: var(--br);
 
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%, /* bright streak */
-    transparent 55%
+    transparent 44%,
+    rgba(255, 255, 255, .36) 50%,
+    transparent 56%
   );
   background-size: 300% 300%;
- /* animation: shineSweep var(--shine-speed) linear infinite; */
+  /* animation: kvLightSweep 12s linear infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -85,22 +141,31 @@
   z-index: 2;
 }
 
-/* =========================================
+
+/* =========================================================
    SIDE NAV
-   ========================================= */
+   ========================================================= */
+
 .side-nav {
   position: relative;
-  background-color: rgba(63, 64, 105, 0.1) !important;
-  backdrop-filter: blur(2px) !important;
+
+  background:
+    linear-gradient(
+      rgba(45, 34, 36, .38),
+      rgba(157, 128, 136, .18)
+    ) !important;
+
+  backdrop-filter: blur(3px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
+
   border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
+  box-shadow: var(--soft-shadow) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* shimmering metallic gold border */
+/* Side nav metallic border */
 .side-nav::before {
   content: "";
   position: absolute;
@@ -108,13 +173,9 @@
   padding: var(--bw);
   border-radius: var(--br);
 
-  /* use the EXACT same palette and animation as .main-content */
-  background: linear-gradient(
-    120deg,
-    rgba(157, 128, 136)
-  );
-  background-size: 400% 400%;
- /* animation: goldShimmer var(--shine-speed) ease-in-out infinite; */
+  background: var(--kv-metal);
+  background-size: 300% 300%;
+  /* animation: kvMetalShift 10s ease-in-out infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -126,22 +187,22 @@
   z-index: 1;
 }
 
-/* extra reflective streak */
+/* Side nav light reflection */
 .side-nav::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: var(--br);
   padding: var(--bw);
+  border-radius: var(--br);
 
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%,
-    transparent 55%
+    transparent 44%,
+    rgba(255, 255, 255, .32) 50%,
+    transparent 56%
   );
   background-size: 300% 300%;
-/*  animation: shineSweep var(--shine-speed) linear infinite; */
+  /* animation: kvLightSweep 12s linear infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -153,381 +214,345 @@
   z-index: 2;
 }
 
-/* (Optional) Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .main-content::before,
-  .main-content::after,
-  .side-nav::before,
-  .side-nav::after {
-    animation: none;
-  }
-}
-
-
-
-
-
-
-
+/* Side nav hover */
 .side-nav a:hover {
-    color: rgba(64, 94, 104) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
+  color: var(--kv-bluegray) !important;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
 }
 
-:root {
-    --shimmer-duration: 12s;
-    --streak-duration: 12s;
-}
+/* Side nav category subtitles */
+.side-nav ul .subtitle {
+  font-weight: 700;
 
-/* Shared keyframes for sync */
-/* @keyframes shimmerSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+  background: linear-gradient(
+    120deg,
+    rgba(68, 45, 44, 1),
+    rgba(157, 128, 136, 1),
+    rgba(245, 224, 232, 1)
+  );
+  background-size: 300% 300%;
 
-@keyframes specularSweep {
-    0% {
-        background-position: -100% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
-} */
-
-/* === Female - Mare (pink shimmer + background image) === */
-.horse-item:has(img.sex-mare) .content {
-    position: relative;
-    border-radius: inherit;
-    overflow: hidden;
-
-    /* Shimmer gradient background */
-    background: linear-gradient(
-        120deg,
-        rgba(173, 101, 104)
-    ) !important;
-    background-size: 400% 400%;
-/*    animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite; */
-}
-
-/* Add shimmer streak overlay */
-.horse-item:has(img.sex-mare) .content::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-        120deg,
-        transparent 45%,
-        rgba(255, 255, 255, 0.4) 50%,
-        transparent 55%
-    );
-    background-size: 300% 300%;
- /*   animation: specularSweep var(--streak-duration) linear infinite; */
-    pointer-events: none;
-}
-
-/* === Background image override, but only for mares === */
-.horse-item:has(img.sex-mare) .image {
-    background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-/* Neutralize site’s inline background for mares */
-.horse-item:has(img.sex-mare) .image[style] {
-    background-color: transparent !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 
-/* === Male - Stallion (blue shimmer) === */
-.horse-item:has(img.sex-stallion) .content {
-    position: relative;
-    border-radius: inherit;
-    overflow: hidden;
+/* =========================================================
+   TOP HEADER MENU
+   Uses your Imgur image
+   ========================================================= */
 
-    background: linear-gradient( 120deg,
-    rgba(78, 82, 86)
-    ) !important;
-    background-size: 400% 400%;
- /*   animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;*/
-}
+.header-menu {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(45, 34, 36, .88),
+      rgba(157, 128, 136, .72),
+      rgba(226, 164, 187, .48),
+      rgba(68, 45, 44, .82)
+    ),
+    url("https://i.imgur.com/mItVcJ4.jpeg") !important;
 
-.horse-item:has(img.sex-stallion) .content::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient( 120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 55%);
-    background-size: 300% 300%;
-  /*  animation: specularSweep var(--streak-duration) linear infinite; */
-    pointer-events: none;
-}
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: multiply !important;
 
-/* === Background image override, but only for mares === */
-.horse-item:has(img.sex-stallion) .image {
-    background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-/* Neutralize site’s inline background for mares */
-.horse-item:has(img.sex-stallion) .image[style] {
-    background-color: transparent !important;
-}
-
-.horse-item:has(img.sex-stallion) h2 {
-    color: rgba(164, 124, 112) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .28) !important;
 }
 
 
-
-
+/* =========================================================
+   TABS
+   ========================================================= */
 
 .tabs .tab.active {
-     background: linear-gradient(
+  background: linear-gradient(
     120deg,
-    rgba(157, 128, 136)
-  );
-color: #000 !important; /* cornsilk / cream */
+    rgba(68, 45, 44, 1),
+    rgba(157, 128, 136, 1),
+    rgba(226, 164, 187, 1)
+  ) !important;
 
-
-
-
-
-
-}
-.horse-item .tagline {
-    color: #fff !important;
-}
-h1 {
-    color: #fff !important;
-}
-h1 a:hover,
-h2 {
-    color: #fff !important;
-}
-button.normalize {
-    color: #fff !important;
-}
-nav .pagination .page-item.active .page-link {
-
-    color:  #000 !important;
-   background: linear-gradient(
-    120deg,
-    rgba(157, 128, 136)
-  );
-}
-nav .pagination .page-item:not(.disabled) .page-link {
-    color:#000 !important;
-}
-.button.black,
-.button.secondary.active,
-.button.secondary:hover {
-    color: #000 !important;
-    background: linear-gradient(
-    120deg,
-   rgba(157, 128, 136)
-  );
-}
-
-/* === shimmering indigo subtitle === */
-.side-nav ul .subtitle {
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-    rgba(68, 45, 44, 1)
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
- /*   animation: shimmer 5s infinite linear; */
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  color: #000 !important;
 }
 
 
+/* =========================================================
+   HORSE GRID CARDS
+   ========================================================= */
 
-
-/* metallic shimmering gold border (full card) */
-.horse-grid .horse-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: var(--bw);
-    border-radius: inherit;
-
-    /* gold gradient from screenshot */
-    background: linear-gradient( 135deg,
-   rgba(157, 128, 136)
-                               );
-    background-size: 300% 300%;
- 
-
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* @keyframes goldShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-
-
-.horses-title h1 {
-    margin-right: 8px;
-    margin-bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    font-weight: 700;
-   background: linear-gradient( 120deg,
-    rgba(68, 45, 44, 1)
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
- /*   animation: shimmerH1 5s infinite linear; */
-}
-
-/* @keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-
-.horses-title h2 {
-
-
-
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-   rgba(164, 124, 112)
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
- /*   animation: shimmerH1 5s infinite linear; */
-}
-
-/* @keyframes shimmerH1 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-/* shimmering indigo background */
-.header-menu {
-    background: linear-gradient( 120deg,
-    rgba(157, 128, 136)
-    );
-    background-size: 300% 300%;
- /*   animation: headerShimmer 6s infinite linear; */
-}
-
-/* @keyframes headerShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-
-/* === knobs === */
 .horse-grid .horse-item {
-  --r: 18px;      /* base corner radius for the top corners  */
-  --rb: 120px;     /* big bottom radius                       */
-  --bw: 4px;      /* metallic border thickness               */
+  --r: 18px;
+  --rb: 120px;
+  --bw: 4px;
 
   position: relative;
   border-radius: var(--r) var(--r) var(--rb) var(--rb);
   overflow: hidden;
 }
 
-:root {
-    --shimmer-duration: 12s;
-    --streak-duration: 12s;
+/* Full card metallic border */
+.horse-grid .horse-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: inherit;
+
+  background: var(--kv-metal);
+  background-size: 300% 300%;
+  /* animation: kvMetalShift 10s ease-in-out infinite; */
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* Shared keyframes for sync */
-/* @keyframes shimmerSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+
+/* =========================================================
+   MARE CARDS
+   Keeps your original mare color family
+   ========================================================= */
+
+.horse-item:has(img.sex-mare) .content {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    rgba(122, 66, 70, 1),
+    var(--mare-card),
+    rgba(213, 138, 143, 1),
+    var(--mare-card),
+    rgba(92, 48, 52, 1)
+  ) !important;
+
+  background-size: 400% 400%;
+  /* animation: kvMetalShift 12s ease-in-out infinite; */
 }
 
-@keyframes specularSweep {
-    0% {
-        background-position: -100% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
-} */
+/* Mare soft shine overlay */
+.horse-item:has(img.sex-mare) .content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, .28) 50%,
+    transparent 55%
+  );
+
+  background-size: 300% 300%;
+  /* animation: kvLightSweep 12s linear infinite; */
+  pointer-events: none;
+}
+
+/* Mare image background */
+.horse-item:has(img.sex-mare) .image {
+  background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Neutralize site's inline background for mares */
+.horse-item:has(img.sex-mare) .image[style] {
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   STALLION CARDS
+   Keeps your original stallion color family
+   ========================================================= */
+
+.horse-item:has(img.sex-stallion) .content {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    rgba(42, 45, 48, 1),
+    var(--stallion-card),
+    rgba(105, 110, 115, 1),
+    var(--stallion-card),
+    rgba(30, 32, 35, 1)
+  ) !important;
+
+  background-size: 400% 400%;
+  /* animation: kvMetalShift 12s ease-in-out infinite; */
+}
+
+/* Stallion soft shine overlay */
+.horse-item:has(img.sex-stallion) .content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 45%,
+    rgba(255, 255, 255, .24) 50%,
+    transparent 55%
+  );
+
+  background-size: 300% 300%;
+  /* animation: kvLightSweep 12s linear infinite; */
+  pointer-events: none;
+}
+
+/* Stallion image background */
+.horse-item:has(img.sex-stallion) .image {
+  background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Neutralize site's inline background for stallions */
+.horse-item:has(img.sex-stallion) .image[style] {
+  background-color: transparent !important;
+}
+
+/* Stallion name/title color */
+.horse-item:has(img.sex-stallion) h2 {
+  color: rgba(213, 178, 187, 1) !important;
+}
+
+
+/* =========================================================
+   HORSE TEXT
+   ========================================================= */
+
+.horse-item .tagline {
+  color: #fff !important;
+}
+
+h1 {
+  color: #fff !important;
+}
+
+h1 a:hover,
+h2 {
+  color: #fff !important;
+}
+
+button.normalize {
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   HORSES PAGE TITLE
+   ========================================================= */
+
+.horses-title h1 {
+  margin-right: 8px;
+  margin-bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-weight: 700;
+
+  background: linear-gradient(
+    120deg,
+    rgba(68, 45, 44, 1),
+    rgba(157, 128, 136, 1),
+    rgba(245, 224, 232, 1),
+    rgba(68, 45, 44, 1)
+  );
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.horses-title h2 {
+  font-weight: 700;
+
+  background: linear-gradient(
+    120deg,
+    rgba(164, 124, 112, 1),
+    rgba(245, 224, 232, 1),
+    rgba(157, 128, 136, 1)
+  );
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+nav .pagination .page-item.active .page-link {
+  color: #000 !important;
+
+  background: linear-gradient(
+    120deg,
+    rgba(68, 45, 44, 1),
+    rgba(157, 128, 136, 1),
+    rgba(226, 164, 187, 1)
+  ) !important;
+}
+
+nav .pagination .page-item:not(.disabled) .page-link {
+  color: #000 !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button.black,
+.button.secondary.active,
+.button.secondary:hover {
+  color: #000 !important;
+
+  background: linear-gradient(
+    120deg,
+    rgba(68, 45, 44, 1),
+    rgba(157, 128, 136, 1),
+    rgba(226, 164, 187, 1)
+  ) !important;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .main-content::before,
+  .main-content::after,
+  .side-nav::before,
+  .side-nav::after,
+  .horse-grid .horse-item::before,
+  .horse-item:has(img.sex-mare) .content,
+  .horse-item:has(img.sex-mare) .content::after,
+  .horse-item:has(img.sex-stallion) .content,
+  .horse-item:has(img.sex-stallion) .content::after {
+    animation: none !important;
+  }
+}
