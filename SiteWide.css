@@ -1203,31 +1203,31 @@ form[action*="/notifications"] .component.frame .wrapper .header {
   background:
     linear-gradient(
       135deg,
-      rgba(28, 25, 27, .98),
-      rgba(42, 38, 41, .96),
-      rgba(78, 82, 86, .88),
-      rgba(92, 48, 56, .84),
-      rgba(28, 25, 27, .98)
+      rgba(28, 25, 27, 1),
+      rgba(42, 38, 41, 1),
+      rgba(78, 82, 86, 1),
+      rgba(92, 48, 56, 1),
+      rgba(28, 25, 27, 1)
     ) !important;
 
   color: var(--kv-text) !important;
   font-weight: 900 !important;
   letter-spacing: .2px !important;
 
-  border-bottom: 2px solid rgba(241, 204, 211, .38) !important;
+  border-bottom: 2px solid rgba(241, 204, 211, 1) !important;
 
   text-shadow:
     0 1px 2px rgba(0, 0, 0, .75),
-    0 0 7px rgba(241, 204, 211, .20) !important;
+    0 0 7px rgba(241, 204, 211, 1) !important;
 }
 
 /* Notification table content area */
 form[action*="/notifications"] .component.frame .wrapper .content {
   background:
     linear-gradient(
-      rgba(42, 38, 41, .84),
-      rgba(92, 48, 56, .32),
-      rgba(28, 25, 27, .78)
+      rgba(42, 38, 41, 1),
+      rgba(92, 48, 56, 1),
+      rgba(28, 25, 27, 1)
     ) !important;
 
   color: var(--kv-text) !important;
@@ -1514,4 +1514,119 @@ form[action*="/notifications"] .btn:hover {
   .side-nav ul .subtitle {
     animation: none !important;
   }
+}
+/* =========================================================
+   STALL NAMES / TABS — CLEAN LEFT-SIDE STYLE FIX
+   Paste at the VERY BOTTOM of site-wide CSS
+   ========================================================= */
+
+
+/* All stall tabs: clean transparent style */
+.tabs .tab,
+.tabs .tab a,
+.tabs .tab:link,
+.tabs .tab:visited {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+
+  color: rgba(248, 232, 226, .96) !important;
+  -webkit-text-fill-color: rgba(248, 232, 226, .96) !important;
+
+  font-weight: 800 !important;
+  letter-spacing: .15px !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .72),
+    0 0 5px rgba(92, 48, 56, .32) !important;
+
+  opacity: .92 !important;
+
+  transition:
+    color .18s ease,
+    opacity .18s ease,
+    text-shadow .18s ease,
+    border-color .18s ease,
+    filter .18s ease !important;
+}
+
+
+/* Active stall tab: NO filled box, just brighter text + soft underline */
+.tabs .tab.active,
+.tabs .tab.active a {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+
+  color: rgba(248, 232, 226, 1) !important;
+  -webkit-text-fill-color: rgba(248, 232, 226, 1) !important;
+
+  font-weight: 900 !important;
+  opacity: 1 !important;
+
+  border: none !important;
+  border-bottom: 2px solid rgba(241, 204, 211, .82) !important;
+  border-radius: 0 !important;
+
+  box-shadow:
+    0 2px 0 rgba(92, 48, 56, .32),
+    0 0 8px rgba(241, 204, 211, .20) !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .78),
+    0 0 7px rgba(241, 204, 211, .28) !important;
+}
+
+
+/* Hover: noticeable but still clean */
+.tabs .tab:hover,
+.tabs .tab:hover a,
+.tabs .tab a:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+
+  color: rgba(241, 204, 211, 1) !important;
+  -webkit-text-fill-color: rgba(241, 204, 211, 1) !important;
+
+  opacity: 1 !important;
+  filter: brightness(1.12) !important;
+
+  border-bottom: 2px solid rgba(241, 204, 211, .55) !important;
+
+  text-decoration: none !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .78),
+    0 0 8px rgba(241, 204, 211, .32) !important;
+}
+
+
+/* Remove any accidental button/card look from tab containers */
+.tabs .tab::before,
+.tabs .tab::after,
+.tabs .tab.active::before,
+.tabs .tab.active::after {
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+/* Keeps the little edit/trash icons readable beside stall names */
+.tabs .tab i,
+.tabs .tab svg,
+.tabs .tab img,
+.tabs .tab.active i,
+.tabs .tab.active svg,
+.tabs .tab.active img {
+  opacity: .9 !important;
+  filter:
+    drop-shadow(0 1px 2px rgba(0, 0, 0, .55))
+    drop-shadow(0 0 3px rgba(241, 204, 211, .18)) !important;
 }
