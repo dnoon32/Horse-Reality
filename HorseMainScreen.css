@@ -1,6 +1,5 @@
 /* =========================================================
    KAIVALYA VIVEK — ROSE SMOKE METAL THEME
-   Header Image: https://i.imgur.com/mItVcJ4.jpeg
 
    Requested changes:
    - Removed streak overlay from horse profile cards
@@ -36,9 +35,6 @@
 
   /* Solid horse-card text color */
   --kv-horse-text: rgba(248, 232, 226, 1);
-
-  /* Header image */
-  --kv-header-img: url("https://i.imgur.com/mItVcJ4.jpeg");
 
   /* Main rose smoke metal border */
   --kv-border-metal: linear-gradient(
