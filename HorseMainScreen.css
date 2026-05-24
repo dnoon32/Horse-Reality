@@ -619,13 +619,13 @@ nav .pagination .page-link {
 
   text-shadow:
     0 1px 2px rgba(0, 0, 0, .55),
-    0 0 6px rgba(241, 204, 211, .22) !important;
+    0 0 6px rgba(241, 204, 211, 1) !important;
 }
 
 /* Keeps the active stall tab from turning into a dark filled button */
 .tabs .tab.active {
-  border: 1px solid rgba(241, 204, 211, .35) !important;
+  border: 1px solid rgba(241, 204, 211, 1) !important;
   box-shadow:
-    inset 0 0 10px rgba(28, 25, 27, .22),
-    0 0 8px rgba(241, 204, 211, .18) !important;
+    inset 0 0 10px rgba(28, 25, 27, 1),
+    0 0 8px rgba(241, 204, 211, 1) !important;
 }
