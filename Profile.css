@@ -77,5 +77,57 @@
 .user-profile.periwinkle-pony .milestone-summary hr-milestone-card {
   --colour-labels-900: rgba(226, 164, 187) !important;
 }
+/* =========================================================
+   PROFILE HORSE TABLE — LIGHT ROW TEXT FIX ONLY
+   Changes TEXT COLOR ONLY on lighter rows.
+   Does not change row/background color.
+   ========================================================= */
 
-   
+/* Light alternating rows in profile horse table */
+.user-profile table.table-striped tbody tr:nth-child(odd) td,
+.user-profile table.table-striped tbody tr:nth-child(odd) td *,
+.component.table table.table-striped tbody tr:nth-child(odd) td,
+.component.table table.table-striped tbody tr:nth-child(odd) td *,
+table.table-striped tbody tr:nth-child(odd) td.horse-name-cell,
+table.table-striped tbody tr:nth-child(odd) td.horse-name-cell *,
+table.table-striped tbody tr:nth-child(odd) td {
+  color: rgba(42, 38, 41, 1) !important;
+  -webkit-text-fill-color: rgba(42, 38, 41, 1) !important;
+
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, .32) !important;
+}
+
+/* Keep links on light rows dark too */
+.user-profile table.table-striped tbody tr:nth-child(odd) td a,
+.component.table table.table-striped tbody tr:nth-child(odd) td a,
+table.table-striped tbody tr:nth-child(odd) td a {
+  color: rgba(42, 38, 41, 1) !important;
+  -webkit-text-fill-color: rgba(42, 38, 41, 1) !important;
+
+  font-weight: 800 !important;
+}
+
+/* Hover on light rows: still dark, just slightly richer */
+.user-profile table.table-striped tbody tr:nth-child(odd):hover td,
+.user-profile table.table-striped tbody tr:nth-child(odd):hover td *,
+.component.table table.table-striped tbody tr:nth-child(odd):hover td,
+.component.table table.table-striped tbody tr:nth-child(odd):hover td *,
+table.table-striped tbody tr:nth-child(odd):hover td,
+table.table-striped tbody tr:nth-child(odd):hover td * {
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+}
+
+/* Dark rows stay light-colored text */
+.user-profile table.table-striped tbody tr:nth-child(even) td,
+.user-profile table.table-striped tbody tr:nth-child(even) td *,
+.component.table table.table-striped tbody tr:nth-child(even) td,
+.component.table table.table-striped tbody tr:nth-child(even) td *,
+table.table-striped tbody tr:nth-child(even) td {
+  color: rgba(248, 232, 226, 1) !important;
+  -webkit-text-fill-color: rgba(248, 232, 226, 1) !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .55) !important;
+}
