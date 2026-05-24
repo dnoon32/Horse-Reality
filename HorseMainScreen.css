@@ -117,7 +117,7 @@
       rgba(92, 48, 56, .18),
       rgba(157, 128, 136, .16)
     ),
-    var(--kv-header-img) !important;
+   /* var(--kv-header-img) !important;*/
 
   background-size: cover !important;
   background-position: center !important;
@@ -294,7 +294,7 @@
       rgba(208, 132, 148, .38),
       rgba(28, 25, 27, .84)
     ),
-    var(--kv-header-img) !important;
+    /*var(--kv-header-img) !important;*/
 
   background-size: cover !important;
   background-position: center !important;
