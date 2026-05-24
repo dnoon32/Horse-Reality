@@ -475,7 +475,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 /* shimmering indigo background */
 .header-menu {
     background: linear-gradient( 120deg,
-    rgba(164, 124, 112)
+    rgba(157, 128, 136)
     );
     background-size: 300% 300%;
  /*   animation: headerShimmer 6s infinite linear; */
