@@ -1212,17 +1212,17 @@ nav .pagination .page-link {
   color: var(--kv-text) !important;
 }
 
-/*.component.table .table tbody {
+.component.table .table tbody {
   background-color: rgba(28, 25, 27, .82) !important;
-} */
+} 
 
 .component.table .table tbody tr:nth-of-type(odd)
  { 
   background-color: rgba(210, 197, 193, .82) !important;
 },
 .component.table .table tbody tr:nth-of-type(even) {
- /* background-color: transparent !important;*/
-    background-color: rgba(28, 25, 27, .82) !important;
+ background-color: transparent !important;
+    
 }
 
 .even,
