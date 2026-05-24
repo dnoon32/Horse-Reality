@@ -257,11 +257,7 @@
     overflow: hidden;
 
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* deeper navy */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(164, 124, 112)
     ) !important;
     background-size: 400% 400%;
  /*   animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;*/
@@ -295,7 +291,7 @@
 }
 
 .horse-item:has(img.sex-stallion) h2 {
-    color: rgba(226, 164, 187, 1) !important;
+    color: rgba(164, 124, 112) !important;
 }
 
 
@@ -454,11 +450,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 
     font-weight: 700;
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+   rgba(164, 124, 112)
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -483,11 +475,7 @@ nav .pagination .page-item:not(.disabled) .page-link {
 /* shimmering indigo background */
 .header-menu {
     background: linear-gradient( 120deg,
-    rgba(63, 64, 105, 1), /* base indigo */
-    rgba(110, 112, 165, 1), /* lighter highlight */
-    rgba(63, 64, 105, 1), /* return to base */
-    rgba(40, 41, 70, 1), /* darker depth */
-    rgba(150, 152, 200, 1)/* bright shimmer streak */
+    rgba(164, 124, 112)
     );
     background-size: 300% 300%;
  /*   animation: headerShimmer 6s infinite linear; */
