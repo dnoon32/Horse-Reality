@@ -2,11 +2,12 @@
    KAIVALYA VIVEK — ROSE SMOKE METAL THEME
    Header Image: https://i.imgur.com/mItVcJ4.jpeg
 
-   Theme direction:
-   - Rose smoke metal borders
-   - Pinker mare card tone
-   - Metal gray stallion card tone
-   - Smoky rose-metal gradient lettering in horse cards
+   Requested changes:
+   - Removed streak overlay from horse profile cards
+   - Horse description-box lettering is now solid light rose-metal color
+   - Horse card text remains bold with depth/shadow
+   - Mare stall card image changed to: https://i.imgur.com/HwSUbSU.jpeg
+   - Stallion stall card image changed to: https://i.imgur.com/Zq5Rz24.jpeg
    ========================================================= */
 
 
@@ -33,6 +34,9 @@
   --kv-creammetal: rgba(248, 232, 226, 1);
   --kv-mutedmauve: rgba(157, 128, 136, 1);
 
+  /* Solid horse-card text color */
+  --kv-horse-text: rgba(248, 232, 226, 1);
+
   /* Header image */
   --kv-header-img: url("https://i.imgur.com/mItVcJ4.jpeg");
 
@@ -48,7 +52,7 @@
     rgba(42, 38, 41, 1)
   );
 
-  /* Text gradient for horse-card lettering */
+  /* Gradient text for nav/title areas only */
   --kv-text-metal: linear-gradient(
     120deg,
     rgba(248, 232, 226, 1),
@@ -88,7 +92,6 @@
 /* =========================================================
    OPTIONAL ANIMATIONS
    These are included but turned off by default.
-   To activate, uncomment the animation lines lower in the code.
    ========================================================= */
 
 /*
@@ -157,7 +160,7 @@
   z-index: 1;
 }
 
-/* Subtle reflective border streak */
+/* Subtle reflective border streak for main content only */
 .main-content::after {
   content: "";
   position: absolute;
@@ -376,29 +379,14 @@
   box-shadow: inset 0 0 22px rgba(92, 48, 56, .32) !important;
 }
 
-/* Mare soft shine overlay */
+/* Removed mare profile streak */
 .horse-item:has(img.sex-mare) .content::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  background: linear-gradient(
-    120deg,
-    transparent 43%,
-    rgba(255, 240, 244, .30) 50%,
-    transparent 57%
-  );
-
-  background-size: 300% 300%;
-  /* animation: kvShineSweep 14s linear infinite; */
-  pointer-events: none;
-  z-index: 1;
+  content: none !important;
 }
 
-/* Mare image background */
+/* Mare stall card image */
 .horse-item:has(img.sex-mare) .image {
-  background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important;
+  background-image: url("https://i.imgur.com/HwSUbSU.jpeg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -426,29 +414,14 @@
   box-shadow: inset 0 0 24px rgba(0, 0, 0, .38) !important;
 }
 
-/* Stallion soft shine overlay */
+/* Removed stallion profile streak */
 .horse-item:has(img.sex-stallion) .content::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  background: linear-gradient(
-    120deg,
-    transparent 43%,
-    rgba(241, 204, 211, .22) 50%,
-    transparent 57%
-  );
-
-  background-size: 300% 300%;
-  /* animation: kvShineSweep 14s linear infinite; */
-  pointer-events: none;
-  z-index: 1;
+  content: none !important;
 }
 
-/* Stallion image background */
+/* Stallion stall card image */
 .horse-item:has(img.sex-stallion) .image {
-  background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+  background-image: url("https://i.imgur.com/Zq5Rz24.jpeg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -461,11 +434,11 @@
 
 
 /* =========================================================
-   HORSE CARD TEXT — SMOKY ROSE METAL GRADIENT
-   Applies to lettering inside the horse description/card boxes.
+   HORSE CARD TEXT — SOLID LIGHT ROSE METAL
+   Bold, solid color, with depth.
+   No gradient.
    ========================================================= */
 
-/* Main horse card text targets */
 .horse-grid .horse-item .content,
 .horse-grid .horse-item .content *,
 .horse-item .tagline,
@@ -478,16 +451,18 @@
 .horse-item small,
 .horse-item strong,
 .horse-item em {
-  background: var(--kv-text-metal) !important;
-  background-size: 300% 300% !important;
+  background: none !important;
 
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--kv-horse-text) !important;
+  background-clip: initial !important;
 
-  color: transparent !important;
-  font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, .34);
+  color: var(--kv-horse-text) !important;
+  font-weight: 700 !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .55),
+    0 0 6px rgba(92, 48, 56, .26) !important;
 }
 
 /* Keeps icons/images from being accidentally affected */
@@ -617,9 +592,7 @@ nav .pagination .page-link {
   .side-nav::after,
   .horse-grid .horse-item::before,
   .horse-item:has(img.sex-mare) .content,
-  .horse-item:has(img.sex-mare) .content::after,
-  .horse-item:has(img.sex-stallion) .content,
-  .horse-item:has(img.sex-stallion) .content::after {
+  .horse-item:has(img.sex-stallion) .content {
     animation: none !important;
   }
 }
