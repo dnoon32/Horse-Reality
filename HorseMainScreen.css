@@ -597,35 +597,49 @@ nav .pagination .page-link {
   }
 }
 /* =========================================================
-   STALL NAMES — ROSE SMOKE METAL TEXT
-   Matches the thin outer border shimmer palette.
-   Keeps depth/boldness.
+   STALL NAMES — SOLID ROSE SMOKE COLOR
+   Fixes transparent tab/stall names.
    ========================================================= */
 
 .tabs .tab,
 .tabs .tab a,
 .tabs .tab.active,
 .tabs .tab.active a {
+  background: none !important;
+
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: rgba(248, 232, 226, 1) !important;
+  background-clip: initial !important;
+
+  color: rgba(248, 232, 226, 1) !important;
   font-weight: 800 !important;
 
-  background: var(--kv-border-metal) !important;
-  background-size: 350% 350% !important;
-
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-
-  color: transparent !important;
-
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, .55),
-    0 0 6px rgba(241, 204, 211, 1) !important;
+    0 1px 2px rgba(0, 0, 0, .65),
+    0 0 6px rgba(92, 48, 56, .35) !important;
 }
 
-/* Keeps the active stall tab from turning into a dark filled button */
+/* Active stall tab background stays rose smoke metal */
 .tabs .tab.active {
-  border: 1px solid rgba(241, 204, 211, 1) !important;
+  background: var(--kv-border-metal) !important;
+  background-size: 300% 300% !important;
+
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+
+  border: 1px solid rgba(241, 204, 211, .35) !important;
   box-shadow:
-    inset 0 0 10px rgba(28, 25, 27, 1),
-    0 0 8px rgba(241, 204, 211, 1) !important;
+    inset 0 0 10px rgba(28, 25, 27, .22),
+    0 0 8px rgba(241, 204, 211, .18) !important;
+}
+
+/* Active stall tab link/text */
+.tabs .tab.active a {
+  background: none !important;
+
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, .28) !important;
 }
