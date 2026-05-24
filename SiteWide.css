@@ -1139,3 +1139,242 @@ html body .market-item-price .item-price .content-background {
     animation: none !important;
   }
 }
+/* =========================================================
+   NOTIFICATIONS PAGE — ROSE SMOKE METAL THEME
+   Paste at the VERY BOTTOM of site-wide CSS
+   ========================================================= */
+
+
+/* Main notification frame wrapper */
+form[action*="/notifications"] .component.frame,
+form[action*="/notifications"] .component.frame .wrapper {
+  background: transparent !important;
+  border-radius: var(--br) !important;
+  overflow: hidden !important;
+  box-shadow: var(--kv-soft-shadow), var(--kv-inner-shadow) !important;
+}
+
+
+/* Darker top Notifications bar */
+form[action*="/notifications"] .component.frame .wrapper .header {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(28, 25, 27, .98),
+      rgba(42, 38, 41, .96),
+      rgba(78, 82, 86, .88),
+      rgba(92, 48, 56, .84),
+      rgba(28, 25, 27, .98)
+    ) !important;
+
+  color: var(--kv-text) !important;
+  font-weight: 900 !important;
+  letter-spacing: .2px !important;
+
+  border-bottom: 2px solid rgba(241, 204, 211, .38) !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .75),
+    0 0 7px rgba(241, 204, 211, .20) !important;
+}
+
+
+/* Content area behind the notification table */
+form[action*="/notifications"] .component.frame .wrapper .content {
+  background:
+    linear-gradient(
+      rgba(42, 38, 41, .84),
+      rgba(92, 48, 56, .32),
+      rgba(28, 25, 27, .78)
+    ) !important;
+
+  color: var(--kv-text) !important;
+}
+
+
+/* The Description / Date bar — lighter than Notifications bar */
+form[action*="/notifications"] .component.frame .wrapper .content table thead,
+form[action*="/notifications"] .component.frame .wrapper .content table thead tr,
+form[action*="/notifications"] .component.frame .wrapper .content table thead th {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(122, 68, 78, .92),
+      rgba(157, 104, 116, .86),
+      rgba(208, 132, 148, .62),
+      rgba(78, 82, 86, .72)
+    ) !important;
+
+  color: var(--kv-text) !important;
+  -webkit-text-fill-color: var(--kv-text) !important;
+
+  font-weight: 900 !important;
+  letter-spacing: .2px !important;
+
+  border: none !important;
+  border-bottom: 1px solid rgba(241, 204, 211, .42) !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .65),
+    0 0 5px rgba(241, 204, 211, .18) !important;
+}
+
+
+/* Notification table base */
+form[action*="/notifications"] .component.frame .wrapper .content table {
+  background: transparent !important;
+  color: var(--kv-text) !important;
+  border-collapse: collapse !important;
+}
+
+
+/* Read notification rows — softer/dimmer */
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr {
+  background: rgba(42, 38, 41, .62) !important;
+  color: rgba(241, 204, 211, .78) !important;
+
+  border-bottom: 1px solid rgba(241, 204, 211, .18) !important;
+
+  font-weight: 600 !important;
+  opacity: .82 !important;
+
+  transition:
+    background-color .2s ease,
+    color .2s ease,
+    opacity .2s ease,
+    filter .2s ease !important;
+}
+
+
+/* Read notification row cells */
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr td * {
+  color: rgba(241, 204, 211, .78) !important;
+  -webkit-text-fill-color: rgba(241, 204, 211, .78) !important;
+
+  font-weight: 600 !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .48) !important;
+}
+
+
+/* Hover on any notification row */
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:hover {
+  background: rgba(122, 68, 78, .62) !important;
+  color: var(--kv-creammetal) !important;
+  opacity: 1 !important;
+  filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   UNREAD NOTIFICATIONS
+   These target common unread class patterns.
+   If HR uses one of these internally, unread rows will pop.
+   ========================================================= */
+
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.unread,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.notification-unread,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.is-unread,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr[class*="unread"],
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has(.unread),
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has([class*="unread"]) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(92, 48, 56, .92),
+      rgba(157, 104, 116, .76),
+      rgba(208, 132, 148, .50),
+      rgba(42, 38, 41, .88)
+    ) !important;
+
+  color: var(--kv-creammetal) !important;
+
+  font-weight: 900 !important;
+  opacity: 1 !important;
+
+  border-left: 5px solid rgba(241, 204, 211, .95) !important;
+  border-bottom: 1px solid rgba(241, 204, 211, .38) !important;
+
+  box-shadow:
+    inset 0 0 16px rgba(0, 0, 0, .28),
+    0 0 8px rgba(241, 204, 211, .18) !important;
+}
+
+
+/* Unread notification text */
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.unread td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.unread td *,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.notification-unread td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.notification-unread td *,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.is-unread td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.is-unread td *,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr[class*="unread"] td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr[class*="unread"] td *,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has(.unread) td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has(.unread) td *,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has([class*="unread"]) td,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has([class*="unread"]) td * {
+  color: var(--kv-creammetal) !important;
+  -webkit-text-fill-color: var(--kv-creammetal) !important;
+
+  font-weight: 900 !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .78),
+    0 0 8px rgba(241, 204, 211, .28) !important;
+}
+
+
+/* Optional unread marker glow on the first cell */
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.unread td:first-child::before,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.notification-unread td:first-child::before,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr.is-unread td:first-child::before,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr[class*="unread"] td:first-child::before,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has(.unread) td:first-child::before,
+form[action*="/notifications"] .component.frame .wrapper .content table tbody tr:has([class*="unread"]) td:first-child::before {
+  content: "✦";
+  display: inline-block;
+  margin-right: 6px;
+
+  color: var(--kv-palepink) !important;
+  -webkit-text-fill-color: var(--kv-palepink) !important;
+
+  text-shadow:
+    0 0 6px rgba(241, 204, 211, .55),
+    0 1px 2px rgba(0, 0, 0, .65) !important;
+}
+
+
+/* Mark all as read button */
+form[action*="/notifications"] button,
+form[action*="/notifications"] input[type="submit"],
+form[action*="/notifications"] .button,
+form[action*="/notifications"] .btn {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(248, 232, 226, .96),
+      rgba(241, 204, 211, .88),
+      rgba(208, 132, 148, .72)
+    ) !important;
+
+  color: var(--kv-text-dark) !important;
+  -webkit-text-fill-color: var(--kv-text-dark) !important;
+
+  font-weight: 900 !important;
+  border: none !important;
+  border-radius: 12px !important;
+
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, .24),
+    0 0 10px rgba(0, 0, 0, .28) !important;
+}
+
+form[action*="/notifications"] button:hover,
+form[action*="/notifications"] input[type="submit"]:hover,
+form[action*="/notifications"] .button:hover,
+form[action*="/notifications"] .btn:hover {
+  filter: brightness(1.08);
+}
