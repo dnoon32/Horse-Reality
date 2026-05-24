@@ -1,121 +1,312 @@
-/* Custom background override */ 
-body {
-    background: url("https://i.imgur.com/u8XFKhJ.jpeg") no-repeat fixed 0 0 / cover !important;
-    background-size: cover !important;
-} 
-.foal-pastures .miniature-block {
-    width: 100%;
-}
-.tabs .tab.active {
-     background: linear-gradient(
-    120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #ffe066, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
-  );
-color: #000; /* cornsilk / cream */
-}
+/* =========================================================
+   KAIVALYA VIVEK — SITE-WIDE ROSE SMOKE METAL THEME
+   Full site-wide rewrite
 
-/* === shimmering indigo subtitle === */
-.side-nav ul .subtitle {
-    font-weight: 700;
-    background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-        rgba(255, 200, 220, 1), /* lighter highlight */
-        rgba(226, 164, 187, 1), /* return to base */
-        rgba(190, 110, 140, 1), /* deeper pink */
-        rgba(255, 220, 235, 1)  /* bright streak */
-    ) ;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmer 5s infinite linear;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+   Main theme:
+   - rose smoke metal borders
+   - pink rose mares
+   - smoke metal gray stallions
+   - solid readable light rose text
+   - matching site panels, navs, mail, market, city, tables, buttons
+   ========================================================= */
 
 
-.side-nav a:hover {
-    color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-}
+/* =========================================================
+   GLOBAL VARIABLES
+   ========================================================= */
 
-
-
-
-/* === Global knobs so both shimmer in perfect sync === */
 :root {
-  --bw: 4px;         /* border thickness */
-  --br: 20px;        /* corner radius    */
-  --shine-speed: 6s; /* animation speed  */
+  --bw: 4px;
+  --bw-card: 6px;
+  --br: 20px;
+  --row-radius: 14px;
+  --r: 18px;
+  --rb: 120px;
+
+  --shine-speed: 9s;
+  --shimmer-duration: 12s;
+  --streak-duration: 12s;
+
+  /* Core smoke tones */
+  --kv-blacksmoke: rgba(28, 25, 27, 1);
+  --kv-deepsmoke: rgba(42, 38, 41, 1);
+  --kv-smokegray: rgba(78, 82, 86, 1);
+  --kv-softgray: rgba(121, 122, 124, 1);
+
+  /* Core rose tones */
+  --kv-deeprose: rgba(92, 48, 56, 1);
+  --kv-rosewood: rgba(122, 68, 78, 1);
+  --kv-dustyrose: rgba(157, 104, 116, 1);
+  --kv-mutedmauve: rgba(157, 128, 136, 1);
+  --kv-pinkrose: rgba(208, 132, 148, 1);
+  --kv-palepink: rgba(241, 204, 211, 1);
+  --kv-creammetal: rgba(248, 232, 226, 1);
+
+  /* Text */
+  --kv-text: rgba(248, 232, 226, 1);
+  --kv-text-soft: rgba(241, 204, 211, 1);
+  --kv-text-dark: rgba(28, 25, 27, 1);
+
+  /* Images */
+  --kv-site-bg: url("https://i.imgur.com/u8XFKhJ.jpeg");
+  --kv-header-img: url("https://i.imgur.com/mItVcJ4.jpeg");
+  --kv-mare-img: url("https://i.imgur.com/HwSUbSU.jpeg");
+  --kv-stallion-img: url("https://i.imgur.com/Zq5Rz24.jpeg");
+
+  /* Main rose smoke metal border */
+  --kv-border-metal: linear-gradient(
+    135deg,
+    rgba(28, 25, 27, 1),
+    rgba(78, 82, 86, 1),
+    rgba(122, 68, 78, 1),
+    rgba(208, 132, 148, 1),
+    rgba(241, 204, 211, 1),
+    rgba(157, 128, 136, 1),
+    rgba(42, 38, 41, 1)
+  );
+
+  /* Title/nav gradient */
+  --kv-text-metal: linear-gradient(
+    120deg,
+    rgba(248, 232, 226, 1),
+    rgba(241, 204, 211, 1),
+    rgba(208, 132, 148, 1),
+    rgba(157, 128, 136, 1),
+    rgba(121, 122, 124, 1),
+    rgba(248, 232, 226, 1)
+  );
+
+  /* Mare and stallion card fills */
+  --kv-mare-metal: linear-gradient(
+    135deg,
+    rgba(92, 48, 56, 1),
+    rgba(157, 104, 116, 1),
+    rgba(208, 132, 148, 1),
+    rgba(241, 204, 211, 1),
+    rgba(157, 104, 116, 1),
+    rgba(92, 48, 56, 1)
+  );
+
+  --kv-stallion-metal: linear-gradient(
+    135deg,
+    rgba(28, 25, 27, 1),
+    rgba(42, 38, 41, 1),
+    rgba(78, 82, 86, 1),
+    rgba(121, 122, 124, 1),
+    rgba(78, 82, 86, 1),
+    rgba(28, 25, 27, 1)
+  );
+
+  /* Panels */
+  --kv-panel: linear-gradient(
+    rgba(28, 25, 27, .46),
+    rgba(92, 48, 56, .24),
+    rgba(78, 82, 86, .22)
+  );
+
+  --kv-panel-solid: rgba(42, 38, 41, .78);
+  --kv-panel-soft: rgba(42, 38, 41, .52);
+  --kv-rose-panel: rgba(122, 68, 78, .58);
+  --kv-pink-panel: rgba(208, 132, 148, .55);
+
+  --kv-soft-shadow: 0 0 16px rgba(0, 0, 0, .32);
+  --kv-inner-shadow: inset 0 0 22px rgba(0, 0, 0, .18);
 }
 
-/* === Shared animations (both sections use the same ones) === */
-@keyframes goldShimmer {
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes kvMetalMove {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-@keyframes shineSweep {
+
+@keyframes kvShineSweep {
   0%   { background-position: -100% 50%; }
   100% { background-position: 200% 50%; }
 }
 
-/* =========================================
-   MAIN CONTENT
-   ========================================= */
-.main-content {
-  position: relative;
-  background-color: rgba(63, 64, 105, 0.1) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
-  border: none !important;
-  color: #fff !important;
-  overflow: hidden; 
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* shimmering metallic gold border */
-.main-content::before {
+@keyframes shimmerSweep {
+  0%   { background-position: 0% 50%, 0% 50%; }
+  50%  { background-position: 100% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 0% 50%; }
+}
+
+@keyframes specularSweep {
+  0%   { background-position: -100% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+
+/* =========================================================
+   SITE BACKGROUND
+   ========================================================= */
+
+body {
+  background:
+    linear-gradient(
+      rgba(28, 25, 27, .34),
+      rgba(92, 48, 56, .16),
+      rgba(28, 25, 27, .38)
+    ),
+    var(--kv-site-bg) no-repeat fixed 0 0 / cover !important;
+
+  background-size: cover !important;
+  color: var(--kv-text) !important;
+}
+
+.container {
+  background-color: transparent !important;
+}
+
+.container_12,
+.grid_12,
+.grid_6 {
+  color: var(--kv-text) !important;
+}
+
+
+/* =========================================================
+   UNIVERSAL TEXT / LINKS
+   ========================================================= */
+
+p,
+label,
+.grid_12 form fieldset label,
+.grid_12 fieldset label,
+.card-item-name,
+.total-horses,
+.total-items,
+.total-vials,
+.market-office-table .market-office-table-row-offers,
+.market-office-table .market-office-table-row-timer,
+.city .mobile-world-menu a {
+  color: var(--kv-text) !important;
+}
+
+a,
+a:link,
+a:visited,
+p a:active,
+p a:link,
+p a:visited,
+h1 a:active,
+h1 a:link,
+h1 a:visited {
+  color: var(--kv-text-soft) !important;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+h1 a:hover,
+p a:hover {
+  color: var(--kv-creammetal) !important;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a:hover,
+button.normalize {
+  color: var(--kv-text) !important;
+}
+
+.subtitle,
+.side-nav ul .subtitle {
+  font-weight: 800;
+  background: var(--kv-text-metal);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s infinite linear;
+}
+
+
+/* =========================================================
+   HEADER MENU / BLUEBAR
+   ========================================================= */
+
+.header-menu,
+.bluebar_container,
+.mail_header,
+.mail_subheader {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(28, 25, 27, .90),
+      rgba(78, 82, 86, .66),
+      rgba(122, 68, 78, .58),
+      rgba(208, 132, 148, .34),
+      rgba(28, 25, 27, .88)
+    ),
+    var(--kv-header-img) !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: multiply !important;
+
+  color: var(--kv-text) !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .34) !important;
+}
+
+.bluebar_container {
+  height: 50px;
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   METALLIC BORDER UTILITY FOR MAIN PANELS
+   ========================================================= */
+
+.main-content,
+.side-nav,
+.leftnav,
+.center {
+  position: relative;
+  background: var(--kv-panel) !important;
+
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+
+  border-radius: var(--br) !important;
+  box-shadow: var(--kv-soft-shadow), var(--kv-inner-shadow) !important;
+  border: none !important;
+  color: var(--kv-text) !important;
+  overflow: hidden;
+}
+
+.main-content::before,
+.side-nav::before,
+.leftnav::before,
+.center::before {
   content: "";
   position: absolute;
   inset: 0;
   padding: var(--bw);
   border-radius: var(--br);
 
-  /* high-contrast golds (same palette as side-nav) */
-  background: linear-gradient(
-    120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #fff4cc, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
-  );
-  background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
+  background: var(--kv-border-metal);
+  background-size: 350% 350%;
+  animation: kvMetalMove var(--shine-speed) ease-in-out infinite;
 
-  /* cut out the middle so only the ring shows */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -126,22 +317,24 @@ color: #000; /* cornsilk / cream */
   z-index: 1;
 }
 
-/* extra reflective streak */
-.main-content::after {
+.main-content::after,
+.side-nav::after,
+.leftnav::after,
+.center::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: var(--br);
   padding: var(--bw);
+  border-radius: var(--br);
 
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%, /* bright streak */
-    transparent 55%
+    transparent 43%,
+    rgba(255, 236, 240, .34) 50%,
+    transparent 57%
   );
   background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
+  animation: kvShineSweep var(--shine-speed) linear infinite;
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -153,118 +346,210 @@ color: #000; /* cornsilk / cream */
   z-index: 2;
 }
 
-/* =========================================
-   SIDE NAV
-   ========================================= */
-.side-nav {
-  position: relative;
-  background-color: rgba(63, 64, 105, 0.1) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
-  border: none !important;
-  color: #fff !important;
- overflow: hidden; 
+
+/* =========================================================
+   SIDE NAV / LEFT NAV LINKS
+   ========================================================= */
+
+.side-nav ul a,
+.leftnav > ul > li > ul > li a:active,
+.leftnav > ul > li > ul > li a:link,
+.leftnav > ul > li > ul > li a:visited {
+  color: var(--kv-text) !important;
 }
 
-/* shimmering metallic gold border */
-.side-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: var(--bw);
-  border-radius: var(--br);
-
-  /* use the EXACT same palette and animation as .main-content */
-  background: linear-gradient(
-    120deg,
-    #7a5a21, /* dark bronze */
-    #d4af37, /* mid gold */
-    #ffe066, /* bright highlight */
-    #fff4cc, /* pale shine */
-    #a67c00, /* rich gold depth */
-    #7a5a21
-  );
-  background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* extra reflective streak */
-.side-nav::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--br);
-  padding: var(--bw);
-
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%,
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* (Optional) Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .main-content::before,
-  .main-content::after,
-  .side-nav::before,
-  .side-nav::after {
-    animation: none;
-  }
+.side-nav a:hover,
+.leftnav > ul > li > ul > li a:active,
+.leftnav > ul > li > ul > li a:hover {
+  color: var(--kv-palepink) !important;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
 }
 
 
+/* =========================================================
+   TABS / STALL NAMES
+   Solid color, not transparent
+   ========================================================= */
 
+.tabs .tab,
+.tabs .tab a,
+.tabs .tab.active,
+.tabs .tab.active a {
+  background: none !important;
 
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--kv-text) !important;
+  background-clip: initial !important;
 
+  color: var(--kv-text) !important;
+  font-weight: 800 !important;
 
-
-
-
-
-/* === Globals === */
-:root {
-  --shimmer-duration: 12s;
-  --streak-duration: 12s;
-  --bw: 6px;                 /* gold border thickness */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .65),
+    0 0 6px rgba(92, 48, 56, .35) !important;
 }
 
-/* === Base card shape & layout === */
-.card-item {
-  --r: 18px;                 /* top corners */
-  --rb: 120px;               /* big bottom corners */
+.tabs .tab.active {
+  background:
+    linear-gradient(
+      rgba(248, 232, 226, .92),
+      rgba(241, 204, 211, .88)
+    ) !important;
+
+  color: var(--kv-text-dark) !important;
+  -webkit-text-fill-color: var(--kv-text-dark) !important;
+
+  border: 1px solid rgba(241, 204, 211, .48) !important;
+  box-shadow:
+    inset 0 0 10px rgba(28, 25, 27, .18),
+    0 0 8px rgba(241, 204, 211, .18) !important;
+}
+
+.tabs .tab.active a {
+  color: var(--kv-text-dark) !important;
+  -webkit-text-fill-color: var(--kv-text-dark) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .28) !important;
+}
+
+
+/* =========================================================
+   MAIN HR HORSE GRID CARDS
+   ========================================================= */
+
+.horse-grid .horse-item {
+  --r: 18px;
+  --rb: 120px;
+  --bw: 4px;
+
   position: relative;
   border-radius: var(--r) var(--r) var(--rb) var(--rb);
-   overflow: hidden; 
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(0, 0, 0, .30) !important;
+}
+
+.horse-grid .horse-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: var(--bw);
+  border-radius: inherit;
+
+  background: var(--kv-border-metal);
+  background-size: 350% 350%;
+  animation: kvMetalMove var(--shine-speed) ease-in-out infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 3;
+}
+
+.horse-item:has(img.sex-mare) .content {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+  background: var(--kv-mare-metal) !important;
+  background-size: 400% 400%;
+  box-shadow: inset 0 0 22px rgba(92, 48, 56, .32) !important;
+}
+
+.horse-item:has(img.sex-stallion) .content {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+  background: var(--kv-stallion-metal) !important;
+  background-size: 400% 400%;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, .38) !important;
+}
+
+/* No streak over horse profile cards */
+.horse-item:has(img.sex-mare) .content::after,
+.horse-item:has(img.sex-stallion) .content::after {
+  content: none !important;
+}
+
+.horse-item:has(img.sex-mare) .image {
+  background-image: var(--kv-mare-img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.horse-item:has(img.sex-stallion) .image {
+  background-image: var(--kv-stallion-img) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.horse-item:has(img.sex-mare) .image[style],
+.horse-item:has(img.sex-stallion) .image[style] {
+  background-color: transparent !important;
+}
+
+.horse-grid .horse-item .content,
+.horse-grid .horse-item .content *,
+.horse-item .tagline,
+.horse-item h1,
+.horse-item h2,
+.horse-item h3,
+.horse-item p,
+.horse-item span,
+.horse-item a,
+.horse-item small,
+.horse-item strong,
+.horse-item em,
+.horse-item .breed-and-age,
+.horse-stats .horse-stat span {
+  background: none !important;
+
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--kv-text) !important;
+  background-clip: initial !important;
+
+  color: var(--kv-text) !important;
+  font-weight: 700 !important;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .55),
+    0 0 6px rgba(92, 48, 56, .26) !important;
+}
+
+.horse-grid .horse-item img,
+.horse-grid .horse-item svg,
+.horse-grid .horse-item .image,
+.horse-grid .horse-item .image * {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: initial !important;
+  text-shadow: none !important;
+}
+
+
+/* =========================================================
+   GENERAL CARD ITEMS / MINI CARDS
+   Used throughout site
+   ========================================================= */
+
+.card-item {
+  --r: 18px;
+  --rb: 120px;
+
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
   background-color: transparent !important;
   isolation: isolate;
   box-sizing: border-box;
 }
 
-/* === HARD image alignment fix (prevents right-shift) === */
 .card-item .image,
 .card-item .card-image,
 .card-item [class*="image"] {
@@ -274,15 +559,16 @@ color: #000; /* cornsilk / cream */
   padding: 0 !important;
   border: 0 !important;
   box-sizing: border-box !important;
-  text-align: left !important;      /* beat themes that set text-align:right */
+  text-align: left !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+
 .card-item .image > img,
 .card-item .card-image > img,
 .card-item [class*="image"] > img {
-  display: block !important;        /* ignore text-align */
+  display: block !important;
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
@@ -291,129 +577,69 @@ color: #000; /* cornsilk / cream */
   float: none !important;
 }
 
-/* === Shared animations === */
-@keyframes shimmerSweep {
-  0% { background-position: 0% 50%, 0% 50%; }
-  50% { background-position: 100% 50%, 100% 50%; }
-  100% { background-position: 0% 50%, 0% 50%; }
-}
-@keyframes specularSweep {
-  0% { background-position: -100% 50%; }
-  100% { background-position: 200% 50%; }
-}
-@keyframes goldShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
-/* === GOLD border palette (used by both sexes) === */
-:root {
-  /* nothing else needed; using gradients inline */
-}
-
-/* === Stallion: inner shimmer + GOLD border === */
+/* Stallion card-item */
 .card-item:has(.card-item-name img.gender[src*="sex-stallion"]) {
-  border: var(--bw) solid transparent !important;
+  border: var(--bw-card) solid transparent !important;
   border-radius: var(--r) var(--r) var(--rb) var(--rb) !important;
 
   background-image:
-    /* inner shimmer (padding-box) */
-    linear-gradient(120deg,
-      rgba(63,64,105,1),
-      rgba(110,112,165,1),
-      rgba(63,64,105,1),
-      rgba(40,41,70,1),
-      rgba(150,152,200,1)
-    ),
-    /* gold ring (border-box) */
-    linear-gradient(135deg,
-      #7a5a21,
-      #d4af37 25%,
-      #ffe066 45%,
-      #fff4cc 65%,
-      #a67c00 85%,
-      #7a5a21
-    );
+    var(--kv-stallion-metal),
+    var(--kv-border-metal);
 
-  background-size: 400% 400%, 300% 300%;
+  background-size: 400% 400%, 350% 350%;
   background-position: 0% 50%, 0% 50%;
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
 
   animation:
     shimmerSweep var(--shimmer-duration) ease-in-out infinite,
-    goldShimmer 6s linear infinite;
+    kvMetalMove var(--shine-speed) ease-in-out infinite;
 }
 
-/* Stallion streak */
-.card-item:has(.card-item-name img.gender[src*="sex-stallion"])::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,.4) 50%, transparent 55%);
-  background-size: 300% 300%;
-  animation: specularSweep var(--streak-duration) linear infinite;
-  pointer-events: none;
-}
-
-/* === Mare: pink inner shimmer + GOLD border === */
+/* Mare card-item */
 .card-item:has(.card-item-name img.gender[src*="sex-mare"]) {
-  border: var(--bw) solid transparent !important;
+  border: var(--bw-card) solid transparent !important;
   border-radius: var(--r) var(--r) var(--rb) var(--rb) !important;
 
   background-image:
-    /* inner shimmer (padding-box) — pinks */
-    linear-gradient(120deg,
-      rgba(253,176,192,0.9),
-      rgba(255,200,220,1),
-      rgba(253,176,192,0.9),
-      rgba(190,110,140,1),
-      rgba(255,220,235,1)
-    ),
-    /* gold ring (border-box) — same as stallion */
-    linear-gradient(135deg,
-      #7a5a21,
-      #d4af37 25%,
-      #ffe066 45%,
-      #fff4cc 65%,
-      #a67c00 85%,
-      #7a5a21
-    );
+    var(--kv-mare-metal),
+    var(--kv-border-metal);
 
-  background-size: 400% 400%, 300% 300%;
+  background-size: 400% 400%, 350% 350%;
   background-position: 0% 50%, 0% 50%;
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
 
   animation:
     shimmerSweep var(--shimmer-duration) ease-in-out infinite,
-    goldShimmer 6s linear infinite;
+    kvMetalMove var(--shine-speed) ease-in-out infinite;
 }
 
-/* Mare streak */
+/* No streak on card items */
+.card-item:has(.card-item-name img.gender[src*="sex-stallion"])::after,
 .card-item:has(.card-item-name img.gender[src*="sex-mare"])::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,.4) 50%, transparent 55%);
-  background-size: 300% 300%;
-  animation: specularSweep var(--streak-duration) linear infinite;
-  pointer-events: none;
+  content: none !important;
 }
 
-/* Base Asia tile (default image, centered) */
-.foal-pastures .miniature-block.asia {
-  background: url("https://i.imgur.com/wxLiFmi.jpeg") center / cover no-repeat !important;
+
+/* =========================================================
+   FOAL PASTURES / MINIATURE BLOCKS
+   ========================================================= */
+
+.foal-pastures .miniature-block {
+  width: 100%;
 }
 
-/* Stallion variant — works whether the icon is inside the tile OR elsewhere in the same card */
+.foal-pastures .miniature-block.asia,
+.adopt_blocks .adopt_blockimg.asia {
+  background: var(--kv-mare-img) center / cover no-repeat !important;
+}
+
+/* Stallion variant */
 .foal-pastures .miniature-block.asia:has(img.gender[src*="sex-stallion"]),
 .foal-pastures .miniature-block.asia:has([class*="sex-stallion"]),
 .foal-pastures .miniature-block.asia:has(use[href*="sex-stallion"]),
-/* parent wrapper contains icon + the asia tile */
 :is(.card-item, .horse-item, .miniature, .stall, .horse-card):has(
   img.gender[src*="sex-stallion"],
   img[src*="sex-stallion"],
@@ -421,10 +647,10 @@ color: #000; /* cornsilk / cream */
   use[href*="sex-stallion"],
   use[xlink\:href*="sex-stallion"]
 ) .miniature-block.asia {
-  background-image: url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+  background-image: var(--kv-stallion-img) !important;
 }
 
-/* Mare variant — same logic */
+/* Mare variant */
 .foal-pastures .miniature-block.asia:has(img.gender[src*="sex-mare"]),
 .foal-pastures .miniature-block.asia:has([class*="sex-mare"]),
 .foal-pastures .miniature-block.asia:has(use[href*="sex-mare"]),
@@ -435,711 +661,413 @@ color: #000; /* cornsilk / cream */
   use[href*="sex-mare"],
   use[xlink\:href*="sex-mare"]
 ) .miniature-block.asia {
-  background-image: url("https://i.imgur.com/wxLiFmi.jpeg") !important; /* your mare image */
+  background-image: var(--kv-mare-img) !important;
 }
 
 
+/* =========================================================
+   ROWS WITH HORSE GENDER ICONS
+   ========================================================= */
 
-.horse-item h2 {
-   color: #fff !important;
-}
-.horse-item .breed-and-age {
-   color: #fff !important;
-}
-.horse-stats .horse-stat span {
- color: #fff !important;
-}
-
-
-.side-nav ul a {
-  
-    color: #fff;
-}
-
-
-.horse-item .tagline
- {
-    color: #fff;
-}
-h1 {
-     color: #fff;
-}
-h1 a:hover, h2 {
-    color: #fff;
-}
-button.normalize {
-  color: #fff;
-}
-nav .pagination .page-item.active .page-link {
-   
-    color: #fff;
-    background: rgba(63, 64, 105);
-}
-nav .pagination .page-item:not(.disabled) .page-link {
-   color: #fff;
-}
-.button.black, .button.secondary.active, .button.secondary:hover
- {
-    color: #fff;
-    background: rgba(63, 64, 105);
-}
-.header-menu {
-    background: rgba(63, 64, 105);
-}
-
-/* -------------------------------------*/
-
-
-
-.card-item-name {
-    color: #fff;
-}
-p {
-    color: #fff;
-}
-
-.component.npc {
-    background: transparent !important;
-     border-radius: 20px !important;
-    border: 4px solid rgba(63, 64, 105, 0.7) !important; 
-}
-.component.npc .left {
-    border-radius: 15px !important;
-}
-
-.info {background:rgba(63, 64, 105,0.4) !important;
-}
-/*.component.frame .wrapper {
-    background: rgba(63, 64, 105,0.4) !important;
-} */
-
-.cta {
-    background: transparent !important;
-     border-radius: 20px !important;
-    border: 4px solid rgba(63, 64, 105, 0.7) !important; 
-}
-.breadcrumb {
-    background-color: rgba(63, 64, 105, 0.7) !important; 
-}
-a {
-    color: #fff;
-}
-
-/*.component.frame .wrapper .content {
-    background:  rgba(63, 64, 105) !important;
-}*/
-
-/* clickable only when .inner has .active — matches your pointer-events logic */
-.component.frame .wrapper .content .inner a,
-.component.frame .wrapper .content .inner a:link,
-.component.frame .wrapper .content .inner a:visited {
-  color: rgba(0,0,0) !important;   /* gold */
-  text-decoration: none;
-}
-.component.frame .wrapper .content .inner a:hover,
-.component.frame .wrapper .content .inner a:focus {
-  color: #ffe066 !important;    /* lighter on hover */
-  text-decoration: underline;
-}
-.component.frame .wrapper .content .inner a:active {
-  color: #a67c00 !important;    /* pressed */
-}
-
-.subtitle {
-   background: linear-gradient( 120deg,
-    rgba(226, 164, 187, 1), /* base pink */
-    rgba(255, 200, 220, 1), /* lighter highlight */
-    rgba(226, 164, 187, 1), /* return to base */
-    rgba(190, 110, 140, 1), /* deeper pink */
-    rgba(255, 220, 235, 1)/* bright streak */
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmer 5s infinite linear;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.container {
-    background-color: transparent !important;
-    
-}
-
-
-.leftnav > ul > li > ul > li a:active, .leftnav > ul > li > ul > li a:hover {
-    color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-}
-
-.leftnav > ul > li > ul > li a:active, .leftnav > ul > li > ul > li a:link, .leftnav > ul > li > ul > li a:visited {
-    color: #fff;
-}
-
-.mail_header {
-   
-    background-color: rgba(63, 64, 105);
-}
-
-.mail_subheader {
-    background-color: rgba(63, 64, 105);
-}
-
-#mail_right {
-    background-color: rgba(226, 164, 187);
-}
-
-.center {
-    background-color: rgba(63, 64, 105, 0.1) !important;
-    border-radius: 20px;
-}
-
-#mail_right   
-    ,a:hover {
-    color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-}
-
-#mail_right p a:link {
-    color: #fff;
-}
-
-.bluebar_container {
-    background-color: rgba(63, 64, 105);
-    height: 50px;
-    z-index: 1000;
-}
-
-/* base text + smooth transition */
-.mail_row {
-  color: #ffffff !important;
-  transition: color .2s ease, background-color .2s ease;
-    background-color: rgba(63, 64, 105, 0.7) !important;
-}
-/* make children follow the row color */
-.mail_row * {
-  color: inherit !important;
-}
-/* row hover = change every descendant’s color */
-.mail_row:hover {
-  background-color: rgba(90, 92, 140, 0.9) !important;
-  color: #ffd700 !important; /* pick your hover text color */
-}
-
-/* === Global knobs so both shimmer in perfect sync === */
-:root {
-  --bw: 4px;         /* border thickness */
-  --br: 20px;        /* corner radius    */
-  --shine-speed: 6s; /* animation speed  */
-}
-
-/* === Shared animations === */
-@keyframes goldShimmer {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes shineSweep {
-  0%   { background-position: -100% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-
-
-/* =========================================
-   SIDE NAV (your working version)
-   ========================================= */
-.leftnav {
-  position: relative;
-  background-color: rgba(63, 64, 105, 0.1) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border-radius: var(--br) !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2) !important;
-  border: none !important;
-  color: #fff !important;
-   overflow: hidden; 
-}
-.leftnav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: var(--bw);
-  border-radius: var(--br);
-  background: linear-gradient(
-    120deg,
-    #7a5a21, #d4af37, #ffe066, #fff4cc, #a67c00, #7a5a21
-  );
-  background-size: 400% 400%;
-  animation: goldShimmer var(--shine-speed) ease-in-out infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  z-index: 1;
-}
-.leftnav::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--br);
-  padding: var(--bw);
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.7) 50%,
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: shineSweep var(--shine-speed) linear infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  
-  .leftnav::before,
-  .leftnav::after {
-    animation: none !important;
-  }
-}
-
-/* Durations (tweak as you like) */
-:root {
-  --shimmer-duration: 6s;
-  --streak-duration: 6s;
-  --row-radius: 14px;
-}
-
-/* Shared keyframes for sync */
-@keyframes shimmerSweep {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes specularSweep {
-  0% { background-position: -100% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-/* Base row styling */
 .col-12 {
   position: relative;
   border-radius: var(--row-radius);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-/* ================================
-   Mare rows (pink shimmer)
-   ================================ */
+/* Mare rows */
 .col-12:has(img.sex-mare) {
-  background: linear-gradient(
-    120deg,
-    rgba(226,164,187,1),  /* base pink */
-    rgba(255,200,220,1),  /* lighter */
-    rgba(226,164,187,1),  /* base again */
-    rgba(190,110,140,1),  /* deeper */
-    rgba(255,220,235,1)   /* bright streak */
-  ) !important;
+  background: var(--kv-mare-metal) !important;
   background-size: 400% 400%;
-  animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+  animation: kvMetalMove var(--shimmer-duration) ease-in-out infinite;
 }
 
-/* Streak overlay */
-.col-12:has(img.sex-mare)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255,255,255,0.40) 50%,
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: specularSweep var(--streak-duration) linear infinite;
-  mix-blend-mode: screen; /* subtle */
-}
-
-/* ================================
-   Stallion rows (indigo/blue shimmer)
-   ================================ */
+/* Stallion rows */
 .col-12:has(img.sex-stallion) {
-  background: linear-gradient(
-    120deg,
-    rgba(63,64,105,1),    /* base indigo */
-    rgba(110,112,165,1),  /* lighter */
-    rgba(63,64,105,1),    /* base again */
-    rgba(40,41,70,1),     /* deeper */
-    rgba(150,152,200,1)   /* bright streak */
-  ) !important;
+  background: var(--kv-stallion-metal) !important;
   background-size: 400% 400%;
-  animation: shimmerSweep var(--shimmer-duration) ease-in-out infinite;
+  animation: kvMetalMove var(--shimmer-duration) ease-in-out infinite;
 }
 
+/* No row streaks */
+.col-12:has(img.sex-mare)::after,
 .col-12:has(img.sex-stallion)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255,255,255,0.35) 50%,
-    transparent 55%
-  );
-  background-size: 300% 300%;
-  animation: specularSweep var(--streak-duration) linear infinite;
-  mix-blend-mode: screen;
+  content: none !important;
 }
 
-/* Optional: smooth text/link color shift on hover within the row */
 .col-12:has(img.sex-mare) a,
 .col-12:has(img.sex-stallion) a {
   transition: color .2s ease;
 }
-.col-12:has(img.sex-mare):hover a { color: rgba(255,240,246,1) !important; }
-.col-12:has(img.sex-stallion):hover a { color: #e0e4ff !important; }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .col-12:has(img.sex-mare),
-  .col-12:has(img.sex-stallion),
-  .col-12:has(img.sex-mare)::after,
-  .col-12:has(img.sex-stallion)::after {
-    animation: none !important;
-  }
+.col-12:has(img.sex-mare):hover a,
+.col-12:has(img.sex-stallion):hover a {
+  color: var(--kv-creammetal) !important;
 }
 
-.market-office-table .market-office-table-row-offers, .market-office-table .market-office-table-row-timer
-  {color:#fff;}
-.market-office-table .market-office-table-row-highestbid  {color:lightgreen;}
- .market-office-table .market-office-table-row-autobuy
- {color:red;}
+
+/* =========================================================
+   ADOPT / FOUNDATION / STORE HORSE BLOCKS
+   ========================================================= */
+
+.adopt_blocks {
+  position: relative;
+  border-radius: var(--r) var(--r) var(--rb) var(--rb);
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+  border: var(--bw-card) solid transparent !important;
+  background-color: transparent !important;
+}
+
+.adopt_blocks .store_flex {
+  background: transparent !important;
+}
+
+.adopt_blocks .adopt_blockimg {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]) {
+  background-image:
+    var(--kv-stallion-metal),
+    var(--kv-border-metal);
+
+  background-size: 400% 400%, 350% 350%;
+  background-position: 0% 50%, 0% 50%;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    kvMetalMove var(--shine-speed) ease-in-out infinite;
+}
+
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]) {
+  background-image:
+    var(--kv-mare-metal),
+    var(--kv-border-metal);
+
+  background-size: 400% 400%, 350% 350%;
+  background-position: 0% 50%, 0% 50%;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+
+  animation:
+    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
+    kvMetalMove var(--shine-speed) ease-in-out infinite;
+}
+
+/* No adopt card streaks */
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"])::after,
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"])::after {
+  content: none !important;
+}
+
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]) .adopt_blockimg.asia {
+  background-image: var(--kv-stallion-img) !important;
+}
+
+.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]) .adopt_blockimg.asia {
+  background-image: var(--kv-mare-img) !important;
+}
+
+.adopt_blocks .adopt_blocktitle b {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.adopt_blocks .adopt_button {
+  display: flex;
+  padding-top: 6px;
+}
+
+.adopt_blocks .adopt_button .buy_fhorse {
+  width: 100%;
+}
+
+.adopt_blocktext p a:active,
+.adopt_blocktext p a:link,
+.adopt_blocktext p a:visited,
+.adopt_blocktitle a:active,
+.adopt_blocktitle a:link,
+.adopt_blocktitle a:visited {
+  text-decoration: none;
+  color: var(--kv-text) !important;
+}
+
+.adopt_blocktext p a:hover,
+.adopt_blocktitle a:hover {
+  color: var(--kv-palepink) !important;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
+}
+
+
+/* =========================================================
+   COMPONENTS / FRAMES / NPC / CTA / BREADCRUMBS
+   ========================================================= */
+
+.component.npc,
+.cta {
+  background: var(--kv-panel-soft) !important;
+  border-radius: var(--br) !important;
+  border: 4px solid rgba(241, 204, 211, .42) !important;
+  box-shadow: var(--kv-soft-shadow) !important;
+}
+
+.component.npc .left {
+  border-radius: 15px !important;
+}
+
+.info,
+.npc_box,
+.component.frame .wrapper .content,
+.minidetails,
+.container_12 .grid_6.half_block,
+.job-item,
+.storeblocks,
+.horseblocks {
+  background: var(--kv-panel-solid) !important;
+  color: var(--kv-text) !important;
+  border-radius: 14px !important;
+}
+
+.breadcrumb,
+.market .breadcrumbs {
+  background-color: rgba(42, 38, 41, .58) !important;
+  color: var(--kv-text) !important;
+  border-radius: 12px !important;
+}
+
+.component.frame .wrapper .content .inner a,
+.component.frame .wrapper .content .inner a:link,
+.component.frame .wrapper .content .inner a:visited {
+  color: var(--kv-text) !important;
+  text-decoration: none;
+}
+
+.component.frame .wrapper .content .inner a:hover,
+.component.frame .wrapper .content .inner a:focus {
+  color: var(--kv-palepink) !important;
+  text-decoration: underline;
+}
+
+.component.frame .wrapper .content .inner a:active {
+  color: var(--kv-creammetal) !important;
+}
+
+.component.frame .wrapper .content .form-group:last-child,
+.component.frame .wrapper .content p:last-child {
+  color: var(--kv-text) !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button.black,
+.button.secondary.active,
+.button.secondary:hover,
+.btn.btn-cta,
+.btn.btn-primary,
+.btn.btn-darkblue {
+  color: var(--kv-text-dark) !important;
+  font-weight: 800 !important;
+
+  background:
+    linear-gradient(
+      rgba(248, 232, 226, .94),
+      rgba(241, 204, 211, .88)
+    ) !important;
+
+  border-color: transparent !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .24) !important;
+}
+
+.button.black:hover,
+.button.secondary.active:hover,
+.button.secondary:hover,
+.btn.btn-cta:hover,
+.btn.btn-primary:hover,
+.btn.btn-darkblue:hover {
+  filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+nav .pagination .page-item.active .page-link {
+  color: var(--kv-text-dark) !important;
+  font-weight: 800 !important;
+
+  background:
+    linear-gradient(
+      rgba(248, 232, 226, .94),
+      rgba(241, 204, 211, .88)
+    ) !important;
+
+  border: none !important;
+}
 
 nav .pagination .page-item:not(.disabled) .page-link {
-    color:  #d4af37 !important;
+  color: var(--kv-text-dark) !important;
 }
 
-.component.frame .wrapper .content {
-    background: rgba(63,64,105,0.7);
-}
-
-h1 a:hover {
-  color: #ffe066 !important; /* lighter gold/yellow, pick any color */
-  text-decoration: underline; /* optional: underline on hover */
-  transition: color 0.2s ease-in-out;
-}
-h1 a:active, h1 a:link, h1 a:visited {
-    color: #d4af37 !important;
-   
-}
-.market .breadcrumbs {
-    background-color: transparent !important;
-}
-
-.minidetails {
-    background-color: rgba(63,64,105,0.7);
-}
-.container_12 .grid_6.half_block {
-    background-color: rgba(63,64,105,0.7);
-}
-
-.even {
-    background-color
-: rgba(63,64,105,0.7)!important;
-}
-p a:active, p a:link, p a:visited {
-    color: pink;
-}
-
-/* === Globals === */
-:root{
-  --shimmer-duration:12s;
-  --streak-duration:12s;
-  --bw:6px;               /* gold border thickness */
-  --r:18px;               /* top corners */
-  --rb:120px;             /* big bottom corners */
-}
-
-/* === Treat every adopt card as our "card item" === */
-.adopt_blocks{
-  position:relative;
-  border-radius:var(--r) var(--r) var(--rb) var(--rb);
-   overflow:hidden; 
-  isolation:isolate;
-  box-sizing:border-box;
-  border:var(--bw) solid transparent !important; /* needed for gold ring */
-  background-color:transparent !important;       /* reveal inner shimmer */
-}
-
-/* Some HR themes wrap content in a container with its own bg. Nuke it. */
-.adopt_blocks .store_flex{ background:transparent !important; }
-
-
-
-/* === HARD image alignment fix === */
-.adopt_blocks .adopt_blockimg{
-  display:block !important;
-  width:100% !important;
-  margin:0 !important;
-  padding:0 !important;
-  border:0 !important;
-  box-sizing:border-box !important;
-  text-align:left !important;
-  background-position:center center !important;
-  background-size:cover !important;
-  background-repeat:no-repeat !important;
+nav .pagination .page-link {
+  border-radius: 10px !important;
 }
 
 
-/* === Animations === */
-@keyframes shimmerSweep{
-  0%{background-position:0% 50%,0% 50%}
-  50%{background-position:100% 50%,100% 50%}
-  100%{background-position:0% 50%,0% 50%}
-}
-@keyframes specularSweep{
-  0%{background-position:-100% 50%}
-  100%{background-position:200% 50%}
-}
-@keyframes goldShimmer{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+/* =========================================================
+   MAIL
+   ========================================================= */
+
+#mail_right {
+  background: var(--kv-panel-solid) !important;
+  color: var(--kv-text) !important;
 }
 
-/* =========================
-   GENDER-DRIVEN CARD RINGS
-   We detect by icon src in the title area.
-   ========================= */
-
-/* STALLION: blue/indigo inner shimmer + gold ring */
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]){
-  background-image:
-    /* inner shimmer (padding-box) */
-    linear-gradient(120deg,
-      rgba(63,64,105,1),
-      rgba(110,112,165,1),
-      rgba(63,64,105,1),
-      rgba(40,41,70,1),
-      rgba(150,152,200,1)
-    ),
-    /* gold ring (border-box) */
-    linear-gradient(135deg,
-      #7a5a21,
-      #d4af37 25%,
-      #ffe066 45%,
-      #fff4cc 65%,
-      #a67c00 85%,
-      #7a5a21
-    );
-  background-size:400% 400%,300% 300%;
-  background-position:0% 50%,0% 50%;
-  background-origin:padding-box,border-box;
-  background-clip:padding-box,border-box;
-  animation:
-    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
-    goldShimmer 6s linear infinite;
+#mail_right p a:link,
+#mail_right p a:visited {
+  color: var(--kv-text) !important;
 }
 
-/* Stallion specular sweep */
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"])::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  background:linear-gradient(120deg,transparent 45%,rgba(255,255,255,.4) 50%,transparent 55%);
-  background-size:300% 300%;
-  animation:specularSweep var(--streak-duration) linear infinite;
-  pointer-events:none;
+#mail_right p a:hover {
+  color: var(--kv-palepink) !important;
 }
 
-/* MARE: pink inner shimmer + same gold ring */
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]){
-  background-image:
-    linear-gradient(120deg,
-      rgba(253,176,192,.9),
-      rgba(255,200,220,1),
-      rgba(253,176,192,.9),
-      rgba(190,110,140,1),
-      rgba(255,220,235,1)
-    ),
-    linear-gradient(135deg,
-      #7a5a21,
-      #d4af37 25%,
-      #ffe066 45%,
-      #fff4cc 65%,
-      #a67c00 85%,
-      #7a5a21
-    );
-  background-size:400% 400%,300% 300%;
-  background-position:0% 50%,0% 50%;
-  background-origin:padding-box,border-box;
-  background-clip:padding-box,border-box;
-  animation:
-    shimmerSweep var(--shimmer-duration) ease-in-out infinite,
-    goldShimmer 6s linear infinite;
-}
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"])::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  background:linear-gradient(120deg,transparent 45%,rgba(255,255,255,.4) 50%,transparent 55%);
-  background-size:300% 300%;
-  animation:specularSweep var(--streak-duration) linear infinite;
-  pointer-events:none;
+.mail_row {
+  color: var(--kv-text) !important;
+  transition: color .2s ease, background-color .2s ease;
+  background-color: rgba(42, 38, 41, .72) !important;
 }
 
-/* ==============================
-   Asia tile backgrounds (yours)
-   ============================== */
-.foal-pastures .miniature-block.asia,
-.adopt_blocks .adopt_blockimg.asia{
-  background:url("https://i.imgur.com/wxLiFmi.jpeg") center/cover no-repeat !important;
+.mail_row * {
+  color: inherit !important;
 }
 
-/* Stallion variant */
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]) .adopt_blockimg.asia{
-  background-image:url("https://i.imgur.com/sNHzoX4.jpeg") !important;
+.mail_row:hover {
+  background-color: rgba(122, 68, 78, .72) !important;
+  color: var(--kv-creammetal) !important;
 }
 
-/* Mare variant */
-.adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]) .adopt_blockimg.asia{
-  background-image:url("https://i.imgur.com/wxLiFmi.jpeg") !important;
+
+/* =========================================================
+   TABLES / MARKET / STORE
+   ========================================================= */
+
+.table {
+  color: var(--kv-text) !important;
 }
 
-/* Minor polish */
-.adopt_blocks .adopt_blocktitle b{
-  display:inline-flex; align-items:center; gap:.4rem;
-}
-.adopt_blocks .adopt_button{ display:flex; padding-top:6px; }
-.adopt_blocks .adopt_button .buy_fhorse{ width:100%; }
-
-.adopt_blocktext p a:active, .adopt_blocktext p a:link, .adopt_blocktext p a:visited {
-    text-decoration: none;
-    color: #d4af37 !important;
+.component.table .table tbody {
+  background-color: rgba(42, 38, 41, .78) !important;
 }
 
-.adopt_blocktext p a:hover {
-     color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
+.component.table .table tbody tr:nth-of-type(odd),
+.component.table .table tbody tr:nth-of-type(even) {
+  background-color: transparent !important;
 }
 
-.adopt_blocktitle a:active, .adopt_blocktitle a:link, .adopt_blocktitle a:visited {
-    color:  #d4af37 !important;
+.even,
+.odd,
+.delta-store-history table tbody tr:nth-child(odd),
+.link-table-row-outer:nth-child(2n),
+.market-office-table-row-outer:nth-child(2n) {
+  background-color: rgba(42, 38, 41, .58) !important;
+  color: var(--kv-text) !important;
 }
 
-.adopt_blocktitle a:hover {color: rgba(226, 164, 187) !important;
-    /* Or any accent color you like */
-    text-decoration: underline;
-    /* Optional: underline on hover */
-    transition: color 0.2s ease-in-out;
-    }
-
-.npc_box {
-    background-color: rgba(63, 64, 105, 0.7) !important;
+.market-office-table .market-office-table-row-highestbid {
+  color: rgba(180, 230, 190, 1) !important;
 }
 
-.btn.btn-cta, .btn.btn-primary {
-    background-color: purple;
-    border-color: transparent !important;
-}
-.btn.btn-darkblue {
-    background-color: #081b28;
+.market-office-table .market-office-table-row-autobuy {
+  color: rgba(255, 146, 156, 1) !important;
 }
 
-.grid_12 form fieldset label, .grid_12 fieldset label {color: #fff}
+.market .col-form-label {
+  color: var(--kv-palepink) !important;
+  font-weight: 800;
+}
 
-.odd {
-    background-color
-: #000;
+html body .market-item-price .item-price .content-background {
+  background: transparent !important;
+}
+
+.responsive-table .mine {
+  border-bottom: 1px solid var(--kv-palepink);
+  background-color: rgba(122, 68, 78, .72) !important;
 }
 
 .fitting-room .selectedRow {
-    background-color:  rgba(63, 64, 105, 0.7) !important;
+  background-color: rgba(122, 68, 78, .72) !important;
+}
+
+.total-horses i,
+.total-items i,
+.total-vials i {
+  color: var(--kv-palepink) !important;
 }
 
 
-.delta-store-history table tbody tr:nth-child(odd) {
-    background: rgba(63, 64, 105, 0.7);
+/* =========================================================
+   MISC SITE BLOCKS
+   ========================================================= */
+
+.leftnav,
+.side-nav,
+.main-content,
+.center,
+.info,
+.npc_box,
+.component.npc,
+.cta,
+.component.frame .wrapper .content,
+.minidetails,
+.container_12 .grid_6.half_block,
+.job-item,
+.storeblocks,
+.horseblocks,
+.mail_row,
+#mail_right {
+  border-color: rgba(241, 204, 211, .30) !important;
 }
 
-.city .mobile-world-menu a {
-    color: #fff; 
+.component .odd-row {
+  background-color: transparent !important;
 }
 
-.storeblocks, .horseblocks {
-    background-color: rgba(63, 64, 105, 0.7) !important;
+
+/* =========================================================
+   MODAL SAFETY FIXES
+   Keeps filters/modal clickable and above shiny UI
+   ========================================================= */
+
+#marketFilters.modal {
+  position: fixed !important;
+  z-index: 2147483640 !important;
 }
 
-.table {
-    color: #000;
+.modal-backdrop {
+  z-index: 2147483630 !important;
 }
 
-.component.table .table tbody tr:nth-of-type(odd),.component.table .table tbody tr:nth-of-type(even) {
-    background-color:transparent !important;
-}
-
-.component.frame .wrapper .content .form-group:last-child, .component.frame .wrapper .content p:last-child {
-    color: #000;
-}
-
-.job-item {
-    background-color: rgba(63, 64, 105, 0.7) !important;
-}
-
-.link-table-row-outer:nth-child(2n), .market-office-table-row-outer:nth-child(2n) {
-    background-color: rgba(63, 64, 105, 0.4) !important;
-}
-.total-horses, .total-items, .total-vials {
-    color: #fff;
-}
-.total-horses i, .total-items i, .total-vials i {
-    color: gold;
-}
-
-/* Keep modal above your shiny UI, but let Bootstrap control show/hide */
-#marketFilters.modal { position: fixed !important; z-index: 2147483640 !important; }
-.modal-backdrop      { z-index: 2147483630 !important; }
-
-/* Do NOT force display/opacity here. Let Bootstrap toggle them. */
-/* .modal.show { ... }  <-- not needed */
-
-/* Undo your broad grid styling inside the modal only (prevents “distortions”) */
 #marketFilters .container,
 #marketFilters .col-12 {
   overflow: visible !important;
@@ -1148,19 +1076,21 @@ p a:active, p a:link, p a:visited {
   position: static !important;
 }
 
-/* Make sure the close button is visible & clickable (BS4 + BS5) */
 #marketFilters .close,
 #marketFilters .btn-close {
   position: absolute;
-  top: .75rem; right: .75rem;
+  top: .75rem;
+  right: .75rem;
   pointer-events: auto !important;
-  filter: none !important; transform: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
-/* Keep clicks enabled inside the modal */
-#marketFilters, #marketFilters * { pointer-events: auto !important; }
+#marketFilters,
+#marketFilters * {
+  pointer-events: auto !important;
+}
 
-/* While a modal is open, avoid clipping/restacking by big wrappers */
 .modal-open .main-content,
 .modal-open .side-nav,
 .modal-open .leftnav,
@@ -1169,36 +1099,43 @@ p a:active, p a:link, p a:visited {
   overflow: visible !important;
   transform: none !important;
   filter: none !important;
-  /* re-enable backdrop-filter later if you want and it proves safe */
   backdrop-filter: none !important;
 }
 
-/* Decorative layers shouldn't intercept clicks */
-.leftnav::before, .leftnav::after,
-.side-nav::before, .side-nav::after,
-.main-content::before, .main-content::after { pointer-events: none !important; }
-
-.component .odd-row
- {
-    background-color: transparent !important;
-}
-.responsive-table .mine {
-    border-bottom: 1px solid #fff;
-    background-color: rgba(226, 164, 187) !important;
+.leftnav::before,
+.leftnav::after,
+.side-nav::before,
+.side-nav::after,
+.main-content::before,
+.main-content::after,
+.center::before,
+.center::after {
+  pointer-events: none !important;
 }
 
-.component.frame .wrapper .content p:last-child {
-    color: #fff;
-}
 
-.market .col-form-label {
-    color: gold;
-}
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
-html body .market-item-price .item-price .content-background {
-    background: transparent !important;
-}
-
-.component.table .table tbody {
-    background-color: rgba(63, 64, 105,0.8);
+@media (prefers-reduced-motion: reduce) {
+  .main-content::before,
+  .main-content::after,
+  .side-nav::before,
+  .side-nav::after,
+  .leftnav::before,
+  .leftnav::after,
+  .center::before,
+  .center::after,
+  .horse-grid .horse-item::before,
+  .card-item:has(.card-item-name img.gender[src*="sex-stallion"]),
+  .card-item:has(.card-item-name img.gender[src*="sex-mare"]),
+  .adopt_blocks:has(.adopt_blocktitle img[src*="sex-stallion"]),
+  .adopt_blocks:has(.adopt_blocktitle img[src*="sex-mare"]),
+  .col-12:has(img.sex-mare),
+  .col-12:has(img.sex-stallion),
+  .subtitle,
+  .side-nav ul .subtitle {
+    animation: none !important;
+  }
 }
