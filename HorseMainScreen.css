@@ -1,8 +1,12 @@
 /* =========================================================
-   KAIVALYA VIVEK MAIN SCREEN THEME
+   KAIVALYA VIVEK — ROSE SMOKE METAL THEME
    Header Image: https://i.imgur.com/mItVcJ4.jpeg
-   Keeps original mare + stallion color families
-   Reworked borders into soft antique rose / smoke metal
+
+   Theme direction:
+   - Rose smoke metal borders
+   - Pinker mare card tone
+   - Metal gray stallion card tone
+   - Smoky rose-metal gradient lettering in horse cards
    ========================================================= */
 
 
@@ -14,49 +18,87 @@
   --bw: 4px;
   --br: 20px;
 
-  /* Core Kaivalya Vivek palette */
-  --kv-dark: rgba(45, 34, 36, 1);
-  --kv-brown: rgba(68, 45, 44, 1);
-  --kv-muted: rgba(157, 128, 136, 1);
-  --kv-rose: rgba(226, 164, 187, 1);
-  --kv-light: rgba(245, 224, 232, 1);
-  --kv-cream: rgba(248, 236, 226, 1);
-  --kv-smoke: rgba(78, 82, 86, 1);
-  --kv-bluegray: rgba(64, 94, 104, 1);
+  /* Core rose smoke metal palette */
+  --kv-blacksmoke: rgba(28, 25, 27, 1);
+  --kv-deepsmoke: rgba(42, 38, 41, 1);
+  --kv-smokegray: rgba(78, 82, 86, 1);
+  --kv-softgray: rgba(121, 122, 124, 1);
 
-  /* Soft metallic border */
-  --kv-metal: linear-gradient(
+  --kv-deeprose: rgba(92, 48, 56, 1);
+  --kv-rosewood: rgba(122, 68, 78, 1);
+  --kv-dustyrose: rgba(157, 104, 116, 1);
+  --kv-pinkrose: rgba(208, 132, 148, 1);
+  --kv-palepink: rgba(241, 204, 211, 1);
+
+  --kv-creammetal: rgba(248, 232, 226, 1);
+  --kv-mutedmauve: rgba(157, 128, 136, 1);
+
+  /* Header image */
+  --kv-header-img: url("https://i.imgur.com/mItVcJ4.jpeg");
+
+  /* Main rose smoke metal border */
+  --kv-border-metal: linear-gradient(
     135deg,
-    rgba(45, 34, 36, 1),
-    rgba(118, 86, 91, 1),
-    rgba(213, 178, 187, 1),
-    rgba(246, 226, 230, 1),
+    rgba(28, 25, 27, 1),
+    rgba(78, 82, 86, 1),
+    rgba(122, 68, 78, 1),
+    rgba(208, 132, 148, 1),
+    rgba(241, 204, 211, 1),
     rgba(157, 128, 136, 1),
-    rgba(68, 45, 44, 1)
+    rgba(42, 38, 41, 1)
   );
 
-  /* Mare and stallion colors preserved from your original theme */
-  --mare-card: rgba(173, 101, 104, 1);
-  --stallion-card: rgba(78, 82, 86, 1);
+  /* Text gradient for horse-card lettering */
+  --kv-text-metal: linear-gradient(
+    120deg,
+    rgba(248, 232, 226, 1),
+    rgba(241, 204, 211, 1),
+    rgba(208, 132, 148, 1),
+    rgba(157, 128, 136, 1),
+    rgba(121, 122, 124, 1),
+    rgba(248, 232, 226, 1)
+  );
 
-  --soft-shadow: 0 0 14px rgba(0, 0, 0, .28);
+  /* Mare and stallion card themes */
+  --kv-mare-metal: linear-gradient(
+    135deg,
+    rgba(92, 48, 56, 1),
+    rgba(157, 104, 116, 1),
+    rgba(208, 132, 148, 1),
+    rgba(241, 204, 211, 1),
+    rgba(157, 104, 116, 1),
+    rgba(92, 48, 56, 1)
+  );
+
+  --kv-stallion-metal: linear-gradient(
+    135deg,
+    rgba(28, 25, 27, 1),
+    rgba(42, 38, 41, 1),
+    rgba(78, 82, 86, 1),
+    rgba(121, 122, 124, 1),
+    rgba(78, 82, 86, 1),
+    rgba(28, 25, 27, 1)
+  );
+
+  --kv-soft-shadow: 0 0 16px rgba(0, 0, 0, .32);
+  --kv-inner-shadow: inset 0 0 22px rgba(0, 0, 0, .18);
 }
 
 
 /* =========================================================
    OPTIONAL ANIMATIONS
-   Currently OFF.
-   Remove the comment marks around animation lines if desired.
+   These are included but turned off by default.
+   To activate, uncomment the animation lines lower in the code.
    ========================================================= */
 
 /*
-@keyframes kvMetalShift {
+@keyframes kvMetalMove {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-@keyframes kvLightSweep {
+@keyframes kvShineSweep {
   0%   { background-position: -100% 50%; }
   100% { background-position: 200% 50%; }
 }
@@ -72,27 +114,28 @@
 
   background:
     linear-gradient(
-      rgba(245, 224, 232, .18),
-      rgba(68, 45, 44, .16)
+      rgba(28, 25, 27, .36),
+      rgba(92, 48, 56, .18),
+      rgba(157, 128, 136, .16)
     ),
-    url("https://i.imgur.com/mItVcJ4.jpeg") !important;
+    var(--kv-header-img) !important;
 
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-blend-mode: soft-light !important;
+  background-blend-mode: multiply !important;
 
   backdrop-filter: blur(3px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
 
   border-radius: var(--br) !important;
-  box-shadow: var(--soft-shadow) !important;
+  box-shadow: var(--kv-soft-shadow), var(--kv-inner-shadow) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* Main content metallic border */
+/* Main content rose smoke metal border */
 .main-content::before {
   content: "";
   position: absolute;
@@ -100,9 +143,9 @@
   padding: var(--bw);
   border-radius: var(--br);
 
-  background: var(--kv-metal);
-  background-size: 300% 300%;
-  /* animation: kvMetalShift 10s ease-in-out infinite; */
+  background: var(--kv-border-metal);
+  background-size: 350% 350%;
+  /* animation: kvMetalMove 12s ease-in-out infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -114,7 +157,7 @@
   z-index: 1;
 }
 
-/* Subtle light reflection on main border */
+/* Subtle reflective border streak */
 .main-content::after {
   content: "";
   position: absolute;
@@ -124,12 +167,12 @@
 
   background: linear-gradient(
     120deg,
-    transparent 44%,
-    rgba(255, 255, 255, .36) 50%,
-    transparent 56%
+    transparent 43%,
+    rgba(255, 236, 240, .42) 50%,
+    transparent 57%
   );
   background-size: 300% 300%;
-  /* animation: kvLightSweep 12s linear infinite; */
+  /* animation: kvShineSweep 14s linear infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -151,21 +194,22 @@
 
   background:
     linear-gradient(
-      rgba(45, 34, 36, .38),
-      rgba(157, 128, 136, .18)
+      rgba(28, 25, 27, .52),
+      rgba(92, 48, 56, .24),
+      rgba(78, 82, 86, .22)
     ) !important;
 
   backdrop-filter: blur(3px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
 
   border-radius: var(--br) !important;
-  box-shadow: var(--soft-shadow) !important;
+  box-shadow: var(--kv-soft-shadow), var(--kv-inner-shadow) !important;
   border: none !important;
   color: #fff !important;
   overflow: hidden;
 }
 
-/* Side nav metallic border */
+/* Side nav rose smoke metal border */
 .side-nav::before {
   content: "";
   position: absolute;
@@ -173,9 +217,9 @@
   padding: var(--bw);
   border-radius: var(--br);
 
-  background: var(--kv-metal);
-  background-size: 300% 300%;
-  /* animation: kvMetalShift 10s ease-in-out infinite; */
+  background: var(--kv-border-metal);
+  background-size: 350% 350%;
+  /* animation: kvMetalMove 12s ease-in-out infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -197,12 +241,12 @@
 
   background: linear-gradient(
     120deg,
-    transparent 44%,
-    rgba(255, 255, 255, .32) 50%,
-    transparent 56%
+    transparent 43%,
+    rgba(255, 236, 240, .32) 50%,
+    transparent 57%
   );
   background-size: 300% 300%;
-  /* animation: kvLightSweep 12s linear infinite; */
+  /* animation: kvShineSweep 14s linear infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -214,23 +258,21 @@
   z-index: 2;
 }
 
-/* Side nav hover */
+.side-nav a {
+  color: rgba(248, 232, 226, .95) !important;
+}
+
 .side-nav a:hover {
-  color: var(--kv-bluegray) !important;
+  color: rgba(241, 204, 211, 1) !important;
   text-decoration: underline;
   transition: color .2s ease-in-out;
 }
 
-/* Side nav category subtitles */
+/* Side nav subtitles */
 .side-nav ul .subtitle {
   font-weight: 700;
 
-  background: linear-gradient(
-    120deg,
-    rgba(68, 45, 44, 1),
-    rgba(157, 128, 136, 1),
-    rgba(245, 224, 232, 1)
-  );
+  background: var(--kv-text-metal);
   background-size: 300% 300%;
 
   -webkit-background-clip: text;
@@ -241,26 +283,26 @@
 
 /* =========================================================
    TOP HEADER MENU
-   Uses your Imgur image
    ========================================================= */
 
 .header-menu {
   background:
     linear-gradient(
       120deg,
-      rgba(45, 34, 36, .88),
-      rgba(157, 128, 136, .72),
-      rgba(226, 164, 187, .48),
-      rgba(68, 45, 44, .82)
+      rgba(28, 25, 27, .88),
+      rgba(78, 82, 86, .66),
+      rgba(122, 68, 78, .58),
+      rgba(208, 132, 148, .38),
+      rgba(28, 25, 27, .84)
     ),
-    url("https://i.imgur.com/mItVcJ4.jpeg") !important;
+    var(--kv-header-img) !important;
 
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-blend-mode: multiply !important;
 
-  box-shadow: 0 2px 12px rgba(0, 0, 0, .28) !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .34) !important;
 }
 
 
@@ -269,19 +311,19 @@
    ========================================================= */
 
 .tabs .tab.active {
-  background: linear-gradient(
-    120deg,
-    rgba(68, 45, 44, 1),
-    rgba(157, 128, 136, 1),
-    rgba(226, 164, 187, 1)
-  ) !important;
+  background: var(--kv-border-metal) !important;
+  background-size: 300% 300% !important;
+  color: #111 !important;
+  font-weight: 700;
+}
 
-  color: #000 !important;
+.tabs .tab {
+  color: rgba(248, 232, 226, .92) !important;
 }
 
 
 /* =========================================================
-   HORSE GRID CARDS
+   HORSE GRID CARD STRUCTURE
    ========================================================= */
 
 .horse-grid .horse-item {
@@ -292,9 +334,10 @@
   position: relative;
   border-radius: var(--r) var(--r) var(--rb) var(--rb);
   overflow: hidden;
+  box-shadow: 0 0 14px rgba(0, 0, 0, .30) !important;
 }
 
-/* Full card metallic border */
+/* Rose smoke metal border around entire horse card */
 .horse-grid .horse-item::before {
   content: "";
   position: absolute;
@@ -302,9 +345,9 @@
   padding: var(--bw);
   border-radius: inherit;
 
-  background: var(--kv-metal);
-  background-size: 300% 300%;
-  /* animation: kvMetalShift 10s ease-in-out infinite; */
+  background: var(--kv-border-metal);
+  background-size: 350% 350%;
+  /* animation: kvMetalMove 12s ease-in-out infinite; */
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -313,13 +356,12 @@
           mask-composite: exclude;
 
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 
 /* =========================================================
-   MARE CARDS
-   Keeps your original mare color family
+   MARE CARDS — PINKER ROSE METAL
    ========================================================= */
 
 .horse-item:has(img.sex-mare) .content {
@@ -327,17 +369,11 @@
   border-radius: inherit;
   overflow: hidden;
 
-  background: linear-gradient(
-    120deg,
-    rgba(122, 66, 70, 1),
-    var(--mare-card),
-    rgba(213, 138, 143, 1),
-    var(--mare-card),
-    rgba(92, 48, 52, 1)
-  ) !important;
-
+  background: var(--kv-mare-metal) !important;
   background-size: 400% 400%;
-  /* animation: kvMetalShift 12s ease-in-out infinite; */
+  /* animation: kvMetalMove 14s ease-in-out infinite; */
+
+  box-shadow: inset 0 0 22px rgba(92, 48, 56, .32) !important;
 }
 
 /* Mare soft shine overlay */
@@ -349,14 +385,15 @@
 
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, .28) 50%,
-    transparent 55%
+    transparent 43%,
+    rgba(255, 240, 244, .30) 50%,
+    transparent 57%
   );
 
   background-size: 300% 300%;
-  /* animation: kvLightSweep 12s linear infinite; */
+  /* animation: kvShineSweep 14s linear infinite; */
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Mare image background */
@@ -367,15 +404,14 @@
   background-repeat: no-repeat !important;
 }
 
-/* Neutralize site's inline background for mares */
+/* Neutralize site inline background */
 .horse-item:has(img.sex-mare) .image[style] {
   background-color: transparent !important;
 }
 
 
 /* =========================================================
-   STALLION CARDS
-   Keeps your original stallion color family
+   STALLION CARDS — SMOKE METAL GRAY
    ========================================================= */
 
 .horse-item:has(img.sex-stallion) .content {
@@ -383,17 +419,11 @@
   border-radius: inherit;
   overflow: hidden;
 
-  background: linear-gradient(
-    120deg,
-    rgba(42, 45, 48, 1),
-    var(--stallion-card),
-    rgba(105, 110, 115, 1),
-    var(--stallion-card),
-    rgba(30, 32, 35, 1)
-  ) !important;
-
+  background: var(--kv-stallion-metal) !important;
   background-size: 400% 400%;
-  /* animation: kvMetalShift 12s ease-in-out infinite; */
+  /* animation: kvMetalMove 14s ease-in-out infinite; */
+
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, .38) !important;
 }
 
 /* Stallion soft shine overlay */
@@ -405,14 +435,15 @@
 
   background: linear-gradient(
     120deg,
-    transparent 45%,
-    rgba(255, 255, 255, .24) 50%,
-    transparent 55%
+    transparent 43%,
+    rgba(241, 204, 211, .22) 50%,
+    transparent 57%
   );
 
   background-size: 300% 300%;
-  /* animation: kvLightSweep 12s linear infinite; */
+  /* animation: kvShineSweep 14s linear infinite; */
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Stallion image background */
@@ -423,24 +454,65 @@
   background-repeat: no-repeat !important;
 }
 
-/* Neutralize site's inline background for stallions */
+/* Neutralize site inline background */
 .horse-item:has(img.sex-stallion) .image[style] {
   background-color: transparent !important;
 }
 
-/* Stallion name/title color */
-.horse-item:has(img.sex-stallion) h2 {
-  color: rgba(213, 178, 187, 1) !important;
+
+/* =========================================================
+   HORSE CARD TEXT — SMOKY ROSE METAL GRADIENT
+   Applies to lettering inside the horse description/card boxes.
+   ========================================================= */
+
+/* Main horse card text targets */
+.horse-grid .horse-item .content,
+.horse-grid .horse-item .content *,
+.horse-item .tagline,
+.horse-item h1,
+.horse-item h2,
+.horse-item h3,
+.horse-item p,
+.horse-item span,
+.horse-item a,
+.horse-item small,
+.horse-item strong,
+.horse-item em {
+  background: var(--kv-text-metal) !important;
+  background-size: 300% 300% !important;
+
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+
+  color: transparent !important;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .34);
+}
+
+/* Keeps icons/images from being accidentally affected */
+.horse-grid .horse-item img,
+.horse-grid .horse-item svg,
+.horse-grid .horse-item .image,
+.horse-grid .horse-item .image * {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: initial !important;
+  text-shadow: none !important;
+}
+
+/* Links inside horse cards */
+.horse-grid .horse-item .content a:hover {
+  filter: brightness(1.18);
+  text-decoration: underline;
 }
 
 
 /* =========================================================
-   HORSE TEXT
+   GENERAL PAGE TEXT
    ========================================================= */
-
-.horse-item .tagline {
-  color: #fff !important;
-}
 
 h1 {
   color: #fff !important;
@@ -467,37 +539,29 @@ button.normalize {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  background: linear-gradient(
-    120deg,
-    rgba(68, 45, 44, 1),
-    rgba(157, 128, 136, 1),
-    rgba(245, 224, 232, 1),
-    rgba(68, 45, 44, 1)
-  );
+  background: var(--kv-text-metal);
   background-size: 300% 300%;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .30);
 }
 
-
 .horses-title h2 {
-  font-weight: 700;
+  font-weight: 800;
 
-  background: linear-gradient(
-    120deg,
-    rgba(164, 124, 112, 1),
-    rgba(245, 224, 232, 1),
-    rgba(157, 128, 136, 1)
-  );
+  background: var(--kv-text-metal);
   background-size: 300% 300%;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .30);
 }
 
 
@@ -506,18 +570,21 @@ button.normalize {
    ========================================================= */
 
 nav .pagination .page-item.active .page-link {
-  color: #000 !important;
+  color: #111 !important;
+  font-weight: 700;
 
-  background: linear-gradient(
-    120deg,
-    rgba(68, 45, 44, 1),
-    rgba(157, 128, 136, 1),
-    rgba(226, 164, 187, 1)
-  ) !important;
+  background: var(--kv-border-metal) !important;
+  background-size: 300% 300% !important;
+
+  border: none !important;
 }
 
 nav .pagination .page-item:not(.disabled) .page-link {
-  color: #000 !important;
+  color: #111 !important;
+}
+
+nav .pagination .page-link {
+  border-radius: 10px !important;
 }
 
 
@@ -528,14 +595,14 @@ nav .pagination .page-item:not(.disabled) .page-link {
 .button.black,
 .button.secondary.active,
 .button.secondary:hover {
-  color: #000 !important;
+  color: #111 !important;
+  font-weight: 700;
 
-  background: linear-gradient(
-    120deg,
-    rgba(68, 45, 44, 1),
-    rgba(157, 128, 136, 1),
-    rgba(226, 164, 187, 1)
-  ) !important;
+  background: var(--kv-border-metal) !important;
+  background-size: 300% 300% !important;
+
+  border: none !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .24) !important;
 }
 
 
