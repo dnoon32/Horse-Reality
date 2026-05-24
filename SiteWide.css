@@ -1630,3 +1630,45 @@ form[action*="/notifications"] .btn:hover {
     drop-shadow(0 1px 2px rgba(0, 0, 0, .55))
     drop-shadow(0 0 3px rgba(241, 204, 211, .18)) !important;
 }
+/* =========================================================
+   MARKET PAGE — EXPLORE / OFFICE IMAGE REPLACEMENT
+   Paste at the VERY BOTTOM of site-wide CSS
+   ========================================================= */
+
+
+/* Make sure the market CTA image boxes behave cleanly */
+.market .cta .cta-inner .cta-image,
+.cta .cta-inner .cta-image {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  border-radius: 14px !important;
+  overflow: hidden !important;
+
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, .22),
+    0 0 8px rgba(241, 204, 211, .16) !important;
+}
+
+
+/* Hide original Explore / Office character images */
+.market .cta .cta-inner .cta-image img,
+.cta .cta-inner .cta-image img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+
+/* LEFT CARD — Explore image */
+.market .cta .cta-inner:has(img[alt*="Explore"]) .cta-image,
+.cta .cta-inner:has(img[alt*="Explore"]) .cta-image {
+  background-image: url("https://i.imgur.com/AEmqYcu.png") !important;
+}
+
+
+/* RIGHT CARD — Office image */
+.market .cta .cta-inner:has(img[alt*="Office"]) .cta-image,
+.cta .cta-inner:has(img[alt*="Office"]) .cta-image {
+  background-image: url("https://i.imgur.com/ymqWfBu.png") !important;
+}
