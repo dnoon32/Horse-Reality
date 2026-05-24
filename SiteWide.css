@@ -1217,9 +1217,7 @@ nav .pagination .page-link {
 } 
 
 .component.table .table tbody tr:nth-of-type(odd)
- { 
-  background-color: rgba(210, 197, 193, .82) !important;
-},
+,
 .component.table .table tbody tr:nth-of-type(even) {
  background-color: transparent !important;
     
