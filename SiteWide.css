@@ -1280,8 +1280,8 @@ html body .market-item-price .item-price .content-background {
 table.table-striped tbody tr:nth-child(odd) td.horse-name-cell,
 table.table-striped tbody tr:nth-child(odd) td.horse-name-cell *,
 table.table-striped tbody tr:nth-child(odd) td {
-  color: var(--kv-text)/*(--kv-text-row-dark) */!important;
-  -webkit-text-fill-color: var(--kv-text)/*(--kv-text-row-dark) */!important;
+  color: var(--kv-text-row-dark) !important;
+  -webkit-text-fill-color: var(--kv-text-row-dark) !important;
 
   text-shadow:
     0 1px 1px rgba(255, 255, 255, .32) !important;
