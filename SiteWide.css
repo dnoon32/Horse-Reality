@@ -12,6 +12,9 @@
 .responsive-table .ends-in, .responsive-table .fas.fa-users {
     color: rgba(248, 232, 226, 1);
 }
+.component.table .table thead th {
+ background: rgba(207, 131, 147);
+}
 
 /*ntries-blue {
     color: #606989;
