@@ -1291,7 +1291,7 @@ table.table-striped tbody tr:nth-child(odd) td {
 .component.table table.table-striped tbody tr:nth-child(odd) td a,
 table.table-striped tbody tr:nth-child(odd) td a {
   color: var(--kv-text)/*(--kv-text-row-dark) */!important;
-  -webkit-text-fill-color: var(--kv-text)/*(--kv-text-row-dark)*/ !important;
+  -webkit-text-fill-color: var(--kv-text-row-dark) !important;
   font-weight: 800 !important;
 }
 
