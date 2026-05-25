@@ -1,10 +1,10 @@
 .component.frame .wrapper {
     padding: 2px;
-    background: rgba(207, 131, 147);
+    background: rgba(124, 75, 84);
 }
 .responsive-table .responsive-table-header-row {
     
-    background: rgba(207, 131, 147);
+    background: rgba(124, 75, 84);
 }
 .responsive-table .responsive-tr>* {
   color: rgba(248, 232, 226, 1);
@@ -13,7 +13,7 @@
     color: rgba(248, 232, 226, 1);
 }
 .component.table .table thead th {
- background: rgba(207, 131, 147);
+ background: rgbargba(124, 75, 84);
 }
 
 /*ntries-blue {
