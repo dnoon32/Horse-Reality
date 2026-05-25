@@ -1,3 +1,24 @@
+.component.frame .wrapper {
+    padding: 2px;
+    background: rgba(207, 131, 147);
+}
+.responsive-table .responsive-table-header-row {
+    
+    background: rgba(207, 131, 147);
+}
+.responsive-table .responsive-tr>* {
+  color: rgba(248, 232, 226, 1);
+}
+.responsive-table .ends-in, .responsive-table .fas.fa-users {
+    color: rgba(248, 232, 226, 1);
+}
+
+/*ntries-blue {
+    color: #606989;
+}
+.responsive-table .ends-in, .responsive-table .fas.fa-users {
+    color: #606989;
+}*/
 /* =========================================================
    KAIVALYA VIVEK — SITE-WIDE DARK ROSE SMOKE METAL THEME
    Full rewrite based on current SiteWide.css
@@ -1125,8 +1146,7 @@ button.normalize {
 
   background:
     linear-gradient(
-      rgba(248, 232, 226, .94),
-      rgba(241, 204, 211, .88)
+      rgba(77, 81, 85)
     ) !important;
 
   border-color: transparent !important;
