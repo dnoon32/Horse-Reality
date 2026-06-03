@@ -1,39 +1,39 @@
 /* Profile Name CSS */
- .user-profile .profile-name-and-estate .profile-username {
-   font-size: 32px !important;
-    background: linear-gradient(120deg,
+.user-profile .profile-name-and-estate .profile-username {
+  font-size: 32px !important;
+  background: linear-gradient(
+    120deg,
     rgba(226, 164, 187, 1), /* base pink */
-        rgba(255, 200, 220, 1), /* lighter highlight */
-        rgba(226, 164, 187, 1), /* return to base */
-        rgba(190, 110, 140, 1), /* deeper pink */
-        rgba(255, 220, 235, 1)  /* bright streak */
-    ) ;
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Firefox support */
-    animation: shimmer 5s infinite linear;
+    rgba(255, 200, 220, 1), /* lighter highlight */
+    rgba(226, 164, 187, 1), /* return to base */
+    rgba(190, 110, 140, 1), /* deeper pink */
+    rgba(255, 220, 235, 1)  /* bright streak */
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s infinite linear;
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-/* remove the shadow on the label itself */
+
+/* Remove the shadow on the label itself */
 .user-profile .profile-name-and-estate {
   text-shadow: none !important;
 }
 
-/* just in case child elements add shadows */
+/* Just in case child elements add shadows */
 .user-profile .profile-name-and-estate *,
 .user-profile .profile-name-and-estate::before,
 .user-profile .profile-name-and-estate::after {
@@ -42,45 +42,69 @@
 
 /* Estate name CSS */
 .user-profile .profile-name-and-estate .profile-estate {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21px;
-    color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #fff;
 }
-/* Font Change*/
-    p {
-    font-family: monospace;
+
+/* Font Change */
+p {
+  font-family: monospace;
 }
+
 /* Change Color Of Player, Milestones, and Estate Blocks */
-.user-profile.periwinkle-pony .breadcrumb, .user-profile.periwinkle-pony .milestones, .user-profile.periwinkle-pony .profile-container .table tbody tr:nth-of-type(odd), .user-profile.periwinkle-pony .profile-side-panel-section {
-    background-color: rgba(63, 64, 105, 0.4) !important; /* 🔁 Change this color */
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px 0 20px 20px;
-    border: 2px solid rgba(63, 64, 105, 0.5); 
+.user-profile.periwinkle-pony .breadcrumb,
+.user-profile.periwinkle-pony .milestones,
+.user-profile.periwinkle-pony .profile-container .table tbody tr:nth-of-type(odd),
+.user-profile.periwinkle-pony .profile-side-panel-section {
+  background-color: rgba(63, 64, 105, 0.4) !important;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px 0 20px 20px;
+  border: 2px solid rgba(63, 64, 105, 0.5);
 }
 
-.user-profile.periwinkle-pony .profile-container a:hover, .user-profile.periwinkle-pony .title-text, .user-profile.periwinkle-pony h2.profile-side-panel-title, .user-profile.periwinkle-pony td.bold {
-    color: rgba(226, 164, 187) !important;
+/* Pink headings / titles */
+.user-profile.periwinkle-pony .profile-container a:hover,
+.user-profile.periwinkle-pony .title-text,
+.user-profile.periwinkle-pony h2.profile-side-panel-title,
+.user-profile.periwinkle-pony td.bold {
+  color: rgba(226, 164, 187, 1) !important;
 }
 
-.user-profile .profile-side-panel-section .tag-player , .user-profile .profile-side-panel-section table tr td {
- color: rgba(0, 0, 0) !important;
+/* Side panel text readable on pale boxes */
+.user-profile .profile-side-panel-section,
+.user-profile .profile-side-panel-section *,
+.user-profile .profile-side-panel-section .tag-player,
+.user-profile .profile-side-panel-section table tr td {
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
 }
 
+/* Side panel titles stay rose */
+.user-profile.periwinkle-pony h2.profile-side-panel-title,
+.user-profile .profile-side-panel-title {
+  color: rgba(72, 36, 45, 1) !important;
+  -webkit-text-fill-color: rgba(72, 36, 45, 1) !important;
+  font-weight: 800 !important;
+}
+
+/* Normal profile links */
 .user-profile.periwinkle-pony .profile-container a {
-    color: rgba(226, 164, 187) !important;
+  color: rgba(226, 164, 187, 1) !important;
 }
+
 .user-profile.periwinkle-pony .profile-container a:hover {
-    color: gold !important;
+  color: gold !important;
 }
+
 .user-profile.periwinkle-pony .milestone-summary hr-milestone-card {
-  --colour-labels-900: rgba(226, 164, 187) !important;
+  --colour-labels-900: rgba(226, 164, 187, 1) !important;
 }
+
 /* =========================================================
-   PROFILE HORSE TABLE — LIGHT ROW TEXT FIX ONLY
-   Changes TEXT COLOR ONLY on lighter rows.
-   Does not change row/background color.
+   PROFILE HORSE TABLE — LIGHT ROW TEXT FIX
    ========================================================= */
 
 /* Light alternating rows in profile horse table */
@@ -91,32 +115,29 @@
 table.table-striped tbody tr:nth-child(odd) td.horse-name-cell,
 table.table-striped tbody tr:nth-child(odd) td.horse-name-cell *,
 table.table-striped tbody tr:nth-child(odd) td {
-  color: rgba(42, 38, 41, 1) !important;
-  -webkit-text-fill-color: rgba(42, 38, 41, 1) !important;
-
-  text-shadow:
-    0 1px 1px rgba(255, 255, 255, .32) !important;
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+  text-shadow: 0 1px 1px rgba(255, 240, 245, 0.35) !important;
 }
 
-/* Keep links on light rows dark too */
+/* Links on light table rows */
 .user-profile table.table-striped tbody tr:nth-child(odd) td a,
 .component.table table.table-striped tbody tr:nth-child(odd) td a,
 table.table-striped tbody tr:nth-child(odd) td a {
-  color: rgba(42, 38, 41, 1) !important;
-  -webkit-text-fill-color: rgba(42, 38, 41, 1) !important;
-
+  color: rgba(72, 36, 45, 1) !important;
+  -webkit-text-fill-color: rgba(72, 36, 45, 1) !important;
   font-weight: 800 !important;
 }
 
-/* Hover on light rows: still dark, just slightly richer */
+/* Hover on light rows */
 .user-profile table.table-striped tbody tr:nth-child(odd):hover td,
 .user-profile table.table-striped tbody tr:nth-child(odd):hover td *,
 .component.table table.table-striped tbody tr:nth-child(odd):hover td,
 .component.table table.table-striped tbody tr:nth-child(odd):hover td *,
 table.table-striped tbody tr:nth-child(odd):hover td,
 table.table-striped tbody tr:nth-child(odd):hover td * {
-  color: rgba(28, 25, 27, 1) !important;
-  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+  color: rgba(18, 16, 18, 1) !important;
+  -webkit-text-fill-color: rgba(18, 16, 18, 1) !important;
 }
 
 /* Dark rows stay light-colored text */
@@ -127,13 +148,71 @@ table.table-striped tbody tr:nth-child(odd):hover td * {
 table.table-striped tbody tr:nth-child(even) td {
   color: rgba(248, 232, 226, 1) !important;
   -webkit-text-fill-color: rgba(248, 232, 226, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+}
 
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, .55) !important;
+/* =========================================================
+   SALES PAGE ROW FIX
+   This is the important part for the lighter boxes in your screenshot.
+   ========================================================= */
+
+/* Light sales rows / pale boxes */
+.sales .sales-table-row.odd-row,
+.sales-table-row.odd-row,
+.user-profile.mauve-marsh .odd-row,
+.user-profile .odd-row {
+  background-color: rgba(205, 156, 174, 0.72) !important;
 }
-.user-profile.mauve-marsh .odd-row {
-    background-color: rgb(205, 156, 174) !important;
+
+/* Text inside light sales rows */
+.sales .sales-table-row.odd-row,
+.sales .sales-table-row.odd-row *,
+.sales-table-row.odd-row,
+.sales-table-row.odd-row *,
+.user-profile.mauve-marsh .odd-row,
+.user-profile.mauve-marsh .odd-row *,
+.user-profile .odd-row,
+.user-profile .odd-row * {
+  color: rgba(28, 25, 27, 1) !important;
+  -webkit-text-fill-color: rgba(28, 25, 27, 1) !important;
+  text-shadow: 0 1px 1px rgba(255, 240, 245, 0.35) !important;
 }
+
+/* Links / horse names on light sales rows */
+.sales .sales-table-row.odd-row a,
+.sales-table-row.odd-row a,
+.user-profile.mauve-marsh .odd-row a,
+.user-profile .odd-row a {
+  color: rgba(72, 36, 45, 1) !important;
+  -webkit-text-fill-color: rgba(72, 36, 45, 1) !important;
+  font-weight: 800 !important;
+}
+
+/* Dark sales rows stay soft light */
+.sales .sales-table-row:not(.odd-row),
+.sales .sales-table-row:not(.odd-row) *,
+.sales-table-row:not(.odd-row),
+.sales-table-row:not(.odd-row) * {
+  color: rgba(248, 232, 226, 1) !important;
+  -webkit-text-fill-color: rgba(248, 232, 226, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Buyout / price button */
+.sales .sales-table-row .btn,
+.sales-table-row .btn,
 .btn.btn-cta {
-    background: rgba(137, 112, 119) !important;
+  background: rgba(72, 36, 45, 0.88) !important;
+  color: rgba(255, 236, 244, 1) !important;
+  -webkit-text-fill-color: rgba(255, 236, 244, 1) !important;
+  border: 1px solid rgba(226, 164, 187, 0.45) !important;
+}
+
+/* Buyout / price button hover */
+.sales .sales-table-row .btn:hover,
+.sales-table-row .btn:hover,
+.btn.btn-cta:hover {
+  background: rgba(100, 52, 65, 0.95) !important;
+  color: rgba(255, 245, 249, 1) !important;
+  -webkit-text-fill-color: rgba(255, 245, 249, 1) !important;
 }
