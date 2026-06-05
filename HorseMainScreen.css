@@ -382,7 +382,7 @@
 
 /* Mare stall card image */
 .horse-item:has(img.sex-mare) .image {
-  background-image: url("https://i.imgur.com/HwSUbSU.jpeg") !important;
+  background-image: url("https://i.imgur.com/DW6EZOR.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -417,7 +417,7 @@
 
 /* Stallion stall card image */
 .horse-item:has(img.sex-stallion) .image {
-  background-image: url("https://i.imgur.com/Zq5Rz24.jpeg") !important;
+  background-image: url("https://i.imgur.com/DW6EZOR.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
